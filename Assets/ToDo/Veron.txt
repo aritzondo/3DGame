@@ -1,0 +1,3 @@
+-Borrar scripts 'rotator' y 'rotateWithCube'? Decide Aritz
+
+-La habitación del hub se mueve mal. Siempre acaba el amarillo en frente y el azul abajo.
