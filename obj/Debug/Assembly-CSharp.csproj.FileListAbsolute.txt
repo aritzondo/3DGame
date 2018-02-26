@@ -90,8 +90,6 @@ C:\Users\aritz\Documents\3DGame\Temp\bin\Debug\Unity.SerializationLogic.dll
 C:\Users\aritz\Documents\3DGame\Temp\bin\Debug\Unity.DataContract.dll
 C:\Users\aritz\Documents\3DGame\Temp\bin\Debug\ExCSS.Unity.dll
 C:\Users\aritz\Documents\3DGame\Temp\bin\Debug\Unity.Legacy.NRefactory.dll
-C:\Users\aritz\Documents\3DGame\Temp\bin\Debug\Boo.Lang.Parser.dll
-C:\Users\aritz\Documents\3DGame\Temp\bin\Debug\Boo.Lang.Compiler.dll
 C:\Users\aritz\Documents\3DGame\Temp\bin\Debug\Unity.UNetWeaver.dll
 C:\Users\aritz\Documents\3DGame\Temp\bin\Debug\Unity.IvyParser.dll
 C:\Users\aritz\Documents\3DGame\Temp\bin\Debug\Boo.Lang.PatternMatching.dll
@@ -168,3 +166,4 @@ C:\Users\aritz\Documents\3DGame\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
 C:\Users\aritz\Documents\3DGame\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\aritz\Documents\3DGame\obj\Debug\Assembly-CSharp.dll
 C:\Users\aritz\Documents\3DGame\obj\Debug\Assembly-CSharp.pdb
+C:\Users\aritz\Documents\3DGame\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

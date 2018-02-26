@@ -10,31 +10,29 @@ public class movingWithMouse : MonoBehaviour
     public float sensitivity = 15.0f;   //sensitivity of the rotation with the mouse
     public float rotationSpeed = 20.0f; //the speed of the rotation
     public bool activate = false;
-    public float adjustDuration = 1.0f;
-    public float rotationDuration = 3.0f;
+    public float adjustDuration = 1.0f;     //duration of the adjust rotation
+    public float rotationDuration = 3.0f;   //duration of the return rotation
 
     //private attributes
     float rotX = 0.0f;  //the ammount of rotation on x
     float rotY = 0.0f;  //the ammount of rotation on y
-    Quaternion initialState;
     //variables for the state of the rotator
     bool rotating = false;
     bool returning = false;
     Vector3 nextAngle = new Vector3(0, 0, 0);
     private Quaternion cubeIniRot;
     private Quaternion hubIniRot;
-    private float rotTime = 0.0f;
-    private float rotDuration = 0.0f;
+    private float rotTime = 0.0f;   //time rotating
+    private float rotDuration = 0.0f;   //duration of the rotation
 
     void Start()
     {
-        initialState = transform.rotation;
         cubeIniRot = transform.rotation;
         rotDuration = adjustDuration;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float dt = Time.deltaTime;
         //if the mouse has been released
@@ -56,18 +54,18 @@ public class movingWithMouse : MonoBehaviour
             //calculate the next rotation with an interpolation
             rotTime += dt;
             float t = rotTime / rotDuration;
-            Quaternion newRot = Quaternion.Slerp(cubeIniRot, Quaternion.Euler(nextAngle), t);//Quaternion.Lerp(transform.rotation, Quaternion.Euler(nextAngle.x, nextAngle.y, nextAngle.z), Time.deltaTime * 2);
+            Quaternion newRot = Quaternion.Slerp(cubeIniRot, Quaternion.Euler(nextAngle), t);
             
             //if the next rotation is the same as the actual we ensure the rotation with the destination
-            if (Quaternion.Angle(transform.rotation,newRot) == 0.0f) //cambiar por calcular el ángulo enter newRot y transform.rotation
+            if (Quaternion.Angle(transform.rotation,newRot) <= Mathf.Epsilon) 
             {
                 if (returning)
                 {
-                    //if it was returning we set the rotation of the hub and end the rotation
+                    //if it was returning we end the rotation and set the time of the next rotation to the adjust time
                     returning = false;
-                    hub.transform.eulerAngles = hub.transform.eulerAngles + nextAngle - cubeIniRot.eulerAngles;
                     rotDuration = adjustDuration;
                 }
+                transform.rotation = Quaternion.Euler(nextAngle);
                 if (rotating)
                 {
                     //if it was adjusting we start the rotation with the hub
@@ -79,7 +77,6 @@ public class movingWithMouse : MonoBehaviour
                     nextAngle = new Vector3(0, 0, 0);
                     rotDuration = rotationDuration;
                 }
-                
             }
             else
             {
@@ -91,14 +88,11 @@ public class movingWithMouse : MonoBehaviour
                 }
                 transform.rotation = newRot;
             }
-            //update the initial state
-            initialState = transform.rotation;
         }
         else
         {
            //apply the rotation of the mouse
-            transform.rotation = initialState;
-            transform.Rotate(rotX, rotY, 0);
+            transform.rotation = Quaternion.Euler(rotX, rotY, 0);
         }
     }
 
@@ -185,15 +179,10 @@ public class movingWithMouse : MonoBehaviour
     //when the cube is clicked the camera and movement of the player are blocked and the cube is activated
     public void clicked() 
     {
-        Debug.Log("Cliked");
         if (!(rotating || returning))
         {
             activate = true;
             Camera.main.GetComponent<CameraMovement>().enabled = false;
-        }
-        else
-        {
-            Debug.Log("Moving");
         }
         player.GetComponent<CharacterMovement>().SetInteracting(true);
 
