@@ -10,7 +10,8 @@ public class movingWithMouse : MonoBehaviour
     public float sensitivity = 15.0f;   //sensitivity of the rotation with the mouse
     public float rotationSpeed = 20.0f; //the speed of the rotation
     public bool activate = false;
-    public int rotDuration = 5;
+    public float adjustDuration = 1.0f;
+    public float rotationDuration = 3.0f;
 
     //private attributes
     float rotX = 0.0f;  //the ammount of rotation on x
@@ -23,11 +24,13 @@ public class movingWithMouse : MonoBehaviour
     private Quaternion cubeIniRot;
     private Quaternion hubIniRot;
     private float rotTime = 0.0f;
+    private float rotDuration = 0.0f;
 
     void Start()
     {
         initialState = transform.rotation;
         cubeIniRot = transform.rotation;
+        rotDuration = adjustDuration;
     }
 
     // Update is called once per frame
@@ -51,30 +54,30 @@ public class movingWithMouse : MonoBehaviour
         if (rotating || returning)
         {
             //calculate the next rotation with an interpolation
-            rotTime += Time.deltaTime;
+            rotTime += dt;
             float t = rotTime / rotDuration;
-            Quaternion newRot = Quaternion.Slerp(cubeIniRot, Quaternion.identity, t);//Quaternion.Lerp(transform.rotation, Quaternion.Euler(nextAngle.x, nextAngle.y, nextAngle.z), Time.deltaTime * 2);
-
+            Quaternion newRot = Quaternion.Slerp(cubeIniRot, Quaternion.Euler(nextAngle), t);//Quaternion.Lerp(transform.rotation, Quaternion.Euler(nextAngle.x, nextAngle.y, nextAngle.z), Time.deltaTime * 2);
+            
             //if the next rotation is the same as the actual we ensure the rotation with the destination
-            if (newRot == transform.rotation) //cambiar por calcular el ángulo enter newRot y transform.rotation
+            if (Quaternion.Angle(transform.rotation,newRot) == 0.0f) //cambiar por calcular el ángulo enter newRot y transform.rotation
             {
-                newRot = Quaternion.Euler(nextAngle.x, nextAngle.y, nextAngle.z);
-                
                 if (returning)
                 {
                     //if it was returning we set the rotation of the hub and end the rotation
-                    //hub.transform.rotation = Quaternion.Euler(hub.transform.eulerAngles+(newRot.eulerAngles - transform.rotation.eulerAngles));
                     returning = false;
-                    hubIniRot = hub.transform.rotation;
+                    hub.transform.eulerAngles = hub.transform.eulerAngles + nextAngle - cubeIniRot.eulerAngles;
+                    rotDuration = adjustDuration;
                 }
-                transform.rotation = newRot;
                 if (rotating)
                 {
                     //if it was adjusting we start the rotation with the hub
                     rotating = false;
                     returning = true;
-                    nextAngle = new Vector3(0, 0, 0);
                     cubeIniRot = transform.rotation;
+                    hubIniRot = hub.transform.rotation;
+                    rotTime = 0;
+                    nextAngle = new Vector3(0, 0, 0);
+                    rotDuration = rotationDuration;
                 }
                 
             }
@@ -83,8 +86,8 @@ public class movingWithMouse : MonoBehaviour
                 //if it's not the end of the rotation we apply it to the cube and to the hub if it's necessary
                 if (returning)
                 {
-                    //hub.transform.rotation = Quaternion.Euler(hub.transform.eulerAngles + (newRot.eulerAngles - transform.rotation.eulerAngles));
-                    hub.transform.rotation = hubIniRot * newRot;
+                    Quaternion offset = newRot * Quaternion.Inverse(transform.rotation);
+                    hub.transform.rotation *= offset;
                 }
                 transform.rotation = newRot;
             }
@@ -99,7 +102,7 @@ public class movingWithMouse : MonoBehaviour
         }
     }
 
-    //calculate the most proxim angle of rotation (right angles)
+    //calculate the closest angle of rotation (right angles)
     public void adjustAngle()
     {
         float eulerX = transform.rotation.eulerAngles.x;
@@ -182,10 +185,15 @@ public class movingWithMouse : MonoBehaviour
     //when the cube is clicked the camera and movement of the player are blocked and the cube is activated
     public void clicked() 
     {
+        Debug.Log("Cliked");
         if (!(rotating || returning))
         {
             activate = true;
             Camera.main.GetComponent<CameraMovement>().enabled = false;
+        }
+        else
+        {
+            Debug.Log("Moving");
         }
         player.GetComponent<CharacterMovement>().SetInteracting(true);
 
@@ -201,5 +209,7 @@ public class movingWithMouse : MonoBehaviour
         activate = false;
         Camera.main.GetComponent<CameraMovement>().enabled = true;
         player.GetComponent<CharacterMovement>().SetInteracting(false);
+        cubeIniRot = transform.rotation;
+        rotTime = 0;
     }
 }
