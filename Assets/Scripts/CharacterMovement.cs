@@ -12,15 +12,16 @@ public class CharacterMovement : MonoBehaviour {
 	private Vector3 moveDirection = Vector3.zero;
 	private Vector3 airDirection = Vector3.zero;
     public bool interacting = false;
+    CharacterController controller;
 
-	void Start () {
+
+    void Start () {
 		Cursor.lockState = CursorLockMode.Locked;
-	}
+        controller = GetComponent<CharacterController>();
+    }
 
-    void FixedUpdate()
+    void Update()
     {
-
-        CharacterController controller = GetComponent<CharacterController>();
         if (controller.isGrounded)
         {
             if (!interacting)
