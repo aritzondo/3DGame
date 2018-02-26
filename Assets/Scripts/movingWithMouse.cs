@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class movingWithMouse : MonoBehaviour
 {
+    //public attributes
     public CharacterMovement player;
     public GameObject hub;
     public float sensitivity = 15.0f;   //sensitivity of the rotation with the mouse
     public float rotationSpeed = 20.0f; //the speed of the rotation
     public bool activate = false;
+    public int rotDuration = 5;
+
+    //private attributes
     float rotX = 0.0f;  //the ammount of rotation on x
     float rotY = 0.0f;  //the ammount of rotation on y
     Quaternion initialState;
@@ -16,15 +20,20 @@ public class movingWithMouse : MonoBehaviour
     bool rotating = false;
     bool returning = false;
     Vector3 nextAngle = new Vector3(0, 0, 0);
+    private Quaternion cubeIniRot;
+    private Quaternion hubIniRot;
+    private float rotTime = 0.0f;
 
     void Start()
     {
         initialState = transform.rotation;
+        cubeIniRot = transform.rotation;
     }
 
     // Update is called once per frame
     void Update()
     {
+        float dt = Time.deltaTime;
         //if the mouse has been released
         if (Input.GetMouseButtonUp(0))
         {
@@ -35,24 +44,28 @@ public class movingWithMouse : MonoBehaviour
         {
             //calculate the rotation to aply to the cube with the mouse
             rotating = false;
-            rotX += Input.GetAxis("Mouse Y") * rotationSpeed * sensitivity * Mathf.Deg2Rad * Time.deltaTime;
-            rotY -= Input.GetAxis("Mouse X") * rotationSpeed * sensitivity * Mathf.Deg2Rad * Time.deltaTime;
+            rotX += Input.GetAxis("Mouse Y") * rotationSpeed * sensitivity * Mathf.Deg2Rad * dt;
+            rotY -= Input.GetAxis("Mouse X") * rotationSpeed * sensitivity * Mathf.Deg2Rad * dt;
         }
         //if it is adjusting to an angle or returning to origin
         if (rotating || returning)
         {
             //calculate the next rotation with an interpolation
-            Quaternion newRot = Quaternion.Lerp(transform.rotation, Quaternion.Euler(nextAngle.x, nextAngle.y, nextAngle.z), Time.deltaTime * 2);
+            rotTime += Time.deltaTime;
+            float t = rotTime / rotDuration;
+            Quaternion newRot = Quaternion.Slerp(cubeIniRot, Quaternion.identity, t);//Quaternion.Lerp(transform.rotation, Quaternion.Euler(nextAngle.x, nextAngle.y, nextAngle.z), Time.deltaTime * 2);
+
             //if the next rotation is the same as the actual we ensure the rotation with the destination
-            if (newRot == transform.rotation)
+            if (newRot == transform.rotation) //cambiar por calcular el ángulo enter newRot y transform.rotation
             {
                 newRot = Quaternion.Euler(nextAngle.x, nextAngle.y, nextAngle.z);
                 
                 if (returning)
                 {
                     //if it was returning we set the rotation of the hub and end the rotation
-                    hub.transform.rotation = Quaternion.Euler(hub.transform.eulerAngles+(newRot.eulerAngles - transform.rotation.eulerAngles));
+                    //hub.transform.rotation = Quaternion.Euler(hub.transform.eulerAngles+(newRot.eulerAngles - transform.rotation.eulerAngles));
                     returning = false;
+                    hubIniRot = hub.transform.rotation;
                 }
                 transform.rotation = newRot;
                 if (rotating)
@@ -61,6 +74,7 @@ public class movingWithMouse : MonoBehaviour
                     rotating = false;
                     returning = true;
                     nextAngle = new Vector3(0, 0, 0);
+                    cubeIniRot = transform.rotation;
                 }
                 
             }
@@ -69,7 +83,8 @@ public class movingWithMouse : MonoBehaviour
                 //if it's not the end of the rotation we apply it to the cube and to the hub if it's necessary
                 if (returning)
                 {
-                    hub.transform.rotation = Quaternion.Euler(hub.transform.eulerAngles + (newRot.eulerAngles - transform.rotation.eulerAngles));
+                    //hub.transform.rotation = Quaternion.Euler(hub.transform.eulerAngles + (newRot.eulerAngles - transform.rotation.eulerAngles));
+                    hub.transform.rotation = hubIniRot * newRot;
                 }
                 transform.rotation = newRot;
             }
