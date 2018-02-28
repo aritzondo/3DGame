@@ -51,7 +51,7 @@ public class movingWithMouse : MonoBehaviour
         if (rotating || returning)
         {
             //calculate the next rotation with an interpolation
-            rotTime += Time.deltaTime;
+            rotTime += dt;
             float t = rotTime / rotDuration;
             Quaternion newRot = Quaternion.Slerp(cubeIniRot, Quaternion.identity, t);//Quaternion.Lerp(transform.rotation, Quaternion.Euler(nextAngle.x, nextAngle.y, nextAngle.z), Time.deltaTime * 2);
 
