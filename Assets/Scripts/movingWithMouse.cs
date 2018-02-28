@@ -4,27 +4,37 @@ using UnityEngine;
 
 public class movingWithMouse : MonoBehaviour
 {
+    //public attributes
     public CharacterMovement player;
     public GameObject hub;
     public float sensitivity = 15.0f;   //sensitivity of the rotation with the mouse
     public float rotationSpeed = 20.0f; //the speed of the rotation
     public bool activate = false;
+    public float adjustDuration = 1.0f;     //duration of the adjust rotation
+    public float rotationDuration = 3.0f;   //duration of the return rotation
+
+    //private attributes
     float rotX = 0.0f;  //the ammount of rotation on x
     float rotY = 0.0f;  //the ammount of rotation on y
-    Quaternion initialState;
     //variables for the state of the rotator
     bool rotating = false;
     bool returning = false;
     Vector3 nextAngle = new Vector3(0, 0, 0);
+    private Quaternion cubeIniRot;
+    private Quaternion hubIniRot;
+    private float rotTime = 0.0f;   //time rotating
+    private float rotDuration = 0.0f;   //duration of the rotation
 
     void Start()
     {
-        initialState = transform.rotation;
+        cubeIniRot = transform.rotation;
+        rotDuration = adjustDuration;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        float dt = Time.deltaTime;
         //if the mouse has been released
         if (Input.GetMouseButtonUp(0))
         {
@@ -35,56 +45,59 @@ public class movingWithMouse : MonoBehaviour
         {
             //calculate the rotation to aply to the cube with the mouse
             rotating = false;
-            rotX += Input.GetAxis("Mouse Y") * rotationSpeed * sensitivity * Mathf.Deg2Rad * Time.deltaTime;
-            rotY -= Input.GetAxis("Mouse X") * rotationSpeed * sensitivity * Mathf.Deg2Rad * Time.deltaTime;
+            rotX += Input.GetAxis("Mouse Y") * rotationSpeed * sensitivity * Mathf.Deg2Rad * dt;
+            rotY -= Input.GetAxis("Mouse X") * rotationSpeed * sensitivity * Mathf.Deg2Rad * dt;
         }
         //if it is adjusting to an angle or returning to origin
         if (rotating || returning)
         {
             //calculate the next rotation with an interpolation
-            Quaternion newRot = Quaternion.Lerp(transform.rotation, Quaternion.Euler(nextAngle.x, nextAngle.y, nextAngle.z), Time.deltaTime * 2);
+            rotTime += dt;
+            float t = rotTime / rotDuration;
+            Quaternion newRot = Quaternion.Slerp(cubeIniRot, Quaternion.Euler(nextAngle), t);
+            
             //if the next rotation is the same as the actual we ensure the rotation with the destination
-            if (newRot == transform.rotation)
+            if (Quaternion.Angle(transform.rotation,newRot) <= Mathf.Epsilon) 
             {
-                newRot = Quaternion.Euler(nextAngle.x, nextAngle.y, nextAngle.z);
-                
                 if (returning)
                 {
-                    //if it was returning we set the rotation of the hub and end the rotation
-                    hub.transform.rotation = Quaternion.Euler(hub.transform.eulerAngles+(newRot.eulerAngles - transform.rotation.eulerAngles));
+                    //if it was returning we end the rotation and set the time of the next rotation to the adjust time
                     returning = false;
+                    rotDuration = adjustDuration;
                 }
-                transform.rotation = newRot;
+                transform.rotation = Quaternion.Euler(nextAngle);
                 if (rotating)
                 {
                     //if it was adjusting we start the rotation with the hub
                     rotating = false;
                     returning = true;
+                    cubeIniRot = transform.rotation;
+                    hubIniRot = hub.transform.rotation;
+                    rotTime = 0;
                     nextAngle = new Vector3(0, 0, 0);
+                    rotDuration = rotationDuration;
                 }
-                
             }
             else
             {
                 //if it's not the end of the rotation we apply it to the cube and to the hub if it's necessary
                 if (returning)
                 {
-                    hub.transform.rotation = Quaternion.Euler(hub.transform.eulerAngles + (newRot.eulerAngles - transform.rotation.eulerAngles));
+                    Quaternion offset = newRot * Quaternion.Inverse(transform.rotation);
+                    hub.transform.Rotate(offset.eulerAngles, Space.World);
+                    //hub.transform.rotation *= offset;
                 }
                 transform.rotation = newRot;
             }
-            //update the initial state
-            initialState = transform.rotation;
         }
         else
         {
            //apply the rotation of the mouse
-            transform.rotation = initialState;
-            transform.Rotate(rotX, rotY, 0);
+            transform.rotation = Quaternion.Euler(rotX, rotY, 0);
         }
     }
 
-    //calculate the most proxim angle of rotation (right angles)
+    //calculate the closest angle of rotation (right angles)
     public void adjustAngle()
     {
         float eulerX = transform.rotation.eulerAngles.x;
@@ -186,5 +199,7 @@ public class movingWithMouse : MonoBehaviour
         activate = false;
         Camera.main.GetComponent<CameraMovement>().enabled = true;
         player.GetComponent<CharacterMovement>().SetInteracting(false);
+        cubeIniRot = transform.rotation;
+        rotTime = 0;
     }
 }

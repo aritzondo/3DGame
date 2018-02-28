@@ -8,7 +8,7 @@ public class PlayerClicker : MonoBehaviour {
     
 	// When the mouse is pressed we throw a ray to the point were it has been clicked
     // and if its a rotator we activate it
-	void FixedUpdate () {
+	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
             //Cast a ray from the camera to his forward
