@@ -1,7 +1,7 @@
-[Ll]ibrary/
+Library/
 [Tt]emp/
-[Oo]bj/
-[Bb]uild/
+obj/
+UnityPackageManager/
 [Bb]uilds/
 Assets/AssetStoreTools*
 
