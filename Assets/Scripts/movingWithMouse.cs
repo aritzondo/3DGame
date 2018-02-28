@@ -84,7 +84,8 @@ public class movingWithMouse : MonoBehaviour
                 if (returning)
                 {
                     Quaternion offset = newRot * Quaternion.Inverse(transform.rotation);
-                    hub.transform.rotation *= offset;
+                    hub.transform.Rotate(offset.eulerAngles, Space.World);
+                    //hub.transform.rotation *= offset;
                 }
                 transform.rotation = newRot;
             }
