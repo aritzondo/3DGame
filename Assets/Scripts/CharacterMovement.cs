@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour {
-	public float speed = 0.0F;
-	public float jumpSpeed = 8.0F;
-	public float gravity = 9.81F;
-	public float accel = 2.0F;
-	public float maxSpeed = 4.0F;
-	private bool lockCursor = true;
-	private Vector3 moveDirection = Vector3.zero;
-	private Vector3 airDirection = Vector3.zero;
+    //public variables
+	public float speed = 0.0f;
+	public float jumpSpeed = 8.0f;
+	public float gravity = 9.8f;
     public bool interacting = false;
-    CharacterController controller;
+
+    //private variables
+    private bool lockCursor = true;
+	private Vector3 moveDirection = Vector3.zero;
+	private CharacterController controller;
 
 
     void Start () {
@@ -22,41 +22,39 @@ public class CharacterMovement : MonoBehaviour {
 
     void Update()
     {
+        float dt = Time.deltaTime;
         if (controller.isGrounded)
         {
+            //if the controller is interacting with something it cannot move
             if (!interacting)
             {
+                /*
+                 * use the horizontal and vertical axis to the movedirecton
+                 * if press space -> jump
+                 */
                 moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-                if (speed < maxSpeed && (moveDirection.x != 0 || moveDirection.z != 0))
-                    speed = speed + accel * Time.deltaTime;
-                if (moveDirection.x == 0 && moveDirection.z == 0 && speed >= 0)
-                    speed = 2;
-                //This has no use: speed = speed - accel*Time.deltaTime;
                 moveDirection = transform.TransformDirection(moveDirection);
                 moveDirection *= speed;
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    moveDirection.y = jumpSpeed;
+                }
+
             }
+            //block movement when interacting
             else
             {
                 moveDirection = new Vector3(0, 0, 0);
             }
-
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            { //if (Input.GetButton ("Jump"))
-                Debug.Log("Grounded and press space");
-                moveDirection.y = jumpSpeed;
-            }
-
         }
-        else
-        {
-            moveDirection.y -= gravity * Time.deltaTime;
-        }
-
-        controller.Move(moveDirection * Time.deltaTime);
+        //apply gravity if you aren't grounded
+        moveDirection.y -= gravity * dt;
+        //apply the movement to the controller
+        controller.Move(moveDirection * dt);
        
 
-
+        //release the cursor when press escape
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             lockCursor = !lockCursor;

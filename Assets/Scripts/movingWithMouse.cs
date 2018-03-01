@@ -10,8 +10,7 @@ public class movingWithMouse : MonoBehaviour
     public float sensitivity = 15.0f;   //sensitivity of the rotation with the mouse
     public float rotationSpeed = 20.0f; //the speed of the rotation
     public bool activate = false;
-    public float adjustDuration = 1.0f;     //duration of the adjust rotation
-    public float rotationDuration = 3.0f;   //duration of the return rotation
+    public float time90degrees = 1.0f;
 
     //private attributes
     float rotX = 0.0f;  //the ammount of rotation on x
@@ -28,7 +27,6 @@ public class movingWithMouse : MonoBehaviour
     void Start()
     {
         cubeIniRot = transform.rotation;
-        rotDuration = adjustDuration;
     }
 
     // Update is called once per frame
@@ -63,7 +61,6 @@ public class movingWithMouse : MonoBehaviour
                 {
                     //if it was returning we end the rotation and set the time of the next rotation to the adjust time
                     returning = false;
-                    rotDuration = adjustDuration;
                 }
                 transform.rotation = Quaternion.Euler(nextAngle);
                 if (rotating)
@@ -75,7 +72,8 @@ public class movingWithMouse : MonoBehaviour
                     hubIniRot = hub.transform.rotation;
                     rotTime = 0;
                     nextAngle = new Vector3(0, 0, 0);
-                    rotDuration = rotationDuration;
+                    float angleBetween = Quaternion.Angle(transform.rotation, Quaternion.Euler(nextAngle));
+                    rotDuration = (angleBetween / 90) * time90degrees;
                 }
             }
             else
@@ -174,6 +172,8 @@ public class movingWithMouse : MonoBehaviour
         {
             nextAngle.z = 360;
         }
+        float angleBetween = Vector3.Angle(transform.eulerAngles, nextAngle);
+        rotDuration = (angleBetween / 90) * time90degrees;
     }
 
     //when the cube is clicked the camera and movement of the player are blocked and the cube is activated
