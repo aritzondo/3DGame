@@ -1,4 +1,64 @@
-Base path: C:/Program Files/Unity 2018.1.0b7/Editor/Data
+Base path: C:/Program Files/Unity/Editor/Data
+Cmd: initializeCompiler
+Cmd: preprocess
+  insize=1501 outsize=406 ok=1
+Cmd: preprocess
+  insize=992 outsize=953 ok=1
+Cmd: preprocess
+  insize=2173 outsize=502 ok=1
+Cmd: preprocess
+  insize=720 outsize=230 ok=1
+Cmd: preprocess
+  insize=5005 outsize=715 ok=1
+Cmd: preprocess
+  insize=2573 outsize=603 ok=1
+Cmd: preprocess
+  insize=2062 outsize=502 ok=1
+Cmd: preprocess
+  insize=955 outsize=299 ok=1
+Cmd: preprocess
+  insize=1505 outsize=1237 ok=1
+Cmd: preprocess
+  insize=4132 outsize=582 ok=1
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
+Cmd: preprocess
+  insize=818 outsize=376 ok=1
+Cmd: preprocess
+  insize=1525 outsize=387 ok=1
+Cmd: preprocess
+  insize=942 outsize=469 ok=1
+Cmd: preprocess
+  insize=5130 outsize=3777 ok=1
+Cmd: preprocess
+  insize=797 outsize=436 ok=1
+Cmd: preprocess
+  insize=995 outsize=315 ok=1
+Cmd: preprocess
+  insize=514 outsize=1318 ok=1
+Cmd: preprocess
+  insize=826 outsize=398 ok=1
+Cmd: preprocess
+  insize=1009 outsize=449 ok=1
+Cmd: preprocess
+  insize=1454 outsize=397 ok=1
+Cmd: preprocess
+  insize=1070 outsize=1436 ok=1
+Cmd: preprocess
+  insize=894 outsize=358 ok=1
+Cmd: preprocess
+  insize=1442 outsize=1162 ok=1
+Cmd: preprocess
+  insize=1224 outsize=358 ok=1
+Cmd: preprocess
+  insize=584 outsize=581 ok=1
+Cmd: preprocess
+  insize=563 outsize=231 ok=1
+Cmd: preprocess
+  insize=756 outsize=344 ok=1
+Cmd: initializeCompiler
+Cmd: compileSnippet
+  api=4 type=0 insize=19964 outsize=1786 kw=UNITY_PASS_FORWARDBASE DIRECTIONAL SHADOWS_SCREEN LIGHTPROBE_SH pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_RGBM_ENCODING ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=19964 outsize=6962 kw=UNITY_PASS_FORWARDBASE DIRECTIONAL SHADOWS_SCREEN LIGHTPROBE_SH pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_RGBM_ENCODING ok=1
