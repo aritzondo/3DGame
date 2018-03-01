@@ -3,6 +3,7 @@ Library/
 obj/
 UnityPackageManager/
 [Bb]uilds/
+Packages/
 Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
