@@ -20,7 +20,6 @@ public class movingWithMouse : MonoBehaviour
     bool returning = false;
     Vector3 nextAngle = new Vector3(0, 0, 0);
     private Quaternion cubeIniRot;
-    private Quaternion hubIniRot;
     private float rotTime = 0.0f;   //time rotating
     private float rotDuration = 0.0f;   //duration of the rotation
 
@@ -69,7 +68,6 @@ public class movingWithMouse : MonoBehaviour
                     rotating = false;
                     returning = true;
                     cubeIniRot = transform.rotation;
-                    hubIniRot = hub.transform.rotation;
                     rotTime = 0;
                     nextAngle = new Vector3(0, 0, 0);
                     float angleBetween = Quaternion.Angle(transform.rotation, Quaternion.Euler(nextAngle));
