@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DoorCollider : MonoBehaviour {
 
-    public GameObject door;
+    
 
 	// Use this for initialization
 	void Start () {
@@ -18,10 +18,10 @@ public class DoorCollider : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("door"))
+        if(other.gameObject.tag == "door")
         {
-            door = other.gameObject;
-            Debug.Log("Door is opening");
+            GameObject door = other.gameObject;
+            Debug.Log("Opening door "+other.gameObject.name);
             //door.GetComponent<DoorMovement>();
 
         }
@@ -29,9 +29,9 @@ public class DoorCollider : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("door"))
+        if(other.gameObject.tag == "door")
         {
-            door = other.gameObject;
+            GameObject door = other.gameObject;
             Debug.Log("Door is closing");
             //door.GetComponent<DoorMovement>();
         }

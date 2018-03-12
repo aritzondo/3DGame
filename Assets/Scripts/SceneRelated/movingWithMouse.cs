@@ -11,6 +11,7 @@ public class movingWithMouse : MonoBehaviour
     public float rotationSpeed = 20.0f; //the speed of the rotation
     public bool activate = false;
     public float time90degrees = 1.0f;
+    public GameObject doorTrigers; //we disable the triggers while moving
 
     //private attributes
     float rotX = 0.0f;  //the ammount of rotation on x
@@ -60,6 +61,7 @@ public class movingWithMouse : MonoBehaviour
                 {
                     //if it was returning we end the rotation and set the time of the next rotation to the adjust time
                     returning = false;
+                    doorTrigers.SetActive(true);
                 }
                 transform.rotation = Quaternion.Euler(nextAngle);
                 if (rotating)
@@ -72,6 +74,7 @@ public class movingWithMouse : MonoBehaviour
                     nextAngle = new Vector3(0, 0, 0);
                     float angleBetween = Quaternion.Angle(transform.rotation, Quaternion.Euler(nextAngle));
                     rotDuration = (angleBetween / 90) * time90degrees;
+                    doorTrigers.SetActive(false);
                 }
             }
             else
@@ -102,8 +105,7 @@ public class movingWithMouse : MonoBehaviour
         nextAngle.x = 90 * (Mathf.FloorToInt(eulerX/90) + Mathf.Round((eulerX % 90) / 90));
         nextAngle.y = 90 * (Mathf.FloorToInt(eulerY/90) + Mathf.Round((eulerY % 90) / 90));
         nextAngle.z = 90 * (Mathf.FloorToInt(eulerZ/90) + Mathf.Round((eulerZ % 90) / 90));
-        //calcukate the distance to move to calculate the time of the rotation
-        float angleBetween = Vector3.Angle(transform.eulerAngles, nextAngle);
+        
         rotDuration = 1;
     }
 
