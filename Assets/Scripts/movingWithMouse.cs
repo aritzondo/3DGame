@@ -98,80 +98,13 @@ public class movingWithMouse : MonoBehaviour
         float eulerX = transform.rotation.eulerAngles.x;
         float eulerY = transform.rotation.eulerAngles.y;
         float eulerZ = transform.rotation.eulerAngles.z;
-
-        //calculate the next x
-        if (eulerX >= 0 && eulerX <= 45)
-        {
-            nextAngle.x = 0;
-        }
-        else if (eulerX > 45 && eulerX <= 135)
-        {
-            nextAngle.x = 90;
-        }
-
-        else if(eulerX >135 && eulerX <= 225)
-        {
-            nextAngle.x = 180;
-        }
-
-        else if(eulerX >225 && eulerX <=315)
-        {
-            nextAngle.x = 270;
-        }
-        else if (eulerX > 315 || eulerX <=360)
-        {
-            nextAngle.x = 360;
-        }
-        //
-        //calculate the next y
-        if(eulerY >= 0 && eulerY <= 45)
-        {
-            nextAngle.y = 0;
-        }
-        else if (eulerY > 45 && eulerY <= 135)
-        {
-            nextAngle.y = 90;
-        }
-
-        else if (eulerY > 135 && eulerY <= 225)
-        {
-            nextAngle.y = 180;
-        }
-
-        else if (eulerY > 225 && eulerY <= 315)
-        {
-            nextAngle.y = 270;
-        }
-        else if (eulerY > 315 && eulerY <=360)
-        {
-            nextAngle.y = 360;
-        }
-        //
-        //calculate the next z
-        if (eulerZ >= 0 && eulerZ <= 45)
-        {
-            nextAngle.z = 0;
-        }
-        else if (eulerZ > 45 && eulerZ <= 135)
-        {
-            nextAngle.z = 90;
-        }
-
-        else if (eulerZ > 135 && eulerZ <= 225)
-        {
-            nextAngle.z = 180;
-        }
-
-        else if (eulerZ > 225 && eulerZ <= 315)
-        {
-            nextAngle.z = 270;
-        }
-        else if (eulerZ > 315 && eulerZ <= 360)
-        {
-            nextAngle.z = 360;
-        }
+        //calculate the closest square angle of the cube
+        nextAngle.x = 90 * (Mathf.FloorToInt(eulerX/90) + Mathf.Round((eulerX % 90) / 90));
+        nextAngle.y = 90 * (Mathf.FloorToInt(eulerY/90) + Mathf.Round((eulerY % 90) / 90));
+        nextAngle.z = 90 * (Mathf.FloorToInt(eulerZ/90) + Mathf.Round((eulerZ % 90) / 90));
+        //calcukate the distance to move to calculate the time of the rotation
         float angleBetween = Vector3.Angle(transform.eulerAngles, nextAngle);
-        rotDuration = (angleBetween / 90) * time90degrees;
+        rotDuration = 1;
     }
 
     //when the cube is clicked the camera and movement of the player are blocked and the cube is activated

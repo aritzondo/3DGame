@@ -28196,6 +28196,11 @@ Prefab:
       propertyPath: sensitivity
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 114830935290003434, guid: 71026f1cd41f1b04c911dff224adadb0,
+        type: 2}
+      propertyPath: time90degrees
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71026f1cd41f1b04c911dff224adadb0, type: 2}
   m_IsPrefabParent: 0
