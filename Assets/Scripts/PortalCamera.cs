@@ -8,7 +8,7 @@ public class PortalCamera : MonoBehaviour
     public Transform portal1;
     public Transform portal2;
     
-    void Update()
+    void LateUpdate()
     {
         Vector3 playerDistanceToPortal = playerCamera.position - portal2.position;
         transform.position = portal1.position + playerDistanceToPortal;
