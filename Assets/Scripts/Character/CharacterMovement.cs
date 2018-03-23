@@ -10,13 +10,11 @@ public class CharacterMovement : MonoBehaviour {
     public bool interacting = false;
 
     //private variables
-    private bool lockCursor = true;
 	private Vector3 moveDirection = Vector3.zero;
 	private CharacterController controller;
 
 
     void Start () {
-		Cursor.lockState = CursorLockMode.Locked;
         controller = GetComponent<CharacterController>();
     }
 
@@ -52,22 +50,6 @@ public class CharacterMovement : MonoBehaviour {
         moveDirection.y -= gravity * dt;
         //apply the movement to the controller
         controller.Move(moveDirection * dt);
-       
-
-        //release the cursor when press escape
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            lockCursor = !lockCursor;
-        }
-        if (lockCursor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-
     }
 
     public void SetInteracting(bool newI)
