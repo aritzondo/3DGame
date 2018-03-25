@@ -13,27 +13,14 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        setCameraLock(CursorLockMode.Locked);
         isPaused = false;
     }
 
     void Update ()
     {
-		if(Input.GetKeyDown(KeyCode.E))
+		if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!isPaused)
-            {
-                lockCursor = !lockCursor;
-            }
-            if (lockCursor)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.None;
-            }
-
             if (isPaused)
             {
                 Resume();
@@ -52,17 +39,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1.0f;
         isPaused = false;
-
-        lockCursor = !lockCursor;
-
-        if (lockCursor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
+        togleCameraLock();
     }
 
     void GPause()
@@ -70,6 +47,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0.0f;
         isPaused = true;
+        togleCameraLock();
     }
 
     public void Menu()
@@ -82,5 +60,25 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Quitting game...");
         Application.Quit();
+    }
+
+    public void togleCameraLock()
+    {
+        if(Cursor.lockState == CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
+
+    public void setCameraLock(CursorLockMode newLock)
+    {
+        Cursor.lockState = newLock;
+        Cursor.visible = newLock == CursorLockMode.None;
     }
 }
