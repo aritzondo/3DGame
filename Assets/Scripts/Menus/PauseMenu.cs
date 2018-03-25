@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     //you can use it in other scripts
-    public static bool isPaused = false;
+    public static bool isPaused;
     public GameObject pauseMenuUI;
 
     private bool lockCursor = true;
@@ -14,11 +14,12 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        isPaused = false;
     }
 
     void Update ()
     {
-		if(Input.GetKeyDown(KeyCode.Escape))
+		if(Input.GetKeyDown(KeyCode.E))
         {
             if (!isPaused)
             {
@@ -69,24 +70,12 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0.0f;
         isPaused = true;
-
     }
 
     public void Menu()
     {
-        lockCursor = !lockCursor;
-
-        if (lockCursor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("hub");
+        SceneManager.LoadScene("Main_Menu");
     }
 
     public void Quit()
