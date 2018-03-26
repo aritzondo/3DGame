@@ -22,8 +22,8 @@ public class DoorCollider : MonoBehaviour {
         {
             GameObject door = other.gameObject;
             Debug.Log("Opening door "+other.gameObject.name);
-            //door.GetComponent<DoorMovement>();
-
+            door.GetComponent<DoorMovement>().isOpening = true;
+            
         }
     }
 
@@ -33,7 +33,8 @@ public class DoorCollider : MonoBehaviour {
         {
             GameObject door = other.gameObject;
             Debug.Log("Door is closing");
-            //door.GetComponent<DoorMovement>();
+            
+            
         }
     }
 }
