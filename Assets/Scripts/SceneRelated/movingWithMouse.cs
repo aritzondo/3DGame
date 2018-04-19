@@ -11,88 +11,131 @@ public class movingWithMouse : MonoBehaviour
     public float rotationSpeed = 20.0f; //the speed of the rotation
     public bool activate = false;
     public float time90degrees = 1.0f;
-    public GameObject doorTrigers; //we disable the triggers while moving
+    public GameObject openTrigger; //we disable the triggers while moving
+    public GameObject closeTrigger;
+    public ArrayList doors;
 
     //private attributes
-    float rotX = 0.0f;  //the ammount of rotation on x
-    float rotY = 0.0f;  //the ammount of rotation on y
+    private float rotX = 0.0f;  //the ammount of rotation on x
+    private float rotY = 0.0f;  //the ammount of rotation on y
     //variables for the state of the rotator
-    bool rotating = false;
-    bool returning = false;
-    Vector3 nextAngle = new Vector3(0, 0, 0);
+    private bool rotating = false;
+    private bool returning = false;
+    private Vector3 nextAngle = new Vector3(0, 0, 0);
     private Quaternion cubeIniRot;
     private float rotTime = 0.0f;   //time rotating
     private float rotDuration = 0.0f;   //duration of the rotation
+    private bool doorsClosed = false;
+    private State state = State.Idle;
+
+    enum State
+    {
+        Clicked,
+        Idle,
+        Adjusting,
+        Waiting,
+        Rotating
+    }
 
     void Start()
     {
         cubeIniRot = transform.rotation;
+        doors = new ArrayList(4);
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         float dt = Time.deltaTime;
+        float t;
+        Quaternion newRot;
         //if the mouse has been released
-        if (Input.GetMouseButtonUp(0))
+        switch (state)
         {
-            released();
-        }
-        //if the rotator is activate
-        if (activate)
-        {
-            //calculate the rotation to aply to the cube with the mouse
-            rotating = false;
-            rotX += Input.GetAxis("Mouse Y") * rotationSpeed * sensitivity * Mathf.Deg2Rad * dt;
-            rotY -= Input.GetAxis("Mouse X") * rotationSpeed * sensitivity * Mathf.Deg2Rad * dt;
-        }
-        //if it is adjusting to an angle or returning to origin
-        if (rotating || returning)
-        {
-            //calculate the next rotation with an interpolation
-            rotTime += dt;
-            float t = rotTime / rotDuration;
-            Quaternion newRot = Quaternion.Slerp(cubeIniRot, Quaternion.Euler(nextAngle), t);
-            
-            //if the next rotation is the same as the actual we ensure the rotation with the destination
-            if (Quaternion.Angle(transform.rotation,newRot) <= Mathf.Epsilon) 
-            {
-                if (returning)
+            case (State.Idle):
+                break;
+            case (State.Waiting):
+                if (checkDoorsClosed())
+                {
+                    state = State.Rotating;
+                }
+                break;
+            case (State.Adjusting):
+                rotTime += dt;
+                t = rotTime / rotDuration;
+                newRot = Quaternion.Slerp(cubeIniRot, Quaternion.Euler(nextAngle), t);
+                if (Quaternion.Angle(transform.rotation, newRot) <= Mathf.Epsilon)
+                {
+                    transform.rotation = Quaternion.Euler(nextAngle);
+                    startRotationWithHub();
+                }
+                else
+                {
+                    transform.rotation = newRot;
+                }
+                break;
+            case (State.Rotating):
+                //calculate the next rotation with an interpolation
+                rotTime += dt;
+                t = rotTime / rotDuration;
+                newRot = Quaternion.Slerp(cubeIniRot, Quaternion.Euler(nextAngle), t);
+                if (Quaternion.Angle(transform.rotation, newRot) <= Mathf.Epsilon)
                 {
                     //if it was returning we end the rotation and set the time of the next rotation to the adjust time
-                    returning = false;
-                    doorTrigers.SetActive(true);
+                    state = State.Idle;
+                    openTrigger.GetComponent<MeshCollider>().enabled = true;
                 }
-                transform.rotation = Quaternion.Euler(nextAngle);
-                if (rotating)
-                {
-                    //if it was adjusting we start the rotation with the hub
-                    rotating = false;
-                    returning = true;
-                    cubeIniRot = transform.rotation;
-                    rotTime = 0;
-                    nextAngle = new Vector3(0, 0, 0);
-                    float angleBetween = Quaternion.Angle(transform.rotation, Quaternion.Euler(nextAngle));
-                    rotDuration = (angleBetween / 90) * time90degrees;
-                    doorTrigers.SetActive(false);
-                }
-            }
-            else
-            {
-                //if it's not the end of the rotation we apply it to the cube and to the hub if it's necessary
-                if (returning)
+                else
                 {
                     Quaternion offset = newRot * Quaternion.Inverse(transform.rotation);
                     hub.transform.Rotate(offset.eulerAngles, Space.World);
+                    transform.rotation = newRot;
                 }
-                transform.rotation = newRot;
-            }
+                break;
+            case (State.Clicked):
+                //if the mouse has been released
+                if (Input.GetMouseButtonUp(0))
+                {
+                    released();
+                    break;
+                }
+                rotX += Input.GetAxis("Mouse Y") * rotationSpeed * sensitivity * Mathf.Deg2Rad * dt;
+                rotY -= Input.GetAxis("Mouse X") * rotationSpeed * sensitivity * Mathf.Deg2Rad * dt;
+                //apply the rotation of the mouse
+                transform.rotation = Quaternion.Euler(rotX, rotY, 0);
+                break;
         }
-        else
+    }
+
+    //when the cube is clicked the camera and movement of the player are blocked and the cube is activated
+    public void clicked()
+    {
+        if (state == State.Idle || state == State.Adjusting)
         {
-           //apply the rotation of the mouse
-            transform.rotation = Quaternion.Euler(rotX, rotY, 0);
+            activate = true;
+            Camera.main.GetComponent<CameraMovement>().enabled = false;
+            player.GetComponent<CharacterMovement>().SetInteracting(true);
+            doors.Clear();
+            closeTrigger.GetComponent<MeshCollider>().enabled = true;
+            openTrigger.GetComponent<MeshCollider>().enabled = false;
+            state = State.Clicked;
         }
+    }
+
+    //when the mouse is released we give back the control to the player and start the adjusting proccess
+    public void released()
+    {
+        rotX = 0;
+        rotY = 0;
+        adjustAngle();
+        state = State.Adjusting;
+        rotTime = 0;
+        cubeIniRot = transform.rotation;
+
+        Camera.main.GetComponent<CameraMovement>().enabled = true;
+        player.GetComponent<CharacterMovement>().SetInteracting(false);
+
+        closeTrigger.GetComponent<MeshCollider>().enabled = false;
+        //openTrigger.GetComponent<MeshCollider>().enabled = true;
     }
 
     //calculate the closest angle of rotation (right angles)
@@ -102,36 +145,45 @@ public class movingWithMouse : MonoBehaviour
         float eulerY = transform.rotation.eulerAngles.y;
         float eulerZ = transform.rotation.eulerAngles.z;
         //calculate the closest square angle of the cube
-        nextAngle.x = 90 * (Mathf.FloorToInt(eulerX/90) + Mathf.Round((eulerX % 90) / 90));
-        nextAngle.y = 90 * (Mathf.FloorToInt(eulerY/90) + Mathf.Round((eulerY % 90) / 90));
-        nextAngle.z = 90 * (Mathf.FloorToInt(eulerZ/90) + Mathf.Round((eulerZ % 90) / 90));
-        
+        nextAngle.x = 90 * (Mathf.FloorToInt(eulerX / 90) + Mathf.Round((eulerX % 90) / 90));
+        nextAngle.y = 90 * (Mathf.FloorToInt(eulerY / 90) + Mathf.Round((eulerY % 90) / 90));
+        nextAngle.z = 90 * (Mathf.FloorToInt(eulerZ / 90) + Mathf.Round((eulerZ % 90) / 90));
+
         rotDuration = 1;
     }
 
-    //when the cube is clicked the camera and movement of the player are blocked and the cube is activated
-    public void clicked() 
+
+    private void startRotationWithHub()
     {
-        if (!(rotating || returning))
+        openTrigger.GetComponent<MeshCollider>().enabled = false;
+
+        if (checkDoorsClosed())
         {
-            activate = true;
-            Camera.main.GetComponent<CameraMovement>().enabled = false;
+            state = State.Rotating;
         }
-        player.GetComponent<CharacterMovement>().SetInteracting(true);
+        else
+        {
+            state = State.Waiting;
+        }
 
-    }
-
-    //when the mouse is released we give back the control to the player and start the adjusting proccess
-    void released()
-    {
-        rotX = 0;
-        rotY = 0;
-        adjustAngle();
-        rotating = true;
-        activate = false;
-        Camera.main.GetComponent<CameraMovement>().enabled = true;
-        player.GetComponent<CharacterMovement>().SetInteracting(false);
         cubeIniRot = transform.rotation;
         rotTime = 0;
+        nextAngle = new Vector3(0, 0, 0);
+        float angleBetween = Quaternion.Angle(transform.rotation, Quaternion.Euler(nextAngle));
+        rotDuration = (angleBetween / 90) * time90degrees;
+
+        openTrigger.GetComponent<MeshCollider>().enabled = false;
+    }
+
+    private bool checkDoorsClosed()
+    {
+        foreach (GameObject door in doors)
+        {
+            if (!door.GetComponent<DoorMovement>().isClosed())
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
