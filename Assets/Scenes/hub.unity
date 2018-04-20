@@ -23316,7 +23316,7 @@ Prefab:
     - target: {fileID: 114870987495779410, guid: 71026f1cd41f1b04c911dff224adadb0,
         type: 2}
       propertyPath: sensitivity
-      value: 45
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 114870987495779410, guid: 71026f1cd41f1b04c911dff224adadb0,
         type: 2}

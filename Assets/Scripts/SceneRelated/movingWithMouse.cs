@@ -7,9 +7,7 @@ public class movingWithMouse : MonoBehaviour
     //public attributes
     public CharacterMovement player;
     public GameObject hub;
-    public float sensitivity = 15.0f;   //sensitivity of the rotation with the mouse
-    public float rotationSpeed = 20.0f; //the speed of the rotation
-    public bool activate = false;
+    public float sensitivity = 100.0f;   //sensitivity of the rotation with the mouse
     public float time90degrees = 1.0f;
     public GameObject openTrigger; //we disable the triggers while moving
     public GameObject closeTrigger;
@@ -19,13 +17,10 @@ public class movingWithMouse : MonoBehaviour
     private float rotX = 0.0f;  //the ammount of rotation on x
     private float rotY = 0.0f;  //the ammount of rotation on y
     //variables for the state of the rotator
-    private bool rotating = false;
-    private bool returning = false;
     private Vector3 nextAngle = new Vector3(0, 0, 0);
     private Quaternion cubeIniRot;
     private float rotTime = 0.0f;   //time rotating
     private float rotDuration = 0.0f;   //duration of the rotation
-    private bool doorsClosed = false;
     private State state = State.Idle;
 
     enum State
@@ -52,14 +47,15 @@ public class movingWithMouse : MonoBehaviour
         switch (state)
         {
             case (State.Idle):
+                //nothing
                 break;
-            case (State.Waiting):
+            case (State.Waiting):   //waiting to rotate until the doors are closed
                 if (checkDoorsClosed())
                 {
                     state = State.Rotating;
                 }
                 break;
-            case (State.Adjusting):
+            case (State.Adjusting): //going to a "square" angle
                 rotTime += dt;
                 t = rotTime / rotDuration;
                 newRot = Quaternion.Slerp(cubeIniRot, Quaternion.Euler(nextAngle), t);
@@ -73,7 +69,7 @@ public class movingWithMouse : MonoBehaviour
                     transform.rotation = newRot;
                 }
                 break;
-            case (State.Rotating):
+            case (State.Rotating):  //returning to base rotation dragin the hub
                 //calculate the next rotation with an interpolation
                 rotTime += dt;
                 t = rotTime / rotDuration;
@@ -91,15 +87,15 @@ public class movingWithMouse : MonoBehaviour
                     transform.rotation = newRot;
                 }
                 break;
-            case (State.Clicked):
+            case (State.Clicked):   //rotated by the player
                 //if the mouse has been released
                 if (Input.GetMouseButtonUp(0))
                 {
                     released();
                     break;
                 }
-                rotX += Input.GetAxis("Mouse Y") * rotationSpeed * sensitivity * Mathf.Deg2Rad * dt;
-                rotY -= Input.GetAxis("Mouse X") * rotationSpeed * sensitivity * Mathf.Deg2Rad * dt;
+                rotX += Input.GetAxis("Mouse Y") * sensitivity * dt;
+                rotY -= Input.GetAxis("Mouse X") * sensitivity * dt;
                 //apply the rotation of the mouse
                 transform.rotation = Quaternion.Euler(rotX, rotY, 0);
                 break;
@@ -111,7 +107,6 @@ public class movingWithMouse : MonoBehaviour
     {
         if (state == State.Idle || state == State.Adjusting)
         {
-            activate = true;
             Camera.main.GetComponent<CameraMovement>().enabled = false;
             player.GetComponent<CharacterMovement>().SetInteracting(true);
             doors.Clear();
