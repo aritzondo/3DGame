@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class closeDoorCollider : MonoBehaviour {
+public class CloseDoorCollider : MonoBehaviour {
 
     public GameObject rotatorCube;
 
@@ -12,7 +12,7 @@ public class closeDoorCollider : MonoBehaviour {
         {
             GameObject door = other.gameObject;
             door.GetComponent<DoorMovement>().startClosing();
-            rotatorCube.GetComponent<movingWithMouse>().doors.Add(door);
+            rotatorCube.GetComponent<MovingWithMouse>().doors.Add(door);
         }
     }
 }

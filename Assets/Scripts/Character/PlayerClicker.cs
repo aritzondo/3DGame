@@ -19,7 +19,7 @@ public class PlayerClicker : MonoBehaviour {
                 //if the ray hits a rotable object we call to his method to activate it
                 if (hit.transform.gameObject.tag == "rotable")
                 {
-                    hit.transform.gameObject.GetComponent<movingWithMouse>().clicked();
+                    hit.transform.gameObject.GetComponent<MovingWithMouse>().clicked();
                 }
             }
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movingWithMouse : MonoBehaviour
+public class MovingWithMouse : MonoBehaviour
 {
     //public attributes
     public CharacterMovement player;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class openDoorCollider : MonoBehaviour {
+public class OpenDoorCollider : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
