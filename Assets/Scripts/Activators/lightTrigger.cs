@@ -7,32 +7,39 @@ using UnityEngine;
  **/
 public class lightTrigger : MonoBehaviour {
 
-    public Light spotLight;
-    public Material ilum;
-    public Material notIlum;
+    public Light mLigth;
 
     void OnTriggerEnter(Collider other)
     {
         //change the color of an illuminabel object to black
         RaycastHit hit;
-        Vector3 direction = other.transform.position - spotLight.transform.position;
-        Ray lightRay = new Ray(spotLight.transform.position, direction);
-        if (Physics.Raycast(lightRay, out hit, spotLight.range))
+        Vector3 direction = other.transform.position - mLigth.transform.position;
+        Ray lightRay = new Ray(mLigth.transform.position, direction);
+        if (Physics.Raycast(lightRay, out hit, mLigth.range))
         {
             //if the ray hits the same object the have enter in the trigger and it's illuminable, we change it's color
             if (hit.transform.gameObject.tag == "illuminable" && other.gameObject.GetInstanceID() == hit.transform.gameObject.GetInstanceID())
             {
-                other.GetComponent<Renderer>().material = ilum;
+                Activable activator = other.gameObject.GetComponent<Activable>();
+                if(activator != null)
+                {
+                    activator.enterInLight();
+                }
             }
         }
     }
+
 
     private void OnTriggerExit(Collider other)
     {
         //change the color of an illuminable object to the default(red in this case)
         if (other.transform.gameObject.tag == "illuminable")
         {
-            other.GetComponent<Renderer>().material = notIlum;
+            Activable activator = other.gameObject.GetComponent<Activable>();
+            if (activator != null)
+            {
+                activator.exitLight();
+            }
         }
     }
 }

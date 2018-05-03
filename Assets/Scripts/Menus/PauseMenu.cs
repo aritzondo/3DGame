@@ -9,8 +9,6 @@ public class PauseMenu : MonoBehaviour
     public static bool isPaused;
     public GameObject pauseMenuUI;
 
-    private bool lockCursor = true;
-
     private void Start()
     {
         setCameraLock(CursorLockMode.Locked);
