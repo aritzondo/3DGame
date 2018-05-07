@@ -66,6 +66,26 @@ public class PlatformMovement : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWaypoint].position, velocity * dt);
     }
 
-	#endregion
-	
+
+    //STAY ON THE PLATFORM
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.transform.parent = transform;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.transform.parent = null;
+
+        }
+    }
+
+    #endregion
+
 }
