@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main_Menu.unity
     guid: 5910de28d05c7b440a4cc819f19afce0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level_Luis.unity
     guid: 741fa834b6ef50d48902e84c7d2a9992
+  - enabled: 0
+    path: Assets/Scenes/Levels/Test_LevelLoad.unity
+    guid: 88b75a42c87653140a000f2a081ff4ff
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level3.unity
+    guid: d82d43493860b9340a3a1ff59c7acd86
   m_configObjects: {}
