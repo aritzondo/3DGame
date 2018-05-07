@@ -50,6 +50,19 @@ ModelImporter:
     100088: transform7
     100090: transform8
     100092: transform9
+    100094: pCube2
+    100096: pCube3
+    100098: pCube4
+    100100: pCube5
+    100102: pCylinder1
+    100104: pCylinder10
+    100106: pCylinder2
+    100108: pCylinder4
+    100110: pCylinder5
+    100112: pCylinder6
+    100114: pCylinder7
+    100116: pCylinder8
+    100118: pCylinder9
     400000: pCone1
     400002: pCube1
     400004: pCylinder11
@@ -97,6 +110,19 @@ ModelImporter:
     400088: transform7
     400090: transform8
     400092: transform9
+    400094: pCube2
+    400096: pCube3
+    400098: pCube4
+    400100: pCube5
+    400102: pCylinder1
+    400104: pCylinder10
+    400106: pCylinder2
+    400108: pCylinder4
+    400110: pCylinder5
+    400112: pCylinder6
+    400114: pCylinder7
+    400116: pCylinder8
+    400118: pCylinder9
     2100000: lambert1
     2300000: polySurface1
     2300002: polySurface10
@@ -112,6 +138,19 @@ ModelImporter:
     2300022: polySurface7
     2300024: polySurface8
     2300026: polySurface9
+    2300028: pCube2
+    2300030: pCube3
+    2300032: pCube4
+    2300034: pCube5
+    2300036: pCylinder1
+    2300038: pCylinder10
+    2300040: pCylinder2
+    2300042: pCylinder4
+    2300044: pCylinder5
+    2300046: pCylinder6
+    2300048: pCylinder7
+    2300050: pCylinder8
+    2300052: pCylinder9
     3300000: polySurface1
     3300002: polySurface10
     3300004: polySurface11
@@ -126,6 +165,19 @@ ModelImporter:
     3300022: polySurface7
     3300024: polySurface8
     3300026: polySurface9
+    3300028: pCube2
+    3300030: pCube3
+    3300032: pCube4
+    3300034: pCube5
+    3300036: pCylinder1
+    3300038: pCylinder10
+    3300040: pCylinder2
+    3300042: pCylinder4
+    3300044: pCylinder5
+    3300046: pCylinder6
+    3300048: pCylinder7
+    3300050: pCylinder8
+    3300052: pCylinder9
     4300000: polySurface1
     4300002: polySurface2
     4300004: polySurface3
@@ -140,6 +192,20 @@ ModelImporter:
     4300022: polySurface12
     4300024: polySurface13
     4300026: polySurface14
+    4300028: pCylinder1
+    4300030: pCylinder2
+    4300032: pCylinder4
+    4300034: pCylinder5
+    4300036: pCylinder6
+    4300038: pCylinder7
+    4300040: pCylinder8
+    4300042: pCylinder9
+    4300044: pCylinder10
+    4300046: pCube2
+    4300048: pCube3
+    4300050: pCube4
+    4300052: pCube5
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
