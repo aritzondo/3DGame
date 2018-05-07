@@ -18,7 +18,9 @@ public class CameraMovement : MonoBehaviour {
 	GameObject character;
 
 	void Start () {
-		character = this.transform.parent.gameObject;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        character = this.transform.parent.gameObject;
 	}
 
 	void Update () {
