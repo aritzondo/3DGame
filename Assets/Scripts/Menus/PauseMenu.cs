@@ -6,12 +6,11 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     //you can use it in other scripts
-    public static bool isPaused;
+    public static bool isPaused = false;
     public GameObject pauseMenuUI;
 
     private void Start()
     {
-        setCameraLock(CursorLockMode.Locked);
         isPaused = false;
     }
 
@@ -37,7 +36,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1.0f;
         isPaused = false;
-        togleCameraLock();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void GPause()
@@ -45,7 +45,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0.0f;
         isPaused = true;
-        togleCameraLock();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void Menu()
@@ -58,25 +59,5 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Quitting game...");
         Application.Quit();
-    }
-
-    public void togleCameraLock()
-    {
-        if(Cursor.lockState == CursorLockMode.Locked)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-    }
-
-    public void setCameraLock(CursorLockMode newLock)
-    {
-        Cursor.lockState = newLock;
-        Cursor.visible = newLock == CursorLockMode.None;
     }
 }
