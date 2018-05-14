@@ -1266,6 +1266,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ab671b0124488446be97a8ea4c4cb67, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &38990768 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114294865123713826, guid: 9ab671b0124488446be97a8ea4c4cb67,
+    type: 2}
+  m_PrefabInternal: {fileID: 38990767}
+  m_Script: {fileID: 11500000, guid: e592b9559344b714db387b7d3c5ce6c3, type: 3}
 --- !u!43 &47401200
 Mesh:
   m_ObjectHideFlags: 0
@@ -32938,6 +32944,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114278392673870774, guid: 902b1fde819b4704994cf54c8ef120b7,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 38990768}
+    - target: {fileID: 114278392673870774, guid: 902b1fde819b4704994cf54c8ef120b7,
+        type: 2}
+      propertyPath: hub
+      value: 
+      objectReference: {fileID: 367400363}
+    - target: {fileID: 114278392673870774, guid: 902b1fde819b4704994cf54c8ef120b7,
+        type: 2}
+      propertyPath: openTrigger
+      value: 
+      objectReference: {fileID: 694931344}
+    - target: {fileID: 114278392673870774, guid: 902b1fde819b4704994cf54c8ef120b7,
+        type: 2}
+      propertyPath: closeTrigger
+      value: 
+      objectReference: {fileID: 1160991595}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 902b1fde819b4704994cf54c8ef120b7, type: 2}
   m_IsPrefabParent: 0
