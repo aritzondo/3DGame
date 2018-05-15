@@ -17,6 +17,7 @@ public class PlayerClicker : MonoBehaviour {
             if (carrying)
             {
                 GetComponentInChildren<Movable>().Release();
+                carrying = false;
             }
             else
             {
@@ -35,6 +36,7 @@ public class PlayerClicker : MonoBehaviour {
                     if (moveScript != null)
                     {
                         moveScript.Carry(transform, carryOffset);
+                        carrying = true;
                     }
                 }
             }
