@@ -49,7 +49,7 @@ public class AudioManager : MonoBehaviour {
 
     void Start()
     {
-        Play("Theme");
+        
     }
 
     #endregion
@@ -65,6 +65,51 @@ public class AudioManager : MonoBehaviour {
                 sounds[i].source.Play();
             }
         }
+    }
+
+    public void Volume(string name, float newVolume)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name.Equals(name))
+            {
+                sounds[i].source.volume = newVolume;
+            }
+        }
+    }
+
+    public void Pitch(string name, float newPitch)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name.Equals(name))
+            {
+                sounds[i].source.pitch = newPitch;
+            }
+        }
+    }
+
+    public void Loop(string name, bool newLoop)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name.Equals(name))
+            {
+                sounds[i].source.loop = newLoop;
+            }
+        }
+    }
+
+    public bool IsPlaying(string name)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name.Equals(name))
+            {
+                return sounds[i].source.isPlaying;
+            }
+        }
+        return false;
     }
 
     #endregion
