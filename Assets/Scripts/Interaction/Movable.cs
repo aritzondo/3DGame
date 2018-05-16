@@ -18,10 +18,23 @@ public class Movable : MonoBehaviour {
     {
         transform.SetParent(parent);
         transform.localPosition = offset;
+        transform.localRotation = Quaternion.identity;
+        Light light = GetComponent<Light>();
+        if(light != null)
+        {
+            light.enabled = false;
+        }
     }
 
-    public void Release()
+    public void Release(Transform dropPoint)
     {
         transform.parent = null;
+        transform.position = dropPoint.position;
+        transform.rotation = dropPoint.rotation;
+        Light light = GetComponent<Light>();
+        if (light != null)
+        {
+            light.enabled = true;
+        }
     }
 }
