@@ -38,8 +38,8 @@ public class AudioLevel01 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, true);
-        manager.Play(AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE);
+        //manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, true);
+        //manager.Play(AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE);
     }
 
     // Update is called once per frame
