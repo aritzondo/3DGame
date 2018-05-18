@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlatformMovement : MonoBehaviour {
     #region PUBLIC VARIABLES
     public Transform[] waypoints;
-    public float maxDist;
+    public float distToSlow;
+    public float distToChangeWaypoint;
+    public float stopTime;
     public float maxSpeed;
     public float accel;
     #endregion
@@ -16,6 +18,8 @@ public class PlatformMovement : MonoBehaviour {
     private float velocity;
     private float dist;
     private float orientation;
+    private bool timeRun;
+    private float targetTime;
     #endregion
 
     #region PROPERTIES
@@ -30,14 +34,23 @@ public class PlatformMovement : MonoBehaviour {
     void Start ()
     {
         transform.position = waypoints[0].position;
-        currentWaypoint = 0;
+        currentWaypoint = 1;
         canMove = true;
+
+        if(canMove)
+        {
+            timeRun = true;
+        }
     }
 
     // Update is called once per frame
     void Update ()
     {
-        Debug.Log(orientation);
+        if (timeRun)
+        {
+            targetTime = Time.time + stopTime;
+        }
+
         if (canMove)
         {
             MovePlatform();
@@ -49,20 +62,31 @@ public class PlatformMovement : MonoBehaviour {
     public void MovePlatform()
     {
         float dt = Time.deltaTime;
-
         Vector3 direction = waypoints[currentWaypoint].position - transform.position;
         dist = direction.magnitude;
-                
-        if (dist <= maxDist)
-        {
-            currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
-            orientation = 0;
+        Debug.Log(velocity);
 
-        }
 
-        orientation = Mathf.Clamp(dist, -1, 1);
+        orientation = Mathf.Clamp(dist, -1.0f, 1);
         float velOffset = (maxSpeed * orientation) - velocity;
         velocity += Mathf.Clamp(velOffset, -accel * dt, accel * dt);
+
+        if (dist <= distToSlow)
+        {
+            orientation = Mathf.Clamp(dist, 0.0f, 0.0f);  
+
+            if (dist <= distToChangeWaypoint)
+            {
+                timeRun = false;
+
+                if(Time.time >= targetTime)
+                {
+                    timeRun = true;
+                    currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
+                }               
+            }
+        }
+
         transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWaypoint].position, velocity * dt);
     }
 
@@ -85,6 +109,8 @@ public class PlatformMovement : MonoBehaviour {
 
         }
     }
+
+
 
     #endregion
 
