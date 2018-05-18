@@ -7,95 +7,38 @@ public class AudioLevel0 : MonoBehaviour {
     
     public AudioManager manager;
 
-	// Use this for initialization
-	void Start () {
+    private bool play1 = false;
+    private bool play2 = false;
+    private bool play3 = false;
+    private bool play4 = false;
+    private bool play5 = false;
+    private bool play6 = false;
+    private bool play7 = false;
+    private bool playGeneral = false;
+    private bool playEnding = false;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             manager.Play("1");
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            manager.Loop("1", false);
-            while (manager.IsPlaying("1"))
-            {
 
-            }
-            manager.Loop("1", true);
-            manager.Play("1");
-            manager.Play("2");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            manager.Loop("1", false);
-            while (manager.IsPlaying("1"))
-            {
+        PlayNew(KeyCode.Alpha2, "1", "2", ref play1);
+        PlayNew(KeyCode.Alpha3, "1", "3", ref play2);
+        PlayNew(KeyCode.Alpha4, "1", "4", ref play3);
+        PlayNew(KeyCode.Alpha5, "1", "5", ref play4);
+        PlayNew(KeyCode.Alpha6, "1", "6", ref play5);
+        PlayNew(KeyCode.Alpha7, "1", "7", ref play6);
+        PlayNew(KeyCode.Alpha8, "1", "8", ref play7);
 
-            }
-            manager.Loop("1", true);
-            manager.Play("1");
-            manager.Play("3");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            manager.Loop("1", false);
-            while (manager.IsPlaying("1"))
-            {
-
-            }
-            manager.Loop("1", true);
-            manager.Play("1");
-            manager.Play("4");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            manager.Loop("1", false);
-            while (manager.IsPlaying("1"))
-            {
-
-            }
-            manager.Loop("1", true);
-            manager.Play("1");
-            manager.Play("5");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            manager.Loop("1", false);
-            while (manager.IsPlaying("1"))
-            {
-
-            }
-            manager.Loop("1", true);
-            manager.Play("1");
-            manager.Play("6");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            manager.Loop("1", false);
-            while (manager.IsPlaying("1"))
-            {
-
-            }
-            manager.Loop("1", true);
-            manager.Play("1");
-            manager.Play("7");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            manager.Loop("1", false);
-            while (manager.IsPlaying("1"))
-            {
-
-            }
-            manager.Loop("1", true);
-            manager.Play("1");
-            manager.Play("8");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha9))
+        if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             manager.Loop("1", false);
             manager.Loop("2", false);
@@ -104,21 +47,40 @@ public class AudioLevel0 : MonoBehaviour {
             manager.Loop("5", false);
             manager.Loop("6", false);
             manager.Loop("7", false);
-            manager.Loop("8", false);
-            while (manager.IsPlaying("1"))
-            {
-
-            }
-            manager.Play("Complete");
+            playGeneral = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (!manager.IsPlaying("1") && playGeneral)
+        {
+            manager.Play("Complete");
+            playGeneral = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             manager.Loop("Complete", false);
-            while (manager.IsPlaying("Complete"))
-            {
-
-            }
+            playEnding = true;
+        }
+        if (!manager.IsPlaying("Complete") && playEnding)
+        {
             manager.Play("Ending");
+            playEnding = false;
+        }
+    }
+
+    void PlayNew (KeyCode code, string oldSound, string newSound, ref bool boolean)
+    {
+        if (Input.GetKeyDown(code))
+        {
+            manager.Loop(oldSound, false);
+            boolean = true;
+        }
+
+        if (!manager.IsPlaying(oldSound) && boolean)
+        {
+            manager.Loop(oldSound, true);
+            manager.Play(oldSound);
+            manager.Play(newSound);
+            boolean = false;
         }
     }
 }
