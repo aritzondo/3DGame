@@ -1,28 +1,51 @@
 ﻿using UnityEngine.Audio;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour {
 
     #region Public Attributes
-
+    
     public Sound[] sounds;
+    public enum SoundLevel1
+    {
+        SOUND_LEVEL1_11 = 0,
+        SOUND_LEVEL1_12 = 0,
+        SOUND_LEVEL1_21 = 0,
+        SOUND_LEVEL1_22 = 0,
+        SOUND_LEVEL1_31 = 0,
+        SOUND_LEVEL1_32 = 0,
+        SOUND_LEVEL1_41 = 0,
+        SOUND_LEVEL1_42 = 0,
+        SOUND_LEVEL1_51 = 0,
+        SOUND_LEVEL1_52 = 0,
+        SOUND_LEVEL1_61 = 0,
+        SOUND_LEVEL1_62 = 0,
+        SOUND_LEVEL1_71 = 0,
+        SOUND_LEVEL1_72 = 0,
+        SOUND_LEVEL1_COMPLETE1 = 0,
+        SOUND_LEVEL1_COMPLETE2 = 0,
+        SOUND_LEVEL1_ENDING = 0,
+        SOUND_LEVEL1_REFERENCE = 0
+    }
 
     public static AudioManager instance;
-	
-	#endregion
-	
-	#region Private Attributes
-	
-	#endregion
-	
-	#region Properties
-	
-	#endregion
-	
-	#region Monobehaviour Methods
-	
-	// Use this for initialization
-	void Awake ()
+
+    #endregion
+
+    #region Private Attributes
+
+    #endregion
+
+    #region Properties
+
+    #endregion
+
+    #region Monobehaviour Methods
+
+    // Use this for initialization
+    void Awake ()
     {
         if (instance == null)
         {
@@ -56,60 +79,43 @@ public class AudioManager : MonoBehaviour {
 
     #region Methods
 
-    public void Play (string name)
+    public void Play(SoundLevel1 selected)
     {
-        for (int i = 0; i < sounds.Length; i++)
+        sounds[(int)selected].source.Play();
+        /*for (int i = 0; i < sounds.Length; i++)
         {
             if (sounds[i].name.Equals(name))
             {
                 sounds[i].source.Play();
             }
-        }
+        }*/
     }
 
-    public void Volume(string name, float newVolume)
+    public void Volume(SoundLevel1 selected, float newVolume)//(string name, float newVolume)
     {
-        for (int i = 0; i < sounds.Length; i++)
+        sounds[(int)selected].source.volume = newVolume;
+        /*for (int i = 0; i < sounds.Length; i++)
         {
             if (sounds[i].name.Equals(name))
             {
                 sounds[i].source.volume = newVolume;
             }
-        }
+        }*/
     }
 
-    public void Pitch(string name, float newPitch)
+    public void Pitch(SoundLevel1 selected, float newPitch)
     {
-        for (int i = 0; i < sounds.Length; i++)
-        {
-            if (sounds[i].name.Equals(name))
-            {
-                sounds[i].source.pitch = newPitch;
-            }
-        }
+        sounds[(int)selected].source.pitch = newPitch;
     }
 
-    public void Loop(string name, bool newLoop)
+    public void Loop(SoundLevel1 selected, bool newLoop)
     {
-        for (int i = 0; i < sounds.Length; i++)
-        {
-            if (sounds[i].name.Equals(name))
-            {
-                sounds[i].source.loop = newLoop;
-            }
-        }
+        sounds[(int)selected].source.loop = newLoop;
     }
 
-    public bool IsPlaying(string name)
+    public bool IsPlaying(SoundLevel1 selected)
     {
-        for (int i = 0; i < sounds.Length; i++)
-        {
-            if (sounds[i].name.Equals(name))
-            {
-                return sounds[i].source.isPlaying;
-            }
-        }
-        return false;
+        return sounds[(int)selected].source.isPlaying;
     }
 
     #endregion
