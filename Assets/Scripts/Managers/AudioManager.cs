@@ -7,27 +7,30 @@ public class AudioManager : MonoBehaviour {
 
     #region Public Attributes
     
-    public Sound[] sounds;
+    public Sound[] sounds = new Sound[(int)SoundLevel1.COUNT];
+
     public enum SoundLevel1
     {
         SOUND_LEVEL1_11 = 0,
-        SOUND_LEVEL1_12 = 1,
-        SOUND_LEVEL1_21 = 2,
-        SOUND_LEVEL1_22 = 3,
-        SOUND_LEVEL1_31 = 4,
-        SOUND_LEVEL1_32 = 5,
-        SOUND_LEVEL1_41 = 6,
-        SOUND_LEVEL1_42 = 7,
-        SOUND_LEVEL1_51 = 8,
-        SOUND_LEVEL1_52 = 9,
-        SOUND_LEVEL1_61 = 10,
-        SOUND_LEVEL1_62 = 11,
-        SOUND_LEVEL1_71 = 12,
-        SOUND_LEVEL1_72 = 13,
-        SOUND_LEVEL1_COMPLETE1 = 14,
-        SOUND_LEVEL1_COMPLETE2 = 15,
-        SOUND_LEVEL1_ENDING = 16,
-        SOUND_LEVEL1_REFERENCE = 17
+        SOUND_LEVEL1_12,
+        SOUND_LEVEL1_21,
+        SOUND_LEVEL1_22,
+        SOUND_LEVEL1_31,
+        SOUND_LEVEL1_32,
+        SOUND_LEVEL1_41,
+        SOUND_LEVEL1_42,
+        SOUND_LEVEL1_51,
+        SOUND_LEVEL1_52,
+        SOUND_LEVEL1_61,
+        SOUND_LEVEL1_62,
+        SOUND_LEVEL1_71,
+        SOUND_LEVEL1_72,
+        SOUND_LEVEL1_COMPLETE1,
+        SOUND_LEVEL1_COMPLETE2,
+        SOUND_LEVEL1_ENDING,
+        SOUND_LEVEL1_REFERENCE,
+
+        COUNT
     }
 
     public static AudioManager instance;
