@@ -38,27 +38,27 @@ public class AudioLevel01 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        manager.Loop("Reference", true);
-        manager.Play("Reference");
+        //manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, true);
+        //manager.Play(AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE);
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayNew(KeyCode.Alpha1, "Reference", "1-1", "1-2", ref play11, ref play12);
-        PlayNew(KeyCode.Alpha2, "Reference", "2-1", "2-2", ref play21, ref play22);
-        PlayNew(KeyCode.Alpha3, "Reference", "3-1", "3-2", ref play31, ref play32);
-        PlayNew(KeyCode.Alpha4, "Reference", "4-1", "4-2", ref play41, ref play42);
-        PlayNew(KeyCode.Alpha5, "Reference", "5-1", "5-2", ref play51, ref play52);
-        PlayNew(KeyCode.Alpha6, "Reference", "6-1", "6-2", ref play61, ref play62);
-        PlayNew(KeyCode.Alpha7, "Reference", "7-1", "7-2", ref play71, ref play72);
+        PlayNew(KeyCode.Alpha1, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_11, AudioManager.SoundLevel1.SOUND_LEVEL1_12, ref play11, ref play12);
+        PlayNew(KeyCode.Alpha2, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_21, AudioManager.SoundLevel1.SOUND_LEVEL1_22, ref play21, ref play22);
+        PlayNew(KeyCode.Alpha3, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_31, AudioManager.SoundLevel1.SOUND_LEVEL1_32, ref play31, ref play32);
+        PlayNew(KeyCode.Alpha4, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_41, AudioManager.SoundLevel1.SOUND_LEVEL1_42, ref play41, ref play42);
+        PlayNew(KeyCode.Alpha5, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_51, AudioManager.SoundLevel1.SOUND_LEVEL1_52, ref play51, ref play52);
+        PlayNew(KeyCode.Alpha6, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_61, AudioManager.SoundLevel1.SOUND_LEVEL1_62, ref play61, ref play62);
+        PlayNew(KeyCode.Alpha7, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_71, AudioManager.SoundLevel1.SOUND_LEVEL1_72, ref play71, ref play72);
 
-        PlayGeneral(KeyCode.Alpha8, "Reference", "Complete-1", "Complete-2",ref playGeneral1, ref playGeneral2);
+        PlayGeneral(KeyCode.Alpha8, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_COMPLETE1, AudioManager.SoundLevel1.SOUND_LEVEL1_COMPLETE2, ref playGeneral1, ref playGeneral2);
 
-        PlayEnding(KeyCode.Alpha9, "Reference", "Ending", ref playEnding);
+        PlayEnding(KeyCode.Alpha9, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_ENDING, ref playEnding);
     }
 
-    void PlayNew(KeyCode code, string reference, string newSound1, string newSound2, ref bool boolean1, ref bool boolean2)
+    void PlayNew(KeyCode code, AudioManager.SoundLevel1 reference, AudioManager.SoundLevel1 newSound1, AudioManager.SoundLevel1 newSound2, ref bool boolean1, ref bool boolean2)
     {
         if (Input.GetKeyDown(code))
         {
@@ -83,25 +83,25 @@ public class AudioLevel01 : MonoBehaviour
         }
     }
 
-    void PlayGeneral(KeyCode code, string reference, string newSound1, string newSound2, ref bool boolean1, ref bool boolean2)
+    void PlayGeneral(KeyCode code, AudioManager.SoundLevel1 reference, AudioManager.SoundLevel1 newSound1, AudioManager.SoundLevel1 newSound2, ref bool boolean1, ref bool boolean2)
     {
         if (Input.GetKeyDown(code))
         {
-            manager.Loop("1-1", false);
-            manager.Loop("2-1", false);
-            manager.Loop("3-1", false);
-            manager.Loop("4-1", false);
-            manager.Loop("5-1", false);
-            manager.Loop("6-1", false);
-            manager.Loop("7-1", false);
+            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_11, false);
+            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_21, false);
+            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_31, false);
+            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_41, false);
+            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_51, false);
+            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_61, false);
+            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_71, false);
 
-            manager.Loop("1-2", false);
-            manager.Loop("2-2", false);
-            manager.Loop("3-2", false);
-            manager.Loop("4-2", false);
-            manager.Loop("5-2", false);
-            manager.Loop("6-2", false);
-            manager.Loop("7-2", false);
+            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_12, false);
+            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_22, false);
+            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_32, false);
+            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_42, false);
+            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_52, false);
+            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_62, false);
+            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_72, false);
 
             manager.Loop(reference, false);
             boolean1 = true;
@@ -124,12 +124,12 @@ public class AudioLevel01 : MonoBehaviour
         }
     }
 
-    void PlayEnding(KeyCode code, string reference, string newSound, ref bool boolean)
+    void PlayEnding(KeyCode code, AudioManager.SoundLevel1 reference, AudioManager.SoundLevel1 newSound, ref bool boolean)
     {
         if (Input.GetKeyDown(code))
         {
-            manager.Loop("Complete-1", false);
-            manager.Loop("Complete-2", false);
+            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_COMPLETE1, false);
+            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_COMPLETE2, false);
 
             manager.Loop(reference, false);
             boolean = true;
