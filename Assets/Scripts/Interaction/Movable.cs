@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Movable : MonoBehaviour {
 
+    private Light mLight;
+
 	// Use this for initialization
 	void Start () {
+        mLight = gameObject.GetComponentInChildren<Light>();
 		
 	}
 	
@@ -19,10 +22,9 @@ public class Movable : MonoBehaviour {
         transform.SetParent(parent);
         transform.localPosition = offset;
         transform.localRotation = Quaternion.identity;
-        Light light = GetComponentInChildren<Light>();
-        if(light != null)
+        if(mLight != null)
         {
-            light.enabled = false;
+            mLight.enabled = false;
         }
     }
 
@@ -31,10 +33,9 @@ public class Movable : MonoBehaviour {
         transform.parent = null;
         transform.position = dropPoint.position;
         transform.rotation = dropPoint.rotation;
-        Light light = GetComponentInChildren<Light>();
-        if (light != null)
+        if (mLight != null)
         {
-            light.enabled = true;
+            mLight.enabled = true;
         }
     }
 }
