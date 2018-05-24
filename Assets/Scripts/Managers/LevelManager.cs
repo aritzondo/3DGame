@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-
+    private Scene activeScene;
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        activeScene = SceneManager.GetSceneByName("Test_LevelLoad");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -31,4 +31,6 @@ public class LevelManager : MonoBehaviour {
             yield return null;
         }
     }
+
+
 }

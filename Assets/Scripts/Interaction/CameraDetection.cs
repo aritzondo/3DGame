@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraDetection : MonoBehaviour {
+    /**
+     * Class that check if the object is in sight of the camera
+     * It has two virtual methods that should be overriden to give the desire behaviour
+     */
 
    private Renderer m_renderer;
     private Camera cam;
     
-    private bool trigger = false;
+    private bool visible = false;
 
     // Use this for initialization
-    void Start () {
+    protected virtual void Start () {
         m_renderer = GetComponent<Renderer>();
         cam = Camera.main;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        //if the render isVisible to any camera that is rendering 
         if (m_renderer.isVisible)
         {
             if (inCamera()) inSight();
@@ -27,6 +32,7 @@ public class CameraDetection : MonoBehaviour {
         }
     }
 
+    //cast a ray from the camera to the object to test if there is an obstacle in the middle
     private bool inCamera()
     {
         Ray ray = new Ray(cam.transform.position, transform.position - Camera.main.transform.position);
@@ -43,22 +49,22 @@ public class CameraDetection : MonoBehaviour {
         return false;
     }
 
-    private void inSight()
+    protected virtual void inSight()
     {
-        if (!trigger)
+        if (!visible)
         {
             Debug.Log(gameObject.name + " detected!");
-            trigger = true;
+            visible = true;
         }
         
     }
 
-    private void notInSight()
+    protected virtual void notInSight()
     {
-        if (trigger)
+        if (visible)
         {
             Debug.Log("not in sight");
-            trigger = false;
+            visible = false;
         }
     }
 }

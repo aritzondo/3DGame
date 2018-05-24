@@ -96,6 +96,10 @@ public class DoorMovement : MonoBehaviour {
     {
         initialPosition = transform.position;
         state = State.Out;
+        if(center == null)
+        {
+            Debug.Log(this.gameObject);
+        }
         Vector3 centerAtDoorHeight =  center.transform.position - Vector3.up * center.transform.position.y;
         Vector3 outVector = transform.position - centerAtDoorHeight;
         outVector = outVector.normalized;
