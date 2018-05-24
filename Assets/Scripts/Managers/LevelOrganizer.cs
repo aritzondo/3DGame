@@ -30,9 +30,8 @@ public class LevelOrganizer : MonoBehaviour
             {
                 scene_paths[i] = UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex(i);
                 string toLoadScene_path = scene_paths[i];
-                Debug.Log("LOAD Scene: " + toLoadScene_path);
 
-                //loadScene(toLoadScene_path);
+                loadScene(toLoadScene_path);
             }
 
         }
@@ -40,7 +39,8 @@ public class LevelOrganizer : MonoBehaviour
 
     private void loadScene(string path)
     {
-        EditorSceneManager.OpenScene(path, OpenSceneMode.Additive);
+        Scene loaded = EditorSceneManager.OpenScene(path, OpenSceneMode.Additive);
+        Debug.Log("LOAD Scene: " + loaded.name);
     }
 
 #endif

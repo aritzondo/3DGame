@@ -24,7 +24,15 @@ public class Movable : MonoBehaviour {
         transform.localRotation = Quaternion.identity;
         if(mLight != null)
         {
-            mLight.enabled = false;
+            CheckLightActive checkScript = GetComponentInChildren<CheckLightActive>();
+            if (checkScript != null)
+            {
+                checkScript.Deactivate();
+            }
+            else
+            {
+                mLight.enabled = false;
+            }
         }
     }
 
@@ -33,7 +41,12 @@ public class Movable : MonoBehaviour {
         transform.parent = null;
         transform.position = dropPoint.position;
         transform.rotation = dropPoint.rotation;
-        if (mLight != null)
+        CheckLightActive checkScript = GetComponentInChildren<CheckLightActive>();
+        if (checkScript != null)
+        {
+            checkScript.Activate();
+        }
+        else
         {
             mLight.enabled = true;
         }

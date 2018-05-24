@@ -4,26 +4,10 @@ using UnityEngine;
 
 public class LightManager : MonoBehaviour {
 
-    private static LightManager instance;
-
     public Light[] lights;
     public int activeLight = -1;
     public int defaultActiveLight = -1;
 
-    public static LightManager Instance { get { return instance; } }
-
-    private void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-    }
 
     // Use this for initialization
     void Start () {
