@@ -7,27 +7,30 @@ public class AudioManager : MonoBehaviour {
 
     #region Public Attributes
     
-    public Sound[] sounds;
+    public Sound[] sounds = new Sound[(int)SoundLevel1.COUNT];
+
     public enum SoundLevel1
     {
         SOUND_LEVEL1_11 = 0,
-        SOUND_LEVEL1_12 = 0,
-        SOUND_LEVEL1_21 = 0,
-        SOUND_LEVEL1_22 = 0,
-        SOUND_LEVEL1_31 = 0,
-        SOUND_LEVEL1_32 = 0,
-        SOUND_LEVEL1_41 = 0,
-        SOUND_LEVEL1_42 = 0,
-        SOUND_LEVEL1_51 = 0,
-        SOUND_LEVEL1_52 = 0,
-        SOUND_LEVEL1_61 = 0,
-        SOUND_LEVEL1_62 = 0,
-        SOUND_LEVEL1_71 = 0,
-        SOUND_LEVEL1_72 = 0,
-        SOUND_LEVEL1_COMPLETE1 = 0,
-        SOUND_LEVEL1_COMPLETE2 = 0,
-        SOUND_LEVEL1_ENDING = 0,
-        SOUND_LEVEL1_REFERENCE = 0
+        SOUND_LEVEL1_12,
+        SOUND_LEVEL1_21,
+        SOUND_LEVEL1_22,
+        SOUND_LEVEL1_31,
+        SOUND_LEVEL1_32,
+        SOUND_LEVEL1_41,
+        SOUND_LEVEL1_42,
+        SOUND_LEVEL1_51,
+        SOUND_LEVEL1_52,
+        SOUND_LEVEL1_61,
+        SOUND_LEVEL1_62,
+        SOUND_LEVEL1_71,
+        SOUND_LEVEL1_72,
+        SOUND_LEVEL1_COMPLETE1,
+        SOUND_LEVEL1_COMPLETE2,
+        SOUND_LEVEL1_ENDING,
+        SOUND_LEVEL1_REFERENCE,
+
+        COUNT
     }
 
     public static AudioManager instance;
@@ -82,35 +85,24 @@ public class AudioManager : MonoBehaviour {
     public void Play(SoundLevel1 selected)
     {
         sounds[(int)selected].source.Play();
-        /*for (int i = 0; i < sounds.Length; i++)
-        {
-            if (sounds[i].name.Equals(name))
-            {
-                sounds[i].source.Play();
-            }
-        }*/
     }
 
-    public void Volume(SoundLevel1 selected, float newVolume)//(string name, float newVolume)
+    public void Volume(SoundLevel1 selected, float newVolume)
     {
-        sounds[(int)selected].source.volume = newVolume;
-        /*for (int i = 0; i < sounds.Length; i++)
-        {
-            if (sounds[i].name.Equals(name))
-            {
-                sounds[i].source.volume = newVolume;
-            }
-        }*/
+        sounds[(int)selected].volume = newVolume;
+        sounds[(int)selected].source.volume = sounds[(int)selected].volume;
     }
 
     public void Pitch(SoundLevel1 selected, float newPitch)
     {
-        sounds[(int)selected].source.pitch = newPitch;
+        sounds[(int)selected].pitch = newPitch;
+        sounds[(int)selected].source.pitch = sounds[(int)selected].pitch;
     }
 
     public void Loop(SoundLevel1 selected, bool newLoop)
     {
-        sounds[(int)selected].source.loop = newLoop;
+        sounds[(int)selected].loop = newLoop;
+        sounds[(int)selected].source.loop = sounds[(int)selected].loop;
     }
 
     public bool IsPlaying(SoundLevel1 selected)
@@ -118,5 +110,13 @@ public class AudioManager : MonoBehaviour {
         return sounds[(int)selected].source.isPlaying;
     }
 
+    public void MasterVolume(float newVolume)
+    {
+        foreach(Sound s in sounds)
+        {
+            s.volume = newVolume;
+            s.source.volume = s.volume;
+        }
+    }
     #endregion
 }
