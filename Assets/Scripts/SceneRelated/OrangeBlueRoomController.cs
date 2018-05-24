@@ -10,6 +10,7 @@ public class OrangeBlueRoomController : MonoBehaviour {
     public GameObject leftWall;
     public GameObject rightWall;
     public Material orange;
+    public RotateBridge firstRoom;
 
     private Material blue;
     private Renderer lRenderer;
@@ -31,6 +32,7 @@ public class OrangeBlueRoomController : MonoBehaviour {
     void Update()
     {
         bridgeRot.Trigger = Input.GetButtonDown("Fire2");
+        firstRoom.Trigger = bridgeRot.Trigger;
         bool orangeOn = bridgeRot.CurrentRot < Mathf.Epsilon;
 
         orangeFloor1.SetActive(orangeOn);
