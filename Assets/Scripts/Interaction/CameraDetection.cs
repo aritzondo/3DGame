@@ -37,6 +37,7 @@ public class CameraDetection : MonoBehaviour {
     {
         Ray ray = new Ray(cam.transform.position, transform.position - Camera.main.transform.position);
         RaycastHit hit;
+        Debug.DrawRay(ray.origin,ray.direction*10);
         if(Physics.Raycast(ray, out hit))
         {
             if (hit.transform.gameObject.Equals(this.gameObject))

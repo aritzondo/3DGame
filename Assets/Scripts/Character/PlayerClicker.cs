@@ -54,6 +54,10 @@ public class PlayerClicker : MonoBehaviour {
                     }
                 }
             }
+            else
+            {
+                Debug.Log("Cant drop");
+            }
         }
     }
 }

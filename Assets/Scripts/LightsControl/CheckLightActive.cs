@@ -15,11 +15,13 @@ public class CheckLightActive : MonoBehaviour {
 
     public void Activate()
     {
-        lManager.activateLight(mLight);
+        if(lManager != null)
+            lManager.activateLight(mLight);
     }
 
     public void Deactivate()
     {
-        lManager.deactivateLight(mLight);
+        if (lManager != null)
+            lManager.deactivateLight(mLight);
     }
 }
