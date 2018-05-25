@@ -2,43 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingWithMouse : MonoBehaviour
+public class MovingWithMouse : Rotable
 {
     //public attributes
-    public CharacterMovement player;
     public GameObject hub;
-    public float sensitivity = 100.0f;   //sensitivity of the rotation with the mouse
     public float time90degrees = 1.0f;
     public GameObject openTrigger; //we disable the triggers while moving
     public GameObject closeTrigger;
     public ArrayList doors;
 
-    //private attributes
-    private float rotX = 0.0f;  //the ammount of rotation on x
-    private float rotY = 0.0f;  //the ammount of rotation on y
-    //variables for the state of the rotator
-    private Vector3 nextAngle = new Vector3(0, 0, 0);
-    private Quaternion cubeIniRot;
-    private float rotTime = 0.0f;   //time rotating
-    private float rotDuration = 0.0f;   //duration of the rotation
-    private State state = State.Idle;
-
-    enum State
-    {
-        Clicked,
-        Idle,
-        Adjusting,
-        Waiting,
-        Rotating
-    }
-
-    void Start()
+   void Start()
     {
         cubeIniRot = transform.rotation;
         doors = new ArrayList(4);
     }
 
-    void FixedUpdate()
+    override protected void FixedUpdate()
     {
         float dt = Time.deltaTime;
         float t;
@@ -89,7 +68,7 @@ public class MovingWithMouse : MonoBehaviour
                 break;
             case (State.Clicked):   //rotated by the player
                 //if the mouse has been released
-                if (Input.GetMouseButtonUp(0))
+                if (!Input.GetMouseButton(1))
                 {
                     released();
                     break;
@@ -103,7 +82,7 @@ public class MovingWithMouse : MonoBehaviour
     }
 
     //when the cube is clicked the camera and movement of the player are blocked and the cube is activated
-    public void clicked()
+    public override void clicked()
     {
         if (state == State.Idle || state == State.Adjusting)
         {
@@ -117,36 +96,12 @@ public class MovingWithMouse : MonoBehaviour
     }
 
     //when the mouse is released we give back the control to the player and start the adjusting proccess
-    public void released()
+    public override void released()
     {
-        rotX = 0;
-        rotY = 0;
-        adjustAngle();
-        state = State.Adjusting;
-        rotTime = 0;
-        cubeIniRot = transform.rotation;
-
-        Camera.main.GetComponent<CameraMovement>().enabled = true;
-        player.GetComponent<CharacterMovement>().SetInteracting(false);
+        base.released();
 
         closeTrigger.GetComponent<MeshCollider>().enabled = false;
-        //openTrigger.GetComponent<MeshCollider>().enabled = true;
     }
-
-    //calculate the closest angle of rotation (right angles)
-    public void adjustAngle()
-    {
-        float eulerX = transform.rotation.eulerAngles.x;
-        float eulerY = transform.rotation.eulerAngles.y;
-        float eulerZ = transform.rotation.eulerAngles.z;
-        //calculate the closest square angle of the cube
-        nextAngle.x = 90 * (Mathf.FloorToInt(eulerX / 90) + Mathf.Round((eulerX % 90) / 90));
-        nextAngle.y = 90 * (Mathf.FloorToInt(eulerY / 90) + Mathf.Round((eulerY % 90) / 90));
-        nextAngle.z = 90 * (Mathf.FloorToInt(eulerZ / 90) + Mathf.Round((eulerZ % 90) / 90));
-
-        rotDuration = 1;
-    }
-
 
     private void startRotationWithHub()
     {

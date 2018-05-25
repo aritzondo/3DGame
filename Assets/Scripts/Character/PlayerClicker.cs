@@ -40,13 +40,7 @@ public class PlayerClicker : MonoBehaviour {
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, 10.0f))
                 {
-                    MovingWithMouse movingScript = hit.transform.gameObject.GetComponent<MovingWithMouse>();
-                    if (movingScript != null)
-                    {
-                        movingScript.clicked();
-                    }
-
-                    Movable moveScript = hit.transform.gameObject.GetComponent<Movable>();
+                   Movable moveScript = hit.transform.gameObject.GetComponent<Movable>();
                     if (moveScript != null)
                     {
                         moveScript.Carry(cam.transform, carryOffset);
@@ -57,6 +51,23 @@ public class PlayerClicker : MonoBehaviour {
             else
             {
                 Debug.Log("Cant drop");
+            }
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            if (!carrying)
+            {
+                //Cast a ray from the camera to his forward
+                Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit, 10.0f))
+                {
+                    Rotable movingScript = hit.transform.gameObject.GetComponent<Rotable>();
+                    if (movingScript != null)
+                    {
+                        movingScript.clicked();
+                    }
+                }
             }
         }
     }
