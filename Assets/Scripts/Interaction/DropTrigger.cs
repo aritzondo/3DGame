@@ -9,8 +9,10 @@ public class DropTrigger : MonoBehaviour {
      */
 
     public Transform dropPoint;
+    public GameObject hint;
 
     private bool inSight = false;
+    private bool showing = false;
 
     public bool InSight
     {
@@ -20,11 +22,13 @@ public class DropTrigger : MonoBehaviour {
     private void OnTriggerStay(Collider other)
     {
         PlayerClicker clicker = other.gameObject.GetComponent<PlayerClicker>();
-        if (clicker != null)
+        if (clicker != null && clicker.Carrying)
         {
             //if the player is in the trigger it will only be able to drop the light if it's in sight
             clicker.CanDrop = inSight;
             clicker.DropSite = dropPoint;
+            if (!showing) showDropSite(inSight);
+            else if (!inSight && showing) showDropSite(inSight);
         }
     }
 
@@ -35,5 +39,12 @@ public class DropTrigger : MonoBehaviour {
         {
             clicker.CanDrop = false;
         }
+        showDropSite(false);
+    }
+
+    private void showDropSite(bool show)
+    {
+        showing = show;
+        hint.SetActive(show);
     }
 }

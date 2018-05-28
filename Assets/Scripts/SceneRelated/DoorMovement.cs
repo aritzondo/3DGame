@@ -40,6 +40,7 @@ public class DoorMovement : MonoBehaviour {
         switch (state)
         {
             case (State.Close):
+                break;
             case (State.Open):
                 break;
             case (State.Out):
