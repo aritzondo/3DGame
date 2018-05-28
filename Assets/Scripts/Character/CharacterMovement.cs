@@ -17,16 +17,9 @@ public class CharacterMovement : MonoBehaviour {
     private float countToWalkSound = 0;
     private bool alternateWalkSound = true;
 
-    private void Awake()
-    {
-        if (audioManager == null)
-        {
-            audioManager = AudioManager.GetInstance();
-        }
-    }
-
     void Start () {
         controller = GetComponent<CharacterController>();
+        audioManager = AudioManager.GetInstance();
     }
 
     void Update()

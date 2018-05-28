@@ -22,6 +22,11 @@ public class PlayerClicker : MonoBehaviour {
         set { canDrop = value; }
     }
 
+    public bool Carrying
+    {
+        get { return carrying; }
+    }
+
     
 	// When the mouse is pressed we throw a ray to the point were it has been clicked
     // and if its a rotator we activate it

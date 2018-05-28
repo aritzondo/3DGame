@@ -160,3 +160,15 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: PASO1
+    clip: {fileID: 8300000, guid: bfeabbe67b4fa8a4c9413d741a058dd0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PASO2
+    clip: {fileID: 8300000, guid: d5274652d8b9c404893ad4135eea8e91, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &136942639
 Transform:
   m_ObjectHideFlags: 0
@@ -345,7 +345,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh21374
+  m_Name: pb_Mesh23710
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -493,11 +493,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114984664058286978, guid: f6b86b48bf228b84d965027f4e568414,
-        type: 2}
-      propertyPath: sounds.Array.size
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 4264744994747406, guid: f6b86b48bf228b84d965027f4e568414, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -529,56 +524,6 @@ Prefab:
     - target: {fileID: 4264744994747406, guid: f6b86b48bf228b84d965027f4e568414, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114984664058286978, guid: f6b86b48bf228b84d965027f4e568414,
-        type: 2}
-      propertyPath: sounds.Array.data[18].name
-      value: PASO1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114984664058286978, guid: f6b86b48bf228b84d965027f4e568414,
-        type: 2}
-      propertyPath: sounds.Array.data[18].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: bfeabbe67b4fa8a4c9413d741a058dd0, type: 3}
-    - target: {fileID: 114984664058286978, guid: f6b86b48bf228b84d965027f4e568414,
-        type: 2}
-      propertyPath: sounds.Array.data[18].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114984664058286978, guid: f6b86b48bf228b84d965027f4e568414,
-        type: 2}
-      propertyPath: sounds.Array.data[18].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114984664058286978, guid: f6b86b48bf228b84d965027f4e568414,
-        type: 2}
-      propertyPath: sounds.Array.data[18].loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114984664058286978, guid: f6b86b48bf228b84d965027f4e568414,
-        type: 2}
-      propertyPath: sounds.Array.data[19].name
-      value: PASO2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114984664058286978, guid: f6b86b48bf228b84d965027f4e568414,
-        type: 2}
-      propertyPath: sounds.Array.data[19].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: d5274652d8b9c404893ad4135eea8e91, type: 3}
-    - target: {fileID: 114984664058286978, guid: f6b86b48bf228b84d965027f4e568414,
-        type: 2}
-      propertyPath: sounds.Array.data[19].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114984664058286978, guid: f6b86b48bf228b84d965027f4e568414,
-        type: 2}
-      propertyPath: sounds.Array.data[19].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114984664058286978, guid: f6b86b48bf228b84d965027f4e568414,
-        type: 2}
-      propertyPath: sounds.Array.data[19].loop
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6b86b48bf228b84d965027f4e568414, type: 2}
@@ -715,9 +660,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1756987790}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 2dba8e98961ba5644b5b8d0730a8636f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mLigth: {fileID: 136942640}
 --- !u!64 &1756987793
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -10,7 +10,6 @@ public class OpenDoorCollider : MonoBehaviour {
         {
             GameObject door = other.gameObject;
             door.GetComponent<DoorMovement>().startMovement();
-            
         }
     }
 }
