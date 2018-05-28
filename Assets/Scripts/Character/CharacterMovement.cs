@@ -8,7 +8,7 @@ public class CharacterMovement : MonoBehaviour {
 	public float jumpSpeed = 8.0f;
 	public float gravity = 9.8f;
     public bool interacting = false;
-    public float walkSoundTime = 1.0f;
+    public float walkSoundTime = 0.6f;
 
     //private variables
 	private Vector3 moveDirection = Vector3.zero;
@@ -49,25 +49,25 @@ public class CharacterMovement : MonoBehaviour {
             {
                 moveDirection = new Vector3(0, 0, 0);
             }
+
+            countToWalkSound += dt;
+            if (countToWalkSound > walkSoundTime)
+            {
+                if (moveDirection.x != 0 || moveDirection.z != 0)
+                {
+                    countToWalkSound = 0.0f;
+                    alternateWalkSound = !alternateWalkSound;
+                    if (alternateWalkSound)
+                        audioManager.Play(AudioManager.SoundLevel1.PASO1);
+                    else
+                        audioManager.Play(AudioManager.SoundLevel1.PASO2);
+                }
+            }
         }
         //apply gravity if you aren't grounded
         moveDirection.y -= gravity * dt;
         //apply the movement to the controller
         controller.Move(moveDirection * dt);
-
-        countToWalkSound += dt;
-        if (countToWalkSound > walkSoundTime)
-        {
-            if (moveDirection.x != 0 || moveDirection.z != 0)
-            {
-                countToWalkSound = 0.0f;
-                alternateWalkSound = !alternateWalkSound;
-                if (alternateWalkSound)
-                    audioManager.Play(AudioManager.SoundLevel1.PASO1);
-                else
-                    audioManager.Play(AudioManager.SoundLevel1.PASO2);
-            }
-        }
     }
 
     public void SetInteracting(bool newI)
