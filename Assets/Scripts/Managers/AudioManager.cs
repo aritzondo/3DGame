@@ -29,13 +29,15 @@ public class AudioManager : MonoBehaviour {
         SOUND_LEVEL1_COMPLETE2,
         SOUND_LEVEL1_ENDING,
         SOUND_LEVEL1_REFERENCE,
+        PASO1,
+        PASO2,
 
         COUNT
     }
 
-    public static AudioManager instance;
-
     #endregion
+
+    private static AudioManager instance;
 
     #region Private Attributes
 
@@ -57,7 +59,8 @@ public class AudioManager : MonoBehaviour {
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(this);
+            Debug.Log("2 instances of ScoreManager detected. Destroying script at " + this.gameObject.name);
             return;
         }
 
@@ -117,6 +120,16 @@ public class AudioManager : MonoBehaviour {
             s.volume = newVolume;
             s.source.volume = s.volume;
         }
+    }
+
+    public void Walk()
+    {
+
+    }
+
+    public static AudioManager GetInstance()
+    {
+        return instance;
     }
     #endregion
 }

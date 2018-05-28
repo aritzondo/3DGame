@@ -38,6 +38,10 @@ public class AudioLevel01 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if (manager == null)
+        {
+            manager = AudioManager.GetInstance();
+        }
         //manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, true);
         //manager.Play(AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE);
     }

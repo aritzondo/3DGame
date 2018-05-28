@@ -52,9 +52,111 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: 11
+    clip: {fileID: 8300000, guid: c36394a0cefc9844d82a21bfbb666959, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: 12
+    clip: {fileID: 8300000, guid: c36394a0cefc9844d82a21bfbb666959, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: 21
+    clip: {fileID: 8300000, guid: d12417d42c32aab4c9045ee86ee11bd0, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: 22
+    clip: {fileID: 8300000, guid: d12417d42c32aab4c9045ee86ee11bd0, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: 31
+    clip: {fileID: 8300000, guid: cf9d2eed52c02c9448bece73864c4c49, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: 32
+    clip: {fileID: 8300000, guid: cf9d2eed52c02c9448bece73864c4c49, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: 41
+    clip: {fileID: 8300000, guid: 45991d2b3d0b7d8429dde0607038fada, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: 42
+    clip: {fileID: 8300000, guid: 45991d2b3d0b7d8429dde0607038fada, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: 51
+    clip: {fileID: 8300000, guid: e6935572f933cd7448f9630fd8d02cac, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: 52
+    clip: {fileID: 8300000, guid: e6935572f933cd7448f9630fd8d02cac, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: 61
+    clip: {fileID: 8300000, guid: a15f4306aa591ac4285ecbfea20df998, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: 62
+    clip: {fileID: 8300000, guid: a15f4306aa591ac4285ecbfea20df998, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: 71
+    clip: {fileID: 8300000, guid: 1fe586bafd387d645b68bd0a49879a14, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: 72
+    clip: {fileID: 8300000, guid: 1fe586bafd387d645b68bd0a49879a14, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: COMPLETE1
+    clip: {fileID: 8300000, guid: 0a6440d22c564524cb966364ae629ba0, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: COMPLETE2
+    clip: {fileID: 8300000, guid: 0a6440d22c564524cb966364ae629ba0, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: ENDING
+    clip: {fileID: 8300000, guid: 4273fd933cf3fb8409b2d42bce9a4586, type: 3}
+    volume: 0.3
+    pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: REFERENCE
+    clip: {fileID: 8300000, guid: 661533db168de3146b09a6d25572f6e3, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
