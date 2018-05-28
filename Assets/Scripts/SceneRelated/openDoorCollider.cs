@@ -9,7 +9,10 @@ public class OpenDoorCollider : MonoBehaviour {
         if(other.gameObject.tag == "door" && gameObject.GetComponent<MeshCollider>().enabled)
         {
             GameObject door = other.gameObject;
-            door.GetComponent<DoorMovement>().startMovement();
+            DoorMovement dMove = door.GetComponent<DoorMovement>();
+            dMove.startMovement();
+
+            StartCoroutine(dMove.LoadAsyncScene());
             
         }
     }

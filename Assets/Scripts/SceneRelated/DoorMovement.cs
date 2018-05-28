@@ -1,6 +1,7 @@
 ﻿using System.Collections; 
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorMovement : MonoBehaviour {
     public float speed = 1.0f;
@@ -9,7 +10,8 @@ public class DoorMovement : MonoBehaviour {
     public float timeUp = 2.0f;
     public float outMovement = 1.0f;
     public float upMovement = 5.0f;
-
+    public int sceneIndex = -1;
+        
     private float movingTime = 0.0f;
     private Vector3 initialPosition;
     private Vector3 desiredPosition;
@@ -118,4 +120,37 @@ public class DoorMovement : MonoBehaviour {
     {
         return state == State.Close;
     }
+
+
+    public IEnumerator LoadAsyncScene()
+    {
+        int number_scenes = UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;
+        /*Debug.Assert(sceneIndex < 0 || number_scenes>=number_scenes-1, 
+                    "ERROR LOADING SCENE: choose a valid index (0-"+number_scenes+")");*/
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneIndex, LoadSceneMode.Additive);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
+
+
+    public IEnumerator UnloadAsyncScene()
+    {
+        int number_scenes = UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;
+        /*Debug.Assert(sceneIndex < 0 || number_scenes >= number_scenes - 1,
+                    "ERROR UNLOADING SCENE: choose a valid index (0-" + number_scenes + ")");*/
+
+        AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync(sceneIndex);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
+
 }

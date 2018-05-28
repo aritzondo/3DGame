@@ -11,8 +11,12 @@ public class CloseDoorCollider : MonoBehaviour {
         if (other.gameObject.tag == "door")
         {
             GameObject door = other.gameObject;
-            door.GetComponent<DoorMovement>().startClosing();
+            DoorMovement dMove = door.GetComponent<DoorMovement>();
+            dMove.startClosing();
             rotatorCube.GetComponent<MovingWithMouse>().doors.Add(door);
+
+            StartCoroutine(dMove.UnloadAsyncScene());
+
         }
     }
 }
