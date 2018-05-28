@@ -18,13 +18,11 @@ public class TripodDetection : CameraDetection {
     {
         base.inSight();
         trigger.InSight = true;
-        Debug.Log(gameObject.name+"Insight");
     }
 
     protected override void notInSight()
     {
         base.notInSight();
         trigger.InSight = false;
-        Debug.Log(gameObject.name + "Not insight");
     }
 }
