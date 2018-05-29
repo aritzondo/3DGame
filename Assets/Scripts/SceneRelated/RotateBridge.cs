@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RotateBridge : MonoBehaviour {
-    
+
     public int bridgeNumberOfFaces = 4;
     public float rotDuration = 5.0f;   //duration of the rotation
     public float differenceAngle = 90.0f;

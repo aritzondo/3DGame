@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OrangeBlueRoomController : MonoBehaviour {
 
+    public ActivatorGeneric activator;
     public GameObject orangeFloor1;
     public GameObject orangeFloor2;
     public GameObject orangeFloor3;
@@ -31,7 +32,7 @@ public class OrangeBlueRoomController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        bridgeRot.Trigger = Input.GetButtonDown("Fire2");
+        bridgeRot.Trigger = activator.Active; //= Input.GetButtonDown("Fire2");
         firstRoom.Trigger = bridgeRot.Trigger;
         bool orangeOn = bridgeRot.CurrentRot < Mathf.Epsilon;
 
@@ -49,5 +50,6 @@ public class OrangeBlueRoomController : MonoBehaviour {
                 rRenderer.material = blue;
                 break;
         }
+        activator.Active = false;
     }
 }

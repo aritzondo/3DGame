@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OrangeBlueBridgeController : MonoBehaviour
 {
-
+    public ActivatorGeneric activator;
     public GameObject blueFloor;
 
     private bool blueUp = true;
@@ -18,8 +18,9 @@ public class OrangeBlueBridgeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bridgeRot.Trigger = Input.GetButtonDown("Fire1");
+        bridgeRot.Trigger = activator.Active; //Input.GetButtonDown("Fire1");
 
         blueFloor.SetActive(bridgeRot.CurrentRot > 1);
+        activator.Active = false;
     }
 }
