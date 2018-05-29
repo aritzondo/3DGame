@@ -1,48 +1,62 @@
 fileFormatVersion: 2
-guid: 2a40b1a61e2c5f645a3fef18f26b418e
+guid: dd3862747ba41e64aa63bb0d56f84fc9
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: bottom
-    100002: pCube1
-    100004: pCube2
-    100006: pCube3
-    100008: pCube4
-    100010: pCube5
-    100012: pCube6
-    100014: pSphere1
-    100016: pSphere2
-    100018: transform1
-    100020: transform2
-    100022: transform3
-    100024: transform4
-    100026: transform5
-    100028: transform6
-    100030: //RootNode
-    400000: bottom
-    400002: pCube1
-    400004: pCube2
-    400006: pCube3
-    400008: pCube4
-    400010: pCube5
-    400012: pCube6
-    400014: pSphere1
-    400016: pSphere2
-    400018: transform1
-    400020: transform2
-    400022: transform3
-    400024: transform4
-    400026: transform5
-    400028: transform6
-    400030: //RootNode
+    100000: //RootNode
+    100002: bottom
+    100004: pCube1
+    100006: pCube2
+    100008: pCube3
+    100010: pCube4
+    100012: pCube5
+    100014: pCube6
+    100016: polySurface1
+    100018: polySurface2
+    100020: polySurface3
+    100022: pSphere1
+    100024: pSphere2
+    100026: transform1
+    100028: transform2
+    100030: transform3
+    100032: transform4
+    100034: transform5
+    100036: transform6
+    100038: transform7
+    400000: //RootNode
+    400002: bottom
+    400004: pCube1
+    400006: pCube2
+    400008: pCube3
+    400010: pCube4
+    400012: pCube5
+    400014: pCube6
+    400016: polySurface1
+    400018: polySurface2
+    400020: polySurface3
+    400022: pSphere1
+    400024: pSphere2
+    400026: transform1
+    400028: transform2
+    400030: transform3
+    400032: transform4
+    400034: transform5
+    400036: transform6
+    400038: transform7
     2000000: bottom
     2100000: lambert1
     2300000: pCube6
-    2300002: pSphere2
+    2300002: polySurface1
+    2300004: polySurface2
+    2300006: polySurface3
     3300000: pCube6
-    3300002: pSphere2
+    3300002: polySurface1
+    3300004: polySurface2
+    3300006: polySurface3
     4300000: pCube6
-    4300002: pSphere2
+    4300002: polySurface1
+    4300004: polySurface2
+    4300006: polySurface3
     7400000: Take 001
     9500000: //RootNode
   externalObjects: {}
@@ -72,7 +86,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

@@ -103,11 +103,12 @@ public class DoorMovement : MonoBehaviour {
         {
             Debug.Log(this.gameObject);
         }
-        Vector3 centerAtDoorHeight =  center.transform.position - Vector3.up * center.transform.position.y;
+        Vector3 centerAtDoorHeight =  center.transform.position - Vector3.up * transform.position.y;
         Vector3 outVector = transform.position - centerAtDoorHeight;
         outVector = outVector.normalized;
         desiredPosition = transform.position + outVector * outMovement;
         movingTime = 0;
+        
     }
 
     public void startClosing()
