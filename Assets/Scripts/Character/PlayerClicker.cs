@@ -11,9 +11,9 @@ public class PlayerClicker : MonoBehaviour {
 
     private bool carrying = false;
     private bool canDrop = false;
-    private Transform dropSite;
+    private DropTrigger dropSite;
 
-    public Transform DropSite
+    public DropTrigger DropSite
     {
         set { dropSite = value; }
     }
@@ -44,7 +44,9 @@ public class PlayerClicker : MonoBehaviour {
             {
                 if (carrying && canDrop)
                 {
-                    GetComponentInChildren<Movable>().Release(dropSite);
+                    Movable carriedObj = GetComponentInChildren<Movable>();
+                    carriedObj.hook = dropSite;
+                    carriedObj.Release();
                     carrying = false;
                 }
                 else if (!carrying)
