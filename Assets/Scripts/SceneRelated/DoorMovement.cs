@@ -114,7 +114,7 @@ public class DoorMovement : MonoBehaviour {
     public void startClosing()
     {
         state = State.Down;
-        desiredPosition = transform.position - Vector3.up * upMovement;
+        desiredPosition = transform.position + Vector3.up * (initialPosition.y-transform.position.y);
         movingTime = 0;
     }
 

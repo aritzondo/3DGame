@@ -21,10 +21,7 @@ public class Activator : Activable
 
     public override void enterInLight()
     {
-        if (timeInLight == 0)
-        {
-            anim.SetTrigger(ilumHash);
-        }
+        anim.SetTrigger(ilumHash);
         base.enterInLight();        
     }
 
@@ -32,10 +29,14 @@ public class Activator : Activable
     {
         base.exitLight();
         anim.SetTrigger(notIlumHash);
+        thisDoor.startClosing();
     }
 
     public override void Activate()
     {
-        thisDoor.startMovement();
+        if (thisDoor.isClosed())
+        {
+            thisDoor.startMovement();
+        }
     }
 }
