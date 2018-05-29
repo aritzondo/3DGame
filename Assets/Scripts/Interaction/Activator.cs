@@ -34,9 +34,6 @@ public class Activator : Activable
 
     public override void Activate()
     {
-        if (thisDoor.isClosed())
-        {
-            thisDoor.startMovement();
-        }
+       thisDoor.startMovement();
     }
 }
