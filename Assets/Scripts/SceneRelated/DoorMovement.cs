@@ -29,8 +29,8 @@ public class DoorMovement : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
-	}
+        initialPosition = transform.position;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -96,24 +96,20 @@ public class DoorMovement : MonoBehaviour {
     }
 
     public void startMovement()
-    {
-        initialPosition = transform.position;
+    {        
         state = State.Out;
-        if(center == null)
-        {
-            Debug.Log(this.gameObject);
-        }
-        Vector3 centerAtDoorHeight =  center.transform.position - Vector3.up * center.transform.position.y;
-        Vector3 outVector = transform.position - centerAtDoorHeight;
+        Vector3 centerAtDoorHeight =  center.transform.position - Vector3.up * (center.transform.position.y - initialPosition.y);
+        Vector3 outVector = initialPosition - centerAtDoorHeight;
         outVector = outVector.normalized;
-        desiredPosition = transform.position + outVector * outMovement;
+        desiredPosition = initialPosition + outVector * outMovement;
         movingTime = 0;
+        
     }
 
     public void startClosing()
     {
         state = State.Down;
-        desiredPosition = transform.position - Vector3.up * upMovement;
+        desiredPosition = transform.position + Vector3.up * (initialPosition.y-transform.position.y);
         movingTime = 0;
     }
 

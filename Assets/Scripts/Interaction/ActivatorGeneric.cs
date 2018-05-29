@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Activator : Activable
+public class ActivatorGeneric : Activable
 {
-    public GameObject door;
-
     private Animator anim;
     private DoorMovement thisDoor;
     private int ilumHash;
     private int notIlumHash;
+    private bool active = false;
+
+    public bool Active
+    {
+        get { return active; }
+        set { active = value; }
+    }
 
     void Start()
     {
-        thisDoor = door.GetComponent<DoorMovement>();
         anim = GetComponent<Animator>();
         ilumHash = Animator.StringToHash("Iluminated");
         notIlumHash = Animator.StringToHash("NotIlum");
@@ -22,18 +26,12 @@ public class Activator : Activable
     public override void enterInLight()
     {
         anim.SetTrigger(ilumHash);
-        base.enterInLight();        
+        active = true;
     }
 
     public override void exitLight()
     {
-        base.exitLight();
         anim.SetTrigger(notIlumHash);
-        thisDoor.startClosing();
-    }
-
-    public override void Activate()
-    {
-       thisDoor.startMovement();
+        active = false;
     }
 }

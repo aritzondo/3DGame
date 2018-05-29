@@ -54,7 +54,6 @@ public class CameraDetection : MonoBehaviour {
     {
         if (!visible)
         {
-            Debug.Log(gameObject.name + " detected!");
             visible = true;
         }
         
@@ -64,7 +63,6 @@ public class CameraDetection : MonoBehaviour {
     {
         if (visible)
         {
-            Debug.Log("not in sight");
             visible = false;
         }
     }

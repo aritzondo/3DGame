@@ -7,11 +7,13 @@ public class PlayerClicker : MonoBehaviour {
     public Vector3 carryOffset = new Vector3(0,1,1);
     public Camera cam;
 
+    private CharacterMovement moveScript;
+
     private bool carrying = false;
     private bool canDrop = false;
-    private Transform dropSite;
+    private DropTrigger dropSite;
 
-    public Transform DropSite
+    public DropTrigger DropSite
     {
         set { dropSite = value; }
     }
@@ -27,50 +29,60 @@ public class PlayerClicker : MonoBehaviour {
         get { return carrying; }
     }
 
-    
-	// When the mouse is pressed we throw a ray to the point were it has been clicked
+
+    private void Start()
+    {
+        moveScript = gameObject.GetComponent<CharacterMovement>();
+    }
+
+    // When the mouse is pressed we throw a ray to the point were it has been clicked
     // and if its a rotator we activate it
-	void Update () {
-        if (Input.GetMouseButtonDown(0))
+    void Update () {
+        if (!moveScript.interacting)
         {
-            if (carrying && canDrop)
+            if (Input.GetMouseButtonDown(0))
             {
-                GetComponentInChildren<Movable>().Release(dropSite);
-                carrying = false;
-            }
-            else if(!carrying)
-            {
-                //Cast a ray from the camera to his forward
-                Ray ray = new Ray(cam.transform.position, cam.transform.forward);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, 10.0f))
+                if (carrying && canDrop)
                 {
-                   Movable moveScript = hit.transform.gameObject.GetComponent<Movable>();
-                    if (moveScript != null)
+                    Movable carriedObj = GetComponentInChildren<Movable>();
+                    carriedObj.hook = dropSite;
+                    carriedObj.Release();
+                    carrying = false;
+                }
+                else if (!carrying)
+                {
+                    //Cast a ray from the camera to his forward
+                    Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, 10.0f))
                     {
-                        moveScript.Carry(cam.transform, carryOffset);
-                        carrying = true;
+                        Movable moveScript = hit.transform.gameObject.GetComponent<Movable>();
+                        if (moveScript != null)
+                        {
+                            moveScript.Carry(cam.transform, carryOffset);
+                            carrying = true;
+                        }
                     }
                 }
-            }
-            else
-            {
-                Debug.Log("Cant drop");
-            }
-        }
-        else if (Input.GetMouseButtonDown(1))
-        {
-            if (!carrying)
-            {
-                //Cast a ray from the camera to his forward
-                Ray ray = new Ray(cam.transform.position, cam.transform.forward);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, 10.0f))
+                else
                 {
-                    Rotable movingScript = hit.transform.gameObject.GetComponent<Rotable>();
-                    if (movingScript != null)
+                    Debug.Log("Cant drop");
+                }
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                if (!carrying)
+                {
+                    //Cast a ray from the camera to his forward
+                    Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, 10.0f))
                     {
-                        movingScript.clicked();
+                        Rotable rotateScript = hit.transform.gameObject.GetComponent<Rotable>();
+                        if (rotateScript != null)
+                        {
+                            rotateScript.clicked();
+                        }
                     }
                 }
             }

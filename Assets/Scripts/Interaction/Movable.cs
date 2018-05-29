@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Movable : MonoBehaviour {
 
-    private Light mLight;
+    public DropTrigger hook;
 
+    private Light mLight;
+    
 	// Use this for initialization
 	void Start () {
         mLight = gameObject.GetComponentInChildren<Light>();
@@ -19,6 +21,9 @@ public class Movable : MonoBehaviour {
 
     public void Carry(Transform parent, Vector3 offset)
     {
+
+        hook.empty = true;
+
         transform.SetParent(parent);
         transform.localPosition = offset;
         transform.localRotation = Quaternion.identity;
@@ -36,8 +41,11 @@ public class Movable : MonoBehaviour {
         }
     }
 
-    public void Release(Transform dropPoint)
+    public void Release()
     {
+
+        Transform dropPoint = hook.dropPoint;
+        hook.empty = false;
         transform.parent = null;
         transform.position = dropPoint.position;
         transform.rotation = dropPoint.rotation;

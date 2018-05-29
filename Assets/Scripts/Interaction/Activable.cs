@@ -6,16 +6,18 @@ public class Activable : MonoBehaviour {
 
     public float timeToActivate;
 
-    private float timeInLight = 0.0f;
-    private bool active = false;
+    protected float timeInLight = 0.0f;
+    protected bool inLight = false;
+    protected bool activated = false;
 
-    private void Update()
+    protected void Update()
     {
-        if (active)
+        if (inLight)
         {
             timeInLight += Time.deltaTime;
-            if(timeInLight >= timeToActivate)
+            if(timeInLight >= timeToActivate && !activated)
             {
+                activated = true;
                 Activate();
             }
         }
@@ -27,15 +29,16 @@ public class Activable : MonoBehaviour {
 
     }
 
-    public void enterInLight()
+    public virtual void enterInLight()
     {
         timeInLight += Time.deltaTime;
-        active = true;
+        inLight = true;
     }
 
-    public void exitLight()
+    public virtual void exitLight()
     {
         timeInLight = 0.0f;
-        active = false;
+        inLight = false;
+        activated = false;
     }
 }

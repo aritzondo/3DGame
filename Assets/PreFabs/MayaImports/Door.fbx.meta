@@ -1,50 +1,67 @@
 fileFormatVersion: 2
-guid: 2a40b1a61e2c5f645a3fef18f26b418e
+guid: f22a3c2efab775c4fb66bcd3602165e6
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: bottom
+    100000: //RootNode
     100002: pCube1
-    100004: pCube2
-    100006: pCube3
-    100008: pCube4
-    100010: pCube5
-    100012: pCube6
-    100014: pSphere1
-    100016: pSphere2
-    100018: transform1
-    100020: transform2
-    100022: transform3
-    100024: transform4
-    100026: transform5
-    100028: transform6
-    100030: //RootNode
-    400000: bottom
+    100004: pCube10
+    100006: pCube11
+    100008: pCube2
+    100010: pCube3
+    100012: pCube4
+    100014: pCube5
+    100016: pCube6
+    100018: pCube7
+    100020: pCube8
+    100022: pCube9
+    400000: //RootNode
     400002: pCube1
-    400004: pCube2
-    400006: pCube3
-    400008: pCube4
-    400010: pCube5
-    400012: pCube6
-    400014: pSphere1
-    400016: pSphere2
-    400018: transform1
-    400020: transform2
-    400022: transform3
-    400024: transform4
-    400026: transform5
-    400028: transform6
-    400030: //RootNode
-    2000000: bottom
-    2100000: lambert1
-    2300000: pCube6
-    2300002: pSphere2
-    3300000: pCube6
-    3300002: pSphere2
-    4300000: pCube6
-    4300002: pSphere2
-    7400000: Take 001
-    9500000: //RootNode
+    400004: pCube10
+    400006: pCube11
+    400008: pCube2
+    400010: pCube3
+    400012: pCube4
+    400014: pCube5
+    400016: pCube6
+    400018: pCube7
+    400020: pCube8
+    400022: pCube9
+    2100000: lambert2
+    2100002: lambert1
+    2300000: pCube1
+    2300002: pCube10
+    2300004: pCube11
+    2300006: pCube2
+    2300008: pCube3
+    2300010: pCube4
+    2300012: pCube5
+    2300014: pCube6
+    2300016: pCube7
+    2300018: pCube8
+    2300020: pCube9
+    3300000: pCube1
+    3300002: pCube10
+    3300004: pCube11
+    3300006: pCube2
+    3300008: pCube3
+    3300010: pCube4
+    3300012: pCube5
+    3300014: pCube6
+    3300016: pCube7
+    3300018: pCube8
+    3300020: pCube9
+    4300000: pCube1
+    4300002: pCube2
+    4300004: pCube3
+    4300006: pCube4
+    4300008: pCube5
+    4300010: pCube6
+    4300012: pCube7
+    4300014: pCube8
+    4300016: pCube9
+    4300018: pCube10
+    4300020: pCube11
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -76,7 +93,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 100
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -120,7 +137,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
