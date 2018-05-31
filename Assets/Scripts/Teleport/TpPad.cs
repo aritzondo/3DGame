@@ -26,21 +26,19 @@ public class TpPad : MonoBehaviour {
                 player = col.transform.gameObject;
 
                 float myF = player.transform.eulerAngles.y + (tpPoint.transform.eulerAngles.y - transform.eulerAngles.y + 180.0f);
-
-                //player.transform.position = tpPoint.transform.position + (player.transform.position - transform.position);
+                
                 Vector3 newPos = player.transform.position;
                 newPos.y = tpPoint.transform.position.y + (newPos.y - transform.position.y);
-                newPos.z = tpPoint.transform.position.z + (newPos.z - transform.position.z);
 
                 if (dotPortals < 0)
                 {
                     newPos.x = tpPoint.transform.position.x - (newPos.x - transform.position.x);
-                    //newPos.z = tpPoint.transform.position.z - (newPos.z - transform.position.z);
+                    newPos.z = tpPoint.transform.position.z - (newPos.z - transform.position.z);
                 }
                 else
                 {
                     newPos.x = tpPoint.transform.position.x + (newPos.x - transform.position.x);
-                    //newPos.z = tpPoint.transform.position.z + (newPos.z - transform.position.z);
+                    newPos.z = tpPoint.transform.position.z + (newPos.z - transform.position.z);
                 }
                 player.transform.position = newPos;
 
