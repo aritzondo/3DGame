@@ -57,7 +57,7 @@ public class PlayerClicker : MonoBehaviour {
                     if (Physics.Raycast(ray, out hit, 10.0f))
                     {
                         Movable moveScript = hit.transform.gameObject.GetComponent<Movable>();
-                        if (moveScript != null)
+                        if (moveScript != null && moveScript.isActiveAndEnabled)
                         {
                             moveScript.Carry(cam.transform, carryOffset);
                             carrying = true;
@@ -79,7 +79,7 @@ public class PlayerClicker : MonoBehaviour {
                     if (Physics.Raycast(ray, out hit, 10.0f))
                     {
                         Rotable rotateScript = hit.transform.gameObject.GetComponent<Rotable>();
-                        if (rotateScript != null)
+                        if (rotateScript != null && rotateScript.isActiveAndEnabled)
                         {
                             rotateScript.clicked();
                         }
