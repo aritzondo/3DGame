@@ -9,6 +9,7 @@ TagManager:
   - rotable
   - door
   - doorcol
+  - Head
   layers:
   - Default
   - TransparentFX

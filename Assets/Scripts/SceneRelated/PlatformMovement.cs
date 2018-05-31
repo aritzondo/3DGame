@@ -20,6 +20,7 @@ public class PlatformMovement : MonoBehaviour {
     private float orientation;
     private bool timeRun;
     private float targetTime;
+    private Vector3 playerScale;
     #endregion
 
     #region PROPERTIES
@@ -92,6 +93,7 @@ public class PlatformMovement : MonoBehaviour {
 
 
     //STAY ON THE PLATFORM
+
 
     private void OnTriggerStay(Collider other)
     {
