@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class TpPad : MonoBehaviour {
 
-    private GameObject player;
     public Transform Tplayer;
     public GameObject tpPoint;
+
+    private GameObject player;
+    private float dotPortals;
+
+    private void Start()
+    {
+        dotPortals = Vector3.Dot(Tplayer.transform.forward, tpPoint.transform.forward);
+    }
 
     private void OnTriggerEnter(Collider col)
     {
@@ -20,7 +27,22 @@ public class TpPad : MonoBehaviour {
 
                 float myF = player.transform.eulerAngles.y + (tpPoint.transform.eulerAngles.y - transform.eulerAngles.y + 180.0f);
 
-                player.transform.position = tpPoint.transform.position + (player.transform.position - transform.position);
+                //player.transform.position = tpPoint.transform.position + (player.transform.position - transform.position);
+                Vector3 newPos = player.transform.position;
+                newPos.y = tpPoint.transform.position.y + (newPos.y - transform.position.y);
+                newPos.z = tpPoint.transform.position.z + (newPos.z - transform.position.z);
+
+                if (dotPortals < 0)
+                {
+                    newPos.x = tpPoint.transform.position.x - (newPos.x - transform.position.x);
+                    //newPos.z = tpPoint.transform.position.z - (newPos.z - transform.position.z);
+                }
+                else
+                {
+                    newPos.x = tpPoint.transform.position.x + (newPos.x - transform.position.x);
+                    //newPos.z = tpPoint.transform.position.z + (newPos.z - transform.position.z);
+                }
+                player.transform.position = newPos;
 
                 Camera.main.GetComponent<CameraMovement>().SetMouseLookX(myF);
             }
