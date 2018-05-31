@@ -20,14 +20,21 @@ public class PortalCamera : MonoBehaviour
     {
         
         Vector3 playerDistanceToPortal = playerCamera.position - portal2.position;
-        if(dotPortals < 0)
+
+        Vector3 newPos = transform.position;
+        newPos.y = portal1.position.y + playerDistanceToPortal.y;
+
+        if (dotPortals < 0)
         {
-            transform.position = portal1.position - playerDistanceToPortal;
+            newPos.x = portal1.position.x - playerDistanceToPortal.x;
+            newPos.z = portal1.position.z - playerDistanceToPortal.z;
         }
         else
         {
-            transform.position = portal1.position + playerDistanceToPortal;
+            newPos.x = portal1.position.x + playerDistanceToPortal.x;
+            newPos.z = portal1.position.z + playerDistanceToPortal.z;
         }
+        transform.position = newPos;
         
         float PortalsAngle = Quaternion.Angle(portal1.rotation, portal2.rotation);
 
