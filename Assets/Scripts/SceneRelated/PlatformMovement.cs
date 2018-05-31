@@ -20,6 +20,7 @@ public class PlatformMovement : MonoBehaviour {
     private float orientation;
     private bool timeRun;
     private float targetTime;
+
     #endregion
 
     #region PROPERTIES
@@ -93,6 +94,7 @@ public class PlatformMovement : MonoBehaviour {
 
     //STAY ON THE PLATFORM
 
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -109,8 +111,6 @@ public class PlatformMovement : MonoBehaviour {
 
         }
     }
-
-
 
     #endregion
 

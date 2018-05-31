@@ -17,6 +17,10 @@ MonoBehaviour:
   m_Int_keys:
   - pbHandleAlignment
   - pbDefaultEditLevel
+<<<<<<< HEAD
+  - pbDefaultSelectionMode
+=======
+>>>>>>> 166b8b8cbcf581818a3e21ff5dd6bcc99feb722a
   - pb_GIWorkflowMode
   - pbDefaultSelectionMode
   m_Float_keys:
@@ -27,7 +31,15 @@ MonoBehaviour:
   m_Color_keys: []
   m_Material_keys: []
   m_Bool_values: 0101
+<<<<<<< HEAD
   m_Int_values: 01000000000000000000000002000000
+=======
+<<<<<<< HEAD
+  m_Int_values: 00000000010000000200000000000000
+=======
+  m_Int_values: 010000000000000000000000
+>>>>>>> 166b8b8cbcf581818a3e21ff5dd6bcc99feb722a
+>>>>>>> 04c721a3afd6b758dbacc1fb19073a39d4ef5d5e
   m_Float_values:
   - 0
   - 0

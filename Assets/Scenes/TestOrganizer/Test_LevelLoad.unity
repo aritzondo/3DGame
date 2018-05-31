@@ -3701,6 +3701,10 @@ Prefab:
       propertyPath: m_selectedTriangles.Array.data[5]
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4876178430392760, guid: 5bc3e1392e1490a4bbfc2ae40e327b47, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5bc3e1392e1490a4bbfc2ae40e327b47, type: 2}
   m_IsPrefabParent: 0
