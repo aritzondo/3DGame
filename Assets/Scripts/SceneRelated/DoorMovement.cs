@@ -118,6 +118,11 @@ public class DoorMovement : MonoBehaviour {
         return state == State.Close;
     }
 
+    public void resetIniPos()
+    {
+        initialPosition = transform.position;
+    }
+
 
     public IEnumerator LoadAsyncScene()
     {

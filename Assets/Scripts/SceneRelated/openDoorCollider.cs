@@ -10,6 +10,7 @@ public class OpenDoorCollider : MonoBehaviour {
         {
             GameObject door = other.gameObject;
             DoorMovement dMove = door.GetComponent<DoorMovement>();
+            dMove.resetIniPos();
             dMove.startMovement();
 
             StartCoroutine(dMove.LoadAsyncScene());

@@ -10,6 +10,8 @@ public class Activable : MonoBehaviour {
     protected bool inLight = false;
     protected bool activated = false;
 
+    public bool InLight { get { return inLight; } }
+
     protected void Update()
     {
         if (inLight)

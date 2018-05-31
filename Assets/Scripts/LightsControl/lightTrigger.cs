@@ -29,6 +29,25 @@ public class lightTrigger : MonoBehaviour {
             }
         }
     }
+    void OnTriggerStay(Collider other)
+    {
+        Activable activator = other.gameObject.GetComponent<Activable>();
+        if (activator != null && !activator.InLight)
+        {
+            RaycastHit hit;
+            Vector3 direction = other.transform.position - mLigth.transform.position;
+            Ray lightRay = new Ray(mLigth.transform.position, direction);
+            Debug.DrawRay(lightRay.origin, lightRay.direction * 10);
+            if (Physics.Raycast(lightRay, out hit, mLigth.range) && mLigth.isActiveAndEnabled)
+            {
+                //if the ray hits the same object the have enter in the trigger and it's illuminable, we change it's color
+                if (other.gameObject.GetInstanceID() == hit.transform.gameObject.GetInstanceID())
+                {
+                    activator.enterInLight();
+                }
+            }
+        }
+    }
 
 
     private void OnTriggerExit(Collider other)
