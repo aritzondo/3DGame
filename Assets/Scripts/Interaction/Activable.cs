@@ -9,7 +9,9 @@ public class Activable : MonoBehaviour {
     protected float timeInLight = 0.0f;
     protected bool inLight = false;
     protected bool activated = false;
+    protected int lightsDetected = 0;
 
+    public int LightsDetected { get { return lightsDetected; } }
     public bool InLight { get { return inLight; } }
 
     protected void Update()
@@ -35,12 +37,17 @@ public class Activable : MonoBehaviour {
     {
         timeInLight += Time.deltaTime;
         inLight = true;
+        lightsDetected++;
     }
 
     public virtual void exitLight()
     {
-        timeInLight = 0.0f;
-        inLight = false;
-        activated = false;
+        lightsDetected--;
+        if (lightsDetected <= 0)
+        {
+            timeInLight = 0.0f;
+            inLight = false;
+            activated = false;
+        }
     }
 }
