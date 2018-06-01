@@ -65,8 +65,6 @@ public class PlatformMovement : MonoBehaviour {
         float dt = Time.deltaTime;
         Vector3 direction = waypoints[currentWaypoint].position - transform.position;
         dist = direction.magnitude;
-        Debug.Log(velocity);
-
 
         orientation = Mathf.Clamp(dist, -1.0f, 1);
         float velOffset = (maxSpeed * orientation) - velocity;
