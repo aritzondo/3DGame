@@ -68,13 +68,13 @@ public class LevelsMusicManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayNew(level1Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_11, AudioManager.SoundLevel1.SOUND_LEVEL1_12, ref play11, ref play12);
-        PlayNew(level2Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_21, AudioManager.SoundLevel1.SOUND_LEVEL1_22, ref play21, ref play22);
-        PlayNew(level3Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_31, AudioManager.SoundLevel1.SOUND_LEVEL1_32, ref play31, ref play32);
-        PlayNew(level4Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_41, AudioManager.SoundLevel1.SOUND_LEVEL1_42, ref play41, ref play42);
-        PlayNew(level5Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_51, AudioManager.SoundLevel1.SOUND_LEVEL1_52, ref play51, ref play52);
-        PlayNew(level6Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_61, AudioManager.SoundLevel1.SOUND_LEVEL1_62, ref play61, ref play62);
-        PlayNew(level7Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_71, AudioManager.SoundLevel1.SOUND_LEVEL1_72, ref play71, ref play72);
+        PlayNew(ref level1Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_11, AudioManager.SoundLevel1.SOUND_LEVEL1_12, ref play11, ref play12);
+        PlayNew(ref level2Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_21, AudioManager.SoundLevel1.SOUND_LEVEL1_22, ref play21, ref play22);
+        PlayNew(ref level3Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_31, AudioManager.SoundLevel1.SOUND_LEVEL1_32, ref play31, ref play32);
+        PlayNew(ref level4Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_41, AudioManager.SoundLevel1.SOUND_LEVEL1_42, ref play41, ref play42);
+        PlayNew(ref level5Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_51, AudioManager.SoundLevel1.SOUND_LEVEL1_52, ref play51, ref play52);
+        PlayNew(ref level6Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_61, AudioManager.SoundLevel1.SOUND_LEVEL1_62, ref play61, ref play62);
+        PlayNew(ref level7Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_71, AudioManager.SoundLevel1.SOUND_LEVEL1_72, ref play71, ref play72);
 
         PlayGeneral(AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_COMPLETE1, AudioManager.SoundLevel1.SOUND_LEVEL1_COMPLETE2, ref playGeneral1, ref playGeneral2);
 
@@ -117,7 +117,7 @@ public class LevelsMusicManager : MonoBehaviour
         }
     }
 
-    void PlayNew(bool code, AudioManager.SoundLevel1 reference, AudioManager.SoundLevel1 newSound1, AudioManager.SoundLevel1 newSound2, ref bool boolean1, ref bool boolean2)
+    void PlayNew(ref bool code, AudioManager.SoundLevel1 reference, AudioManager.SoundLevel1 newSound1, AudioManager.SoundLevel1 newSound2, ref bool boolean1, ref bool boolean2)
     {
         if (code)
         {

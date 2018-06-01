@@ -11,7 +11,14 @@ public class PauseMenu : MonoBehaviour
     public GameObject keyboardTutorial;
     public GameObject crosshair;
 
+    private bool isGameFinished;
     private float timeToChangeBg;
+
+    public bool GameOver
+    {
+        get { return isGameFinished; }
+        set { isGameFinished = value; }
+    }
 
     private void Start()
     {
@@ -22,7 +29,17 @@ public class PauseMenu : MonoBehaviour
     void Update ()
     {
         KeyboardTutorialControl();
-        
+
+        if(isGameFinished)
+        {
+            GetComponentInChildren<Animator>().SetTrigger("GameEnd");
+            
+            if(Input.anyKey)
+            {
+                Application.Quit();
+            }
+        }
+
 		if(Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
