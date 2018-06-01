@@ -33,7 +33,7 @@ public class DoorFrameManager : MonoBehaviour {
 
     public int AddCompleteLevel()
     {
-        doorFrames[newLevelStarted].GetComponent<LevelCompletedCheck>().FinishedLevel();
+        //doorFrames[newLevelStarted].GetComponent<LevelCompletedCheck>().FinishedLevel();
         ++levelsCompleted;
         return levelsCompleted;
     }
