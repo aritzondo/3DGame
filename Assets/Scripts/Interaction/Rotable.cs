@@ -31,7 +31,7 @@ public class Rotable : MonoBehaviour {
 
     void Start()
     {
-        cubeIniRot = transform.rotation;
+        cubeIniRot = transform.localRotation;
         player = AudioManager.GetInstance().player.GetComponent<CharacterMovement>();
     }
 
@@ -54,7 +54,7 @@ public class Rotable : MonoBehaviour {
                 {
                     transform.rotation = Quaternion.Euler(nextAngle);
                     state = State.Idle;
-                    cubeIniRot = transform.rotation;
+                    cubeIniRot = transform.localRotation;
                 }
                 else
                 {
@@ -102,7 +102,7 @@ public class Rotable : MonoBehaviour {
         {
             state = State.Idle;
         }
-        cubeIniRot = transform.rotation;
+        cubeIniRot = transform.localRotation;
 
         Camera.main.GetComponent<CameraMovement>().enabled = true;
         player.GetComponent<CharacterMovement>().SetInteracting(false);
