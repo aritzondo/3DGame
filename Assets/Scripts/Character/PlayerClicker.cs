@@ -53,7 +53,7 @@ public class PlayerClicker : MonoBehaviour {
                     //Cast a ray from the camera to his forward
                     Ray ray = new Ray(cam.transform.position, cam.transform.forward);
                     RaycastHit hit;
-                    if (Physics.Raycast(ray, out hit, 10.0f))
+                    if (Physics.Raycast(ray, out hit, 1.5f))
                     {
                         Movable moveScript = hit.transform.gameObject.GetComponent<Movable>();
                         if (moveScript != null && moveScript.isActiveAndEnabled)
@@ -75,7 +75,7 @@ public class PlayerClicker : MonoBehaviour {
                     //Cast a ray from the camera to his forward
                     Ray ray = new Ray(cam.transform.position, cam.transform.forward);
                     RaycastHit hit;
-                    if (Physics.Raycast(ray, out hit, 10.0f))
+                    if (Physics.Raycast(ray, out hit, 1.5f))
                     {
                         Rotable rotateScript = hit.transform.gameObject.GetComponent<Rotable>();
                         if (rotateScript != null && rotateScript.isActiveAndEnabled)
