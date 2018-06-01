@@ -27,7 +27,7 @@ public class Rotable : MonoBehaviour {
         Rotating
     }
     
-    private CharacterMovement player;
+    protected CharacterMovement player;
 
     void Start()
     {
