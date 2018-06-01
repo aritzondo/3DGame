@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour {
 
     #region Public Attributes
     public GameObject player;
+    public LevelsMusicManager musicManager;
     public Sound[] sounds = new Sound[(int)SoundLevel1.COUNT];
 
     public enum SoundLevel1
