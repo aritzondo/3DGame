@@ -10,12 +10,4 @@ public class LevelCompletedCheck : MonoBehaviour {
     {
         GetComponent<Renderer>().material = finishedColor;
     }
-    
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            FinishedLevel();
-        }
-    }*/
 }

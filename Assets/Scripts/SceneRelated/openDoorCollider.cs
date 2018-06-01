@@ -6,7 +6,7 @@ public class OpenDoorCollider : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "door" && gameObject.GetComponent<MeshCollider>().enabled)
+        if(other.gameObject.tag == "door" && gameObject.GetComponent<Collider>().enabled)
         {
             GameObject door = other.gameObject;
             DoorMovement dMove = door.GetComponent<DoorMovement>();
