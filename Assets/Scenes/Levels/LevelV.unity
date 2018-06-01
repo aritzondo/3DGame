@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -26385,6 +26385,21 @@ Prefab:
       propertyPath: cameraB
       value: 
       objectReference: {fileID: 995722961}
+    - target: {fileID: 114657045101344104, guid: 5bc3e1392e1490a4bbfc2ae40e327b47,
+        type: 2}
+      propertyPath: cameraMatA
+      value: 
+      objectReference: {fileID: 2100000, guid: ca7dfdf018292b64d848dff198fe5ac5, type: 2}
+    - target: {fileID: 114657045101344104, guid: 5bc3e1392e1490a4bbfc2ae40e327b47,
+        type: 2}
+      propertyPath: cameraMatB
+      value: 
+      objectReference: {fileID: 2100000, guid: ca7dfdf018292b64d848dff198fe5ac5, type: 2}
+    - target: {fileID: 23665209363036864, guid: 5bc3e1392e1490a4bbfc2ae40e327b47,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca7dfdf018292b64d848dff198fe5ac5, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5bc3e1392e1490a4bbfc2ae40e327b47, type: 2}
   m_IsPrefabParent: 0
