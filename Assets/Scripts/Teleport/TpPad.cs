@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class TpPad : MonoBehaviour {
 
-    public Transform Tplayer;
+    
     public GameObject tpPoint;
 
     private GameObject player;
     private float dotPortals;
+    private Transform Tplayer;
 
     private void Start()
     {
+        player = GameObject.Find("/Player");
+        Debug.Log(player);
+        Tplayer = player.transform;
         dotPortals = Vector3.Dot(Tplayer.transform.forward, tpPoint.transform.forward);
     }
 
