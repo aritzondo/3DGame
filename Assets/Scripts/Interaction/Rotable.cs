@@ -67,7 +67,7 @@ public class Rotable : MonoBehaviour {
                 rotX += Input.GetAxis("Mouse Y") * sensitivity * dt;
                 rotY -= Input.GetAxis("Mouse X") * sensitivity * dt;
                 //apply the rotation of the mouse
-                transform.rotation = Quaternion.Euler(rotX, rotY, 0) * cubeIniRot;
+                transform.localRotation = Quaternion.Euler(rotX, rotY, 0) * cubeIniRot;
                 break;
         }
     }
