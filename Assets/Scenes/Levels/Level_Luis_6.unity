@@ -16359,7 +16359,7 @@ GameObject:
   - component: {fileID: 1004171223}
   - component: {fileID: 1004171222}
   m_Layer: 0
-  m_Name: Camera_B
+  m_Name: Camera_Level_Luis_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
