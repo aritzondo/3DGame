@@ -21,8 +21,13 @@ MonoBehaviour:
   m_String_keys: []
   m_Color_keys: []
   m_Material_keys: []
+<<<<<<< HEAD
   m_Bool_values: 01
   m_Int_values: 00000000
+=======
+  m_Bool_values: 
+  m_Int_values: 01000000
+>>>>>>> 5e63a4c7b0f3ba71dda40c7a6f189fde2cafb8e5
   m_Float_values:
   - 0
   - 0

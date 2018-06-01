@@ -1285,6 +1285,11 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!4 &328895742 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4580391004349220, guid: 5bc3e1392e1490a4bbfc2ae40e327b47,
+    type: 2}
+  m_PrefabInternal: {fileID: 1186387763}
 --- !u!43 &385565787
 Mesh:
   m_ObjectHideFlags: 0
@@ -3817,6 +3822,30 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: -38.6
       objectReference: {fileID: 0}
+    - target: {fileID: 1200695410539908, guid: 5bc3e1392e1490a4bbfc2ae40e327b47, type: 2}
+      propertyPath: m_Name
+      value: Camera_Level_Luis_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114233473015890628, guid: 5bc3e1392e1490a4bbfc2ae40e327b47,
+        type: 2}
+      propertyPath: cameraB
+      value: 
+      objectReference: {fileID: 328895742}
+    - target: {fileID: 114657045101344104, guid: 5bc3e1392e1490a4bbfc2ae40e327b47,
+        type: 2}
+      propertyPath: cameraMatA
+      value: 
+      objectReference: {fileID: 2100000, guid: 844f1af90d3181a42a3dbee715bd5976, type: 2}
+    - target: {fileID: 114657045101344104, guid: 5bc3e1392e1490a4bbfc2ae40e327b47,
+        type: 2}
+      propertyPath: cameraMatB
+      value: 
+      objectReference: {fileID: 2100000, guid: 844f1af90d3181a42a3dbee715bd5976, type: 2}
+    - target: {fileID: 23665209363036864, guid: 5bc3e1392e1490a4bbfc2ae40e327b47,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 844f1af90d3181a42a3dbee715bd5976, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5bc3e1392e1490a4bbfc2ae40e327b47, type: 2}
   m_IsPrefabParent: 0

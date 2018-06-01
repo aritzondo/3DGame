@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CameraMat_A
-  m_Shader: {fileID: 4800000, guid: 5c41acc97e19e5d4a8e5a58d29b417c5, type: 3}
+  m_Name: CelShadingForwardGray
+  m_Shader: {fileID: 4800000, guid: 7128bc847ce25d74aa308641733d73aa, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -72,5 +72,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.10980392, g: 0.10980392, b: 0.10980392, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _TintColor: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}

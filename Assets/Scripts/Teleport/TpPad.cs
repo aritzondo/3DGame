@@ -28,27 +28,17 @@ public class TpPad : MonoBehaviour {
             float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
             if (dotProduct < 0.0f)
             {
+                Camera mainCamera = Camera.main;
+
                 player = col.transform.gameObject;
 
                 float myF = player.transform.eulerAngles.y + (tpPoint.transform.eulerAngles.y - transform.eulerAngles.y + 180.0f);
+
+                float cameraOffset = player.transform.position.y - mainCamera.transform.position.y;
                 
-                /*Vector3 newPos = player.transform.position;
-                newPos.y = tpPoint.transform.position.y + (newPos.y - transform.position.y);
+               player.transform.position = new Vector3(cameraB.position.x, cameraB.position.y+cameraOffset, cameraB.position.z);
 
-                if (dotPortals < 0)
-                {
-                    newPos.x = tpPoint.transform.position.x - (newPos.x - transform.position.x);
-                    newPos.z = tpPoint.transform.position.z - (newPos.z - transform.position.z);
-                }
-                else
-                {
-                    newPos.x = tpPoint.transform.position.x + (newPos.x - transform.position.x);
-                    newPos.z = tpPoint.transform.position.z + (newPos.z - transform.position.z);
-                }
-                player.transform.position = newPos;*/
-                player.transform.position = new Vector3(cameraB.position.x, player.transform.position.y, cameraB.position.z);
-
-                Camera.main.GetComponent<CameraMovement>().SetMouseLookX(myF);
+                mainCamera.GetComponent<CameraMovement>().SetMouseLookX(myF);
             }
         }
         

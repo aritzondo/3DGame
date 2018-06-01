@@ -6454,6 +6454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tpPoint: {fileID: 501035195}
+  cameraB: {fileID: 1899293658}
 --- !u!23 &957791066
 MeshRenderer:
   m_ObjectHideFlags: 0
