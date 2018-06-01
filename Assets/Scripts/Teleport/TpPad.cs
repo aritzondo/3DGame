@@ -11,10 +11,11 @@ public class TpPad : MonoBehaviour {
     private float dotPortals;
     private Transform Tplayer;
     private LevelsMusicManager musicManager;
-    //private DoorFrameManager frameManager;
+    private DoorFrameManager frameManager;
 
     private void Start()
     {
+        frameManager = DoorFrameManager.GetInstance();
         musicManager = AudioManager.GetInstance().musicManager;
         player = AudioManager.GetInstance().player;
         Debug.Log(player);
@@ -26,7 +27,7 @@ public class TpPad : MonoBehaviour {
     {
         if (col.tag=="Player")
         {
-            //musicManager.levelFinished(frameManager.addCompleteLevel());
+            musicManager.levelFinished(frameManager.AddCompleteLevel());
 
             Vector3 portalToPlayer = Tplayer.position - transform.position;
             float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
