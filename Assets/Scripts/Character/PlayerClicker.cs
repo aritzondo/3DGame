@@ -29,7 +29,6 @@ public class PlayerClicker : MonoBehaviour {
         get { return carrying; }
     }
 
-
     private void Start()
     {
         moveScript = gameObject.GetComponent<CharacterMovement>();
@@ -58,7 +57,7 @@ public class PlayerClicker : MonoBehaviour {
                     {
                         Movable moveScript = hit.transform.gameObject.GetComponent<Movable>();
                         if (moveScript != null && moveScript.isActiveAndEnabled)
-                        {
+                        {   
                             moveScript.Carry(cam.transform, carryOffset);
                             carrying = true;
                         }

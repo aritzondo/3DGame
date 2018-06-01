@@ -44,7 +44,7 @@ public class DropTrigger : MonoBehaviour {
         showDropSite(false);
     }
 
-    private void showDropSite(bool show)
+    public void showDropSite(bool show)
     {
         showing = show;
         hint.SetActive(show);

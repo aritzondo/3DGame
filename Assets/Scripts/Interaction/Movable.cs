@@ -27,7 +27,6 @@ public class Movable : MonoBehaviour {
 
         transform.SetParent(parent);
         transform.localPosition = offset;
-        transform.localRotation = Quaternion.identity;
         if(mLight != null)
         {
             CheckLightActive checkScript = GetComponentInChildren<CheckLightActive>();
@@ -45,12 +44,12 @@ public class Movable : MonoBehaviour {
 
     public void Release()
     {
+        hook.showDropSite(false);
 
         Transform dropPoint = hook.dropPoint;
         hook.empty = false;
         transform.parent = null;
         transform.position = dropPoint.position;
-        transform.rotation = dropPoint.rotation;
         CheckLightActive checkScript = GetComponentInChildren<CheckLightActive>();
         if (checkScript != null)
         {
@@ -60,6 +59,11 @@ public class Movable : MonoBehaviour {
         else
         {
             mLight.enabled = true;
+        }
+        Rotable rot = gameObject.GetComponent<Rotable>();
+        if(rot != null)
+        {
+            rot.released();
         }
     }
 }
