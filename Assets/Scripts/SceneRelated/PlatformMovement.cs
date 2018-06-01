@@ -10,24 +10,44 @@ public class PlatformMovement : MonoBehaviour {
     public float stopTime;
     public float maxSpeed;
     public float accel;
+    public bool canMove;
     #endregion
 
     #region PRIVATE VARIABLES
-    private bool canMove;
     private int currentWaypoint;
     private float velocity;
     private float dist;
     private float orientation;
     private bool timeRun;
     private float targetTime;
+    private bool ableToChangeWp;
+    private bool returningToOrigin;
 
     #endregion
 
     #region PROPERTIES
+    public int ChangeCurrWaypoint
+    {
+        get { return currentWaypoint; }
+        set { currentWaypoint = value; }
+    }
+
     public bool CanMove
     {
         get { return canMove; }
         set { canMove = value; }
+    }
+
+    public bool ChangeWp
+    {
+        get { return ableToChangeWp; }
+        set { ableToChangeWp = value; }
+    }
+
+    public bool Return
+    {
+        get { return returningToOrigin; }
+        set { returningToOrigin = value; }
     }
     #endregion
 
@@ -35,10 +55,12 @@ public class PlatformMovement : MonoBehaviour {
     void Start ()
     {
         transform.position = waypoints[0].position;
+        
         currentWaypoint = 1;
-        canMove = true;
+        ableToChangeWp = true;
+        returningToOrigin = false;
 
-        if(canMove)
+        if (canMove)
         {
             timeRun = true;
         }
@@ -55,6 +77,11 @@ public class PlatformMovement : MonoBehaviour {
         if (canMove)
         {
             MovePlatform();
+        }
+
+        if(returningToOrigin)
+        {
+            ReturnToOrigin();
         }
 	}
 	
@@ -78,7 +105,7 @@ public class PlatformMovement : MonoBehaviour {
             {
                 timeRun = false;
 
-                if(Time.time >= targetTime)
+                if(Time.time >= targetTime && ableToChangeWp)
                 {
                     timeRun = true;
                     currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
@@ -89,9 +116,18 @@ public class PlatformMovement : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWaypoint].position, velocity * dt);
     }
 
+    private void ReturnToOrigin()
+    {
+        if (transform.position == waypoints[0].position)
+        {
+            ableToChangeWp = true;
+            returningToOrigin = false;
+            canMove = false;
+        }
+    }
+
 
     //STAY ON THE PLATFORM
-
 
     private void OnTriggerStay(Collider other)
     {
@@ -109,6 +145,8 @@ public class PlatformMovement : MonoBehaviour {
 
         }
     }
+
+   
 
     #endregion
 

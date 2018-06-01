@@ -34,14 +34,12 @@ public class PauseMenu : MonoBehaviour
                 GPause();
             }
         }
-
-        
     }
     
     private void KeyboardTutorialControl()
     {
 
-        if (!Input.anyKeyDown && !isPaused)
+        if (!Input.anyKeyDown && !Input.anyKey && !isPaused)
         {
             timeToChangeBg -= Time.deltaTime;
 
