@@ -6,6 +6,7 @@ public class TpPad : MonoBehaviour {
 
     
     public GameObject tpPoint;
+    public Transform cameraB;
 
     private GameObject player;
     private float dotPortals;
@@ -31,7 +32,7 @@ public class TpPad : MonoBehaviour {
 
                 float myF = player.transform.eulerAngles.y + (tpPoint.transform.eulerAngles.y - transform.eulerAngles.y + 180.0f);
                 
-                Vector3 newPos = player.transform.position;
+                /*Vector3 newPos = player.transform.position;
                 newPos.y = tpPoint.transform.position.y + (newPos.y - transform.position.y);
 
                 if (dotPortals < 0)
@@ -44,7 +45,8 @@ public class TpPad : MonoBehaviour {
                     newPos.x = tpPoint.transform.position.x + (newPos.x - transform.position.x);
                     newPos.z = tpPoint.transform.position.z + (newPos.z - transform.position.z);
                 }
-                player.transform.position = newPos;
+                player.transform.position = newPos;*/
+                player.transform.position = new Vector3(cameraB.position.x, player.transform.position.y, cameraB.position.z);
 
                 Camera.main.GetComponent<CameraMovement>().SetMouseLookX(myF);
             }
