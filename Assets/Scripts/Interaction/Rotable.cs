@@ -7,6 +7,7 @@ public class Rotable : MonoBehaviour {
 	//public attributes
     public CharacterMovement player;
     public float sensitivity = 100.0f;   //sensitivity of the rotation with the mouse
+    public bool only90degrees = false;
     //private attributes
     protected float rotX = 0.0f;  //the ammount of rotation on x
     protected float rotY = 0.0f;  //the ammount of rotation on y
@@ -88,9 +89,16 @@ public class Rotable : MonoBehaviour {
     {
         rotX = 0;
         rotY = 0;
-        adjustAngle();
-        state = State.Adjusting;
-        rotTime = 0;
+        if (only90degrees)
+        {
+            adjustAngle();
+            state = State.Adjusting;
+            rotTime = 0;
+        }
+        else
+        {
+            state = State.Idle;
+        }
         cubeIniRot = transform.rotation;
 
         Camera.main.GetComponent<CameraMovement>().enabled = true;
