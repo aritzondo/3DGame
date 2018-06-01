@@ -130,7 +130,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2151978
 Transform:
@@ -2782,7 +2782,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh203926
+  m_Name: pb_Mesh215166
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -3054,7 +3054,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh203820
+  m_Name: pb_Mesh215060
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -4035,7 +4035,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &121040230
 Transform:
@@ -4062,6 +4062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &121040232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4469,7 +4470,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh205674
+  m_Name: pb_Mesh216926
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -5000,7 +5001,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &174271621
 Transform:
@@ -5456,7 +5457,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &179859371
 Transform:
@@ -5483,6 +5484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &179859373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6157,7 +6159,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &192869715
 Transform:
@@ -6184,6 +6186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &192869717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6673,7 +6676,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &210348865
 Transform:
@@ -7015,7 +7018,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh205612
+  m_Name: pb_Mesh216864
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -7173,7 +7176,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &218318334
 Transform:
@@ -7200,6 +7203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &218318336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7736,7 +7740,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-649634
+  m_Name: pb_Mesh216944
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -7958,7 +7962,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh206066
+  m_Name: pb_Mesh217318
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -9438,7 +9442,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &276579117
 Transform:
@@ -9465,6 +9469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &276579119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10060,7 +10065,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &315654428
 Transform:
@@ -10711,7 +10716,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &346875306
 Transform:
@@ -11402,7 +11407,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh203054
+  m_Name: pb_Mesh214294
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -11548,7 +11553,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh202742
+  m_Name: pb_Mesh213982
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -11882,7 +11887,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh203082
+  m_Name: pb_Mesh214322
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -13954,7 +13959,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &432767035
 Transform:
@@ -13981,6 +13986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &432767037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16507,7 +16513,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh202862
+  m_Name: pb_Mesh214102
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -16729,7 +16735,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh203244
+  m_Name: pb_Mesh214484
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -17972,7 +17978,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &584646293
 Transform:
@@ -18314,7 +18320,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh203014
+  m_Name: pb_Mesh214254
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -18471,7 +18477,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &590125416
 Transform:
@@ -18889,7 +18895,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh204856
+  m_Name: pb_Mesh216098
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -19257,7 +19263,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh205052
+  m_Name: pb_Mesh216294
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -20413,7 +20419,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh205238
+  m_Name: pb_Mesh216490
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -20559,7 +20565,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh203462
+  m_Name: pb_Mesh214702
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -21459,7 +21465,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh202792
+  m_Name: pb_Mesh214032
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -21681,7 +21687,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh203474
+  m_Name: pb_Mesh214714
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -25164,7 +25170,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &691248470
 Transform:
@@ -30581,7 +30587,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh205352
+  m_Name: pb_Mesh216604
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -30999,7 +31005,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &773322937
 Transform:
@@ -31931,7 +31937,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &818602637
 Transform:
@@ -31958,6 +31964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &818602639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33674,7 +33681,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh205456
+  m_Name: pb_Mesh216708
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -34144,7 +34151,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh205468
+  m_Name: pb_Mesh216720
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -34302,7 +34309,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &874383847
 Transform:
@@ -34329,6 +34336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &874383849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34877,7 +34885,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh204660
+  m_Name: pb_Mesh215902
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -37803,7 +37811,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &949911389
 Transform:
@@ -37830,6 +37838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &949911391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41525,7 +41534,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-868756
+  m_Name: pb_Mesh217346
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -41682,7 +41691,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &969903360
 Transform:
@@ -42543,7 +42552,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh204062
+  m_Name: pb_Mesh215302
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -43410,7 +43419,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1069640898
 Transform:
@@ -43980,7 +43989,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh203634
+  m_Name: pb_Mesh214874
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -47781,7 +47790,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh202812
+  m_Name: pb_Mesh214052
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -52578,7 +52587,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh203774
+  m_Name: pb_Mesh215014
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -53290,7 +53299,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh205430
+  m_Name: pb_Mesh216682
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -53448,7 +53457,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1184042888
 Transform:
@@ -53475,6 +53484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &1184042890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53827,7 +53837,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh202530
+  m_Name: pb_Mesh213770
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -55776,7 +55786,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1199137791
 Transform:
@@ -56194,7 +56204,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-649632
+  m_Name: pb_Mesh214142
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -57080,7 +57090,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh206222
+  m_Name: pb_Mesh217488
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -57648,7 +57658,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1255810909
 Transform:
@@ -57675,6 +57685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &1255810911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58336,7 +58347,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh205946
+  m_Name: pb_Mesh217198
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -58494,7 +58505,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1285627192
 Transform:
@@ -58521,6 +58532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &1285627194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59396,7 +59408,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh204232
+  m_Name: pb_Mesh215474
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -60602,7 +60614,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1328721881
 Transform:
@@ -64881,7 +64893,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1386655954
 Transform:
@@ -64908,6 +64920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &1386655956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66928,7 +66941,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh205302
+  m_Name: pb_Mesh216554
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -71464,7 +71477,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1484891958
 Transform:
@@ -72192,7 +72205,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1525177831
 Transform:
@@ -72219,6 +72232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &1525177833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72557,7 +72571,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1526030684
 Transform:
@@ -72584,6 +72598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &1526030686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76246,7 +76261,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1552434971
 Transform:
@@ -78698,7 +78713,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1590207749
 Transform:
@@ -78725,6 +78740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &1590207751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79127,7 +79143,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh204098
+  m_Name: pb_Mesh215340
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -79618,7 +79634,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh205822
+  m_Name: pb_Mesh217074
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -79775,7 +79791,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1637783867
 Transform:
@@ -80468,7 +80484,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh204508
+  m_Name: pb_Mesh215750
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -80626,7 +80642,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1666530960
 Transform:
@@ -80653,6 +80669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &1666530962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82629,7 +82646,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh205522
+  m_Name: pb_Mesh216774
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -82863,7 +82880,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1704819919
 Transform:
@@ -82890,6 +82907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &1704819921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83478,7 +83496,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1734890697
 Transform:
@@ -83505,6 +83523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &1734890699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83842,7 +83861,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1736984923
 Transform:
@@ -86191,7 +86210,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1762276447
 Transform:
@@ -86533,7 +86552,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh202890
+  m_Name: pb_Mesh214130
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -86755,7 +86774,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh204456
+  m_Name: pb_Mesh215698
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -88197,7 +88216,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1820104473
 Transform:
@@ -88539,7 +88558,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh204754
+  m_Name: pb_Mesh215996
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -88697,7 +88716,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1828114580
 Transform:
@@ -88724,6 +88743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &1828114582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89195,7 +89215,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1835027477
 Transform:
@@ -89776,7 +89796,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1857046616
 Transform:
@@ -90205,7 +90225,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1863999583
 Transform:
@@ -91785,7 +91805,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh205016
+  m_Name: pb_Mesh216258
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -92007,7 +92027,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh204610
+  m_Name: pb_Mesh215852
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -92671,7 +92691,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1940370332
 Transform:
@@ -92698,6 +92718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &1940370334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93176,7 +93197,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh205640
+  m_Name: pb_Mesh216892
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -95786,7 +95807,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1996870100
 Transform:
@@ -95813,6 +95834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &1996870102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96477,7 +96499,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh206204
+  m_Name: pb_Mesh217470
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -97073,7 +97095,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh205600
+  m_Name: pb_Mesh216852
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -97991,7 +98013,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2037383340
 Transform:
@@ -98018,6 +98040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &2037383342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98508,7 +98531,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2061999274
 Transform:
@@ -98535,6 +98558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedColor: {fileID: 2100000, guid: de26ab354ed902443958f4e82981fa93, type: 2}
+  closedDoor: {fileID: 0}
 --- !u!114 &2061999276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99367,7 +99391,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-868754
+  m_Name: pb_Mesh216386
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -100447,7 +100471,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh205064
+  m_Name: pb_Mesh216306
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -100908,7 +100932,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2133167686
 Transform:
@@ -101467,7 +101491,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2138304404
 Transform:
