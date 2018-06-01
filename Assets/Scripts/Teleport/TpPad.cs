@@ -13,7 +13,7 @@ public class TpPad : MonoBehaviour {
 
     private void Start()
     {
-        player = GameObject.Find("/Player");
+        player = AudioManager.GetInstance().player;
         Debug.Log(player);
         Tplayer = player.transform;
         dotPortals = Vector3.Dot(Tplayer.transform.forward, tpPoint.transform.forward);
