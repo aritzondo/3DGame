@@ -6,7 +6,7 @@ using System.Collections;
 public class AudioManager : MonoBehaviour {
 
     #region Public Attributes
-    
+    public GameObject player;
     public Sound[] sounds = new Sound[(int)SoundLevel1.COUNT];
 
     public enum SoundLevel1
@@ -84,11 +84,6 @@ public class AudioManager : MonoBehaviour {
             s.source.loop = s.loop;
         }
 	}
-
-    void Start()
-    {
-        
-    }
 
     #endregion
 

@@ -50,7 +50,6 @@ public class Movable : MonoBehaviour {
         hook.empty = false;
         transform.parent = null;
         transform.position = dropPoint.position;
-        transform.rotation = dropPoint.rotation;
         CheckLightActive checkScript = GetComponentInChildren<CheckLightActive>();
         if (checkScript != null)
         {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rotable : MonoBehaviour {
 
 	//public attributes
-    public CharacterMovement player;
+
     public float sensitivity = 100.0f;   //sensitivity of the rotation with the mouse
     public bool only90degrees = false;
     //private attributes
@@ -26,10 +26,13 @@ public class Rotable : MonoBehaviour {
         Waiting,
         Rotating
     }
+    
+    protected CharacterMovement player;
 
     void Start()
     {
-        cubeIniRot = transform.rotation;
+        cubeIniRot = transform.localRotation;
+        player = AudioManager.GetInstance().player.GetComponent<CharacterMovement>();
     }
 
     virtual protected void FixedUpdate()
@@ -51,7 +54,7 @@ public class Rotable : MonoBehaviour {
                 {
                     transform.rotation = Quaternion.Euler(nextAngle);
                     state = State.Idle;
-                    cubeIniRot = transform.rotation;
+                    cubeIniRot = transform.localRotation;
                 }
                 else
                 {
@@ -99,7 +102,7 @@ public class Rotable : MonoBehaviour {
         {
             state = State.Idle;
         }
-        cubeIniRot = transform.rotation;
+        cubeIniRot = transform.localRotation;
 
         Camera.main.GetComponent<CameraMovement>().enabled = true;
         player.GetComponent<CharacterMovement>().SetInteracting(false);

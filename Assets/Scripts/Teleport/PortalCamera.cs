@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PortalCamera : MonoBehaviour
 {
-    public Transform playerCamera;
     public Transform portal1;
     public Transform portal2;
     
@@ -19,7 +18,7 @@ public class PortalCamera : MonoBehaviour
     void LateUpdate()
     {
         
-        Vector3 playerDistanceToPortal = playerCamera.position - portal2.position;
+        Vector3 playerDistanceToPortal = Camera.main.transform.position - portal2.position;
 
         Vector3 newPos = transform.position;
         newPos.y = portal1.position.y + playerDistanceToPortal.y;
@@ -39,7 +38,7 @@ public class PortalCamera : MonoBehaviour
         float PortalsAngle = Quaternion.Angle(portal1.rotation, portal2.rotation);
 
         Quaternion RotationDifference = Quaternion.AngleAxis(PortalsAngle, Vector3.up);
-        Vector3 newCameraDirection = RotationDifference * playerCamera.forward;
+        Vector3 newCameraDirection = RotationDifference * Camera.main.transform.forward;
         transform.rotation = Quaternion.LookRotation(newCameraDirection, Vector3.up);
 
     }
