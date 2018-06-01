@@ -49,6 +49,9 @@ public class LightManager : MonoBehaviour {
     {
         light.enabled = false;
         activeLight = defaultActiveLight;
-        lights[activeLight].enabled = true;
+        if (activeLight < lights.Length && activeLight >= 0)
+        {
+            lights[activeLight].enabled = true;
+        }
     }
 }
