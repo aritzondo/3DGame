@@ -27,7 +27,7 @@ public class TpPad : MonoBehaviour {
     {
         if (col.tag=="Player")
         {
-            //musicManager.levelFinished(frameManager.AddCompleteLevel());
+            musicManager.levelFinished(frameManager.AddCompleteLevel());
 
             Vector3 portalToPlayer = Tplayer.position - transform.position;
             float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
