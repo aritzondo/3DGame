@@ -58,7 +58,7 @@ public class MovingWithMouse : Rotable
                 {
                     //if it was returning we end the rotation and set the time of the next rotation to the adjust time
                     state = State.Idle;
-                    openTrigger.GetComponent<MeshCollider>().enabled = true;
+                    openTrigger.GetComponent<Collider>().enabled = true;
                 }
                 else
                 {
@@ -91,7 +91,7 @@ public class MovingWithMouse : Rotable
             player.GetComponent<CharacterMovement>().SetInteracting(true);
             doors.Clear();
             closeTrigger.GetComponent<MeshCollider>().enabled = true;
-            openTrigger.GetComponent<MeshCollider>().enabled = false;
+            openTrigger.GetComponent<Collider>().enabled = false;
             state = State.Clicked;
         }
     }
@@ -106,7 +106,7 @@ public class MovingWithMouse : Rotable
 
     private void startRotationWithHub()
     {
-        openTrigger.GetComponent<MeshCollider>().enabled = false;
+        openTrigger.GetComponent<Collider>().enabled = false;
 
         if (checkDoorsClosed())
         {

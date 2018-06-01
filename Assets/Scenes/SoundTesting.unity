@@ -229,6 +229,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 345815080}
+  level1Finished: 0
+  level2Finished: 0
+  level3Finished: 0
+  level4Finished: 0
+  level5Finished: 0
+  level6Finished: 0
+  level7Finished: 0
+  level8Finished: 0
+  level9Finished: 0
 --- !u!1 &491661455
 GameObject:
   m_ObjectHideFlags: 0
@@ -2726,6 +2735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carryOffset: {x: 0, y: 1, z: 1}
   cam: {fileID: 491661456}
+  maxDistance: 3
 --- !u!114 &2003483917
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,25 @@ public class AudioLevel01 : MonoBehaviour
 
     public AudioManager manager;
 
+    [HideInInspector]
+    public bool level1Finished = false;
+    [HideInInspector]
+    public bool level2Finished = false;
+    [HideInInspector]
+    public bool level3Finished = false;
+    [HideInInspector]
+    public bool level4Finished = false;
+    [HideInInspector]
+    public bool level5Finished = false;
+    [HideInInspector]
+    public bool level6Finished = false;
+    [HideInInspector]
+    public bool level7Finished = false;
+    [HideInInspector]
+    public bool level8Finished = false;
+    [HideInInspector]
+    public bool level9Finished = false;
+
     #endregion
 
     #region Private Attributes
