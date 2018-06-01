@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142d1d9ecf5138f4d819f366b7701587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carryOffset: {x: 0, y: 1, z: 1}
+  carryOffset: {x: 0, y: -1, z: 1}
   cam: {fileID: 20040164825250030}
 --- !u!114 &114946550984673014
 MonoBehaviour:
