@@ -8,14 +8,21 @@ public class PauseMenu : MonoBehaviour
     //you can use it in other scripts
     public static bool isPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject keyboardTutorial;
+    public GameObject crosshair;
+
+    private float timeToChangeBg;
 
     private void Start()
     {
+        timeToChangeBg = 5.0f;
         isPaused = false;
     }
 
     void Update ()
     {
+        KeyboardTutorialControl();
+        
 		if(Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
@@ -31,6 +38,29 @@ public class PauseMenu : MonoBehaviour
         
     }
     
+    private void KeyboardTutorialControl()
+    {
+
+        if (!Input.anyKeyDown && !isPaused)
+        {
+            timeToChangeBg -= Time.deltaTime;
+
+            if (timeToChangeBg <= 0.0f)
+            {
+                keyboardTutorial.SetActive(true);
+                crosshair.SetActive(false);
+            }
+        }
+        
+        else
+        {
+            timeToChangeBg = 5.0f;
+            keyboardTutorial.SetActive(false);
+            crosshair.SetActive(true);
+
+        }
+    }
+
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
