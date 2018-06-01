@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class AudioLevel01 : MonoBehaviour
+public class LevelsMusicManager : MonoBehaviour
 {
     #region Public Attributes
 
@@ -68,25 +68,62 @@ public class AudioLevel01 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayNew(KeyCode.Alpha1, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_11, AudioManager.SoundLevel1.SOUND_LEVEL1_12, ref play11, ref play12);
-        PlayNew(KeyCode.Alpha2, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_21, AudioManager.SoundLevel1.SOUND_LEVEL1_22, ref play21, ref play22);
-        PlayNew(KeyCode.Alpha3, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_31, AudioManager.SoundLevel1.SOUND_LEVEL1_32, ref play31, ref play32);
-        PlayNew(KeyCode.Alpha4, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_41, AudioManager.SoundLevel1.SOUND_LEVEL1_42, ref play41, ref play42);
-        PlayNew(KeyCode.Alpha5, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_51, AudioManager.SoundLevel1.SOUND_LEVEL1_52, ref play51, ref play52);
-        PlayNew(KeyCode.Alpha6, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_61, AudioManager.SoundLevel1.SOUND_LEVEL1_62, ref play61, ref play62);
-        PlayNew(KeyCode.Alpha7, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_71, AudioManager.SoundLevel1.SOUND_LEVEL1_72, ref play71, ref play72);
+        PlayNew(level1Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_11, AudioManager.SoundLevel1.SOUND_LEVEL1_12, ref play11, ref play12);
+        PlayNew(level2Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_21, AudioManager.SoundLevel1.SOUND_LEVEL1_22, ref play21, ref play22);
+        PlayNew(level3Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_31, AudioManager.SoundLevel1.SOUND_LEVEL1_32, ref play31, ref play32);
+        PlayNew(level4Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_41, AudioManager.SoundLevel1.SOUND_LEVEL1_42, ref play41, ref play42);
+        PlayNew(level5Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_51, AudioManager.SoundLevel1.SOUND_LEVEL1_52, ref play51, ref play52);
+        PlayNew(level6Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_61, AudioManager.SoundLevel1.SOUND_LEVEL1_62, ref play61, ref play62);
+        PlayNew(level7Finished, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_71, AudioManager.SoundLevel1.SOUND_LEVEL1_72, ref play71, ref play72);
 
-        PlayGeneral(KeyCode.Alpha8, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_COMPLETE1, AudioManager.SoundLevel1.SOUND_LEVEL1_COMPLETE2, ref playGeneral1, ref playGeneral2);
+        PlayGeneral(AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_COMPLETE1, AudioManager.SoundLevel1.SOUND_LEVEL1_COMPLETE2, ref playGeneral1, ref playGeneral2);
 
-        PlayEnding(KeyCode.Alpha9, AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_ENDING, ref playEnding);
+        PlayEnding(AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, AudioManager.SoundLevel1.SOUND_LEVEL1_ENDING, ref playEnding);
     }
 
-    void PlayNew(KeyCode code, AudioManager.SoundLevel1 reference, AudioManager.SoundLevel1 newSound1, AudioManager.SoundLevel1 newSound2, ref bool boolean1, ref bool boolean2)
+    public void levelFinished(int levelsCompleted)
     {
-        if (Input.GetKeyDown(code))
+        switch (levelsCompleted)
+        {
+            case 1:
+                level1Finished = true;
+                break;
+            case 2:
+                level2Finished = true;
+                break;
+            case 3:
+                level3Finished = true;
+                break;
+            case 4:
+                level4Finished = true;
+                break;
+            case 5:
+                level5Finished = true;
+                break;
+            case 6:
+                level6Finished = true;
+                break;
+            case 7:
+                level7Finished = true;
+                break;
+            case 8:
+                level8Finished = true;
+                break;
+            case 9:
+                level9Finished = true;
+                break;
+            default:
+                break;
+        }
+    }
+
+    void PlayNew(bool code, AudioManager.SoundLevel1 reference, AudioManager.SoundLevel1 newSound1, AudioManager.SoundLevel1 newSound2, ref bool boolean1, ref bool boolean2)
+    {
+        if (code)
         {
             manager.Loop((int)reference, false);
             boolean1 = true;
+            code = false;
         }
 
         if (!manager.IsPlaying((int)reference) && boolean1)
@@ -106,9 +143,9 @@ public class AudioLevel01 : MonoBehaviour
         }
     }
 
-    void PlayGeneral(KeyCode code, AudioManager.SoundLevel1 reference, AudioManager.SoundLevel1 newSound1, AudioManager.SoundLevel1 newSound2, ref bool boolean1, ref bool boolean2)
+    void PlayGeneral(AudioManager.SoundLevel1 reference, AudioManager.SoundLevel1 newSound1, AudioManager.SoundLevel1 newSound2, ref bool boolean1, ref bool boolean2)
     {
-        if (Input.GetKeyDown(code))
+        if (level8Finished)
         {
             manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_11, false);
             manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_21, false);
@@ -117,7 +154,7 @@ public class AudioLevel01 : MonoBehaviour
             manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_51, false);
             manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_61, false);
             manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_71, false);
-                         
+
             manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_12, false);
             manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_22, false);
             manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_32, false);
@@ -128,6 +165,7 @@ public class AudioLevel01 : MonoBehaviour
 
             manager.Loop((int)reference, false);
             boolean1 = true;
+            level8Finished = false;
         }
 
         if (!manager.IsPlaying((int)reference) && boolean1)
@@ -147,15 +185,16 @@ public class AudioLevel01 : MonoBehaviour
         }
     }
 
-    void PlayEnding(KeyCode code, AudioManager.SoundLevel1 reference, AudioManager.SoundLevel1 newSound, ref bool boolean)
+    void PlayEnding(AudioManager.SoundLevel1 reference, AudioManager.SoundLevel1 newSound, ref bool boolean)
     {
-        if (Input.GetKeyDown(code))
+        if (level9Finished)
         {
             manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_COMPLETE1, false);
             manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_COMPLETE2, false);
 
             manager.Loop((int)reference, false);
             boolean = true;
+            level9Finished = false;
         }
 
         if (!manager.IsPlaying((int)reference) && boolean)

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TpPad : MonoBehaviour {
-
     
     public GameObject tpPoint;
     public Transform cameraB;
@@ -11,9 +10,12 @@ public class TpPad : MonoBehaviour {
     private GameObject player;
     private float dotPortals;
     private Transform Tplayer;
+    private LevelsMusicManager musicManager;
+    //private DoorFrameManager frameManager;
 
     private void Start()
     {
+        musicManager = AudioManager.GetInstance().musicManager;
         player = AudioManager.GetInstance().player;
         Debug.Log(player);
         Tplayer = player.transform;
@@ -24,6 +26,8 @@ public class TpPad : MonoBehaviour {
     {
         if (col.tag=="Player")
         {
+            //musicManager.levelFinished(frameManager.addCompleteLevel());
+
             Vector3 portalToPlayer = Tplayer.position - transform.position;
             float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
             if (dotProduct < 0.0f)
