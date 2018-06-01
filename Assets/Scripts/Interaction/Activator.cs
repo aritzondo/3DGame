@@ -21,15 +21,19 @@ public class Activator : Activable
 
     public override void enterInLight()
     {
-        anim.SetTrigger(ilumHash);
+        if(!inLight)
+            anim.SetTrigger(ilumHash);
         base.enterInLight();        
     }
 
     public override void exitLight()
     {
         base.exitLight();
-        anim.SetTrigger(notIlumHash);
-        thisDoor.startClosing();
+        if (!activated)
+        {
+            anim.SetTrigger(notIlumHash);
+            thisDoor.startClosing();
+        }
     }
 
     public override void Activate()
