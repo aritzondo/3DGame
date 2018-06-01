@@ -27,6 +27,7 @@ public class Movable : MonoBehaviour {
 
         transform.SetParent(parent);
         transform.localPosition = offset;
+        transform.rotation = parent.transform.rotation;
         if(mLight != null)
         {
             CheckLightActive checkScript = GetComponentInChildren<CheckLightActive>();

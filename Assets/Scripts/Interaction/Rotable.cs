@@ -121,4 +121,9 @@ public class Rotable : MonoBehaviour {
 
         rotDuration = 1;
     }
+
+    public bool isIdle()
+    {
+        return state == State.Idle;
+    }
 }

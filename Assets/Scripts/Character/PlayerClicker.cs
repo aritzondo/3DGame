@@ -58,9 +58,13 @@ public class PlayerClicker : MonoBehaviour {
                     {
                         Movable moveScript = hit.transform.gameObject.GetComponent<Movable>();
                         if (moveScript != null && moveScript.isActiveAndEnabled)
-                        {   
-                            moveScript.Carry(cam.transform, carryOffset);
-                            carrying = true;
+                        {
+                            Rotable rot = hit.transform.GetComponent<Rotable>();
+                            if (rot != null && rot.isIdle())
+                            {
+                                moveScript.Carry(cam.transform, carryOffset);
+                                carrying = true;
+                            }
                         }
                     }
                 }
