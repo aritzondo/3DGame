@@ -32,7 +32,7 @@ public class Rotable : MonoBehaviour {
     void Start()
     {
         cubeIniRot = transform.rotation;
-        player = AudioManager.GetInstance().GetComponent<CharacterMovement>();
+        player = AudioManager.GetInstance().player.GetComponent<CharacterMovement>();
     }
 
     virtual protected void FixedUpdate()
