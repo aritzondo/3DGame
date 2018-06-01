@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -25765,6 +25765,26 @@ Prefab:
       propertyPath: musicManager
       value: 
       objectReference: {fileID: 1423552831}
+    - target: {fileID: 114984664058286978, guid: f6b86b48bf228b84d965027f4e568414,
+        type: 2}
+      propertyPath: sounds.Array.data[19].volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114984664058286978, guid: f6b86b48bf228b84d965027f4e568414,
+        type: 2}
+      propertyPath: sounds.Array.data[18].volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114984664058286978, guid: f6b86b48bf228b84d965027f4e568414,
+        type: 2}
+      propertyPath: sounds.Array.data[21].volume
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114984664058286978, guid: f6b86b48bf228b84d965027f4e568414,
+        type: 2}
+      propertyPath: sounds.Array.data[20].volume
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6b86b48bf228b84d965027f4e568414, type: 2}
   m_IsPrefabParent: 0
