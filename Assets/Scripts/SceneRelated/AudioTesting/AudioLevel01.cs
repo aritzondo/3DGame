@@ -66,23 +66,23 @@ public class AudioLevel01 : MonoBehaviour
     {
         if (Input.GetKeyDown(code))
         {
-            manager.Loop(reference, false);
+            manager.Loop((int)reference, false);
             boolean1 = true;
         }
 
-        if (!manager.IsPlaying(reference) && boolean1)
+        if (!manager.IsPlaying((int)reference) && boolean1)
         {
-            manager.Play(reference);
-            manager.Play(newSound1);
+            manager.Play((int)reference);
+            manager.Play((int)newSound1);
             boolean1 = false;
             boolean2 = true;
         }
 
-        if (!manager.IsPlaying(reference) && boolean2)
+        if (!manager.IsPlaying((int)reference) && boolean2)
         {
-            manager.Loop(reference, true);
-            manager.Play(reference);
-            manager.Play(newSound2);
+            manager.Loop((int)reference, true);
+            manager.Play((int)reference);
+            manager.Play((int)newSound2);
             boolean2 = false;
         }
     }
@@ -91,39 +91,39 @@ public class AudioLevel01 : MonoBehaviour
     {
         if (Input.GetKeyDown(code))
         {
-            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_11, false);
-            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_21, false);
-            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_31, false);
-            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_41, false);
-            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_51, false);
-            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_61, false);
-            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_71, false);
+            manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_11, false);
+            manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_21, false);
+            manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_31, false);
+            manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_41, false);
+            manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_51, false);
+            manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_61, false);
+            manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_71, false);
+                         
+            manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_12, false);
+            manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_22, false);
+            manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_32, false);
+            manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_42, false);
+            manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_52, false);
+            manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_62, false);
+            manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_72, false);
 
-            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_12, false);
-            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_22, false);
-            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_32, false);
-            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_42, false);
-            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_52, false);
-            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_62, false);
-            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_72, false);
-
-            manager.Loop(reference, false);
+            manager.Loop((int)reference, false);
             boolean1 = true;
         }
 
-        if (!manager.IsPlaying(reference) && boolean1)
+        if (!manager.IsPlaying((int)reference) && boolean1)
         {
-            manager.Play(reference);
-            manager.Play(newSound1);
+            manager.Play((int)reference);
+            manager.Play((int)newSound1);
             boolean1 = false;
             boolean2 = true;
         }
 
-        if (!manager.IsPlaying(reference) && boolean2)
+        if (!manager.IsPlaying((int)reference) && boolean2)
         {
-            manager.Loop(reference, true);
-            manager.Play(reference);
-            manager.Play(newSound2);
+            manager.Loop((int)reference, true);
+            manager.Play((int)reference);
+            manager.Play((int)newSound2);
             boolean2 = false;
         }
     }
@@ -132,18 +132,18 @@ public class AudioLevel01 : MonoBehaviour
     {
         if (Input.GetKeyDown(code))
         {
-            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_COMPLETE1, false);
-            manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_COMPLETE2, false);
+            manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_COMPLETE1, false);
+            manager.Loop((int)AudioManager.SoundLevel1.SOUND_LEVEL1_COMPLETE2, false);
 
-            manager.Loop(reference, false);
+            manager.Loop((int)reference, false);
             boolean = true;
         }
 
-        if (!manager.IsPlaying(reference) && boolean)
+        if (!manager.IsPlaying((int)reference) && boolean)
         {
             //manager.Loop(reference, true);
             //manager.Play(reference);
-            manager.Play(newSound);
+            manager.Play((int)newSound);
             boolean = false;
         }
     }

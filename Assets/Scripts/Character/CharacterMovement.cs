@@ -58,9 +58,9 @@ public class CharacterMovement : MonoBehaviour {
                     countToWalkSound = 0.0f;
                     alternateWalkSound = !alternateWalkSound;
                     if (alternateWalkSound)
-                        audioManager.Play(AudioManager.SoundLevel1.PASO1);
+                        audioManager.Play((int)AudioManager.SoundGeneral.PASO1);
                     else
-                        audioManager.Play(AudioManager.SoundLevel1.PASO2);
+                        audioManager.Play((int)AudioManager.SoundGeneral.PASO2);
                 }
             }
         }

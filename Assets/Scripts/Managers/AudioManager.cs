@@ -29,8 +29,17 @@ public class AudioManager : MonoBehaviour {
         SOUND_LEVEL1_COMPLETE2,
         SOUND_LEVEL1_ENDING,
         SOUND_LEVEL1_REFERENCE,
-        PASO1,
+
+        COUNT
+    }
+
+    public enum SoundGeneral
+    {
+        PASO1 = SoundLevel1.COUNT,
         PASO2,
+        DOOR_VERTICAL,
+        DOOR_HORIZONTAL,
+        LIGHT_CLICK,
 
         COUNT
     }
@@ -85,30 +94,35 @@ public class AudioManager : MonoBehaviour {
 
     #region Methods
 
-    public void Play(SoundLevel1 selected)
+    public void Play(int selected)
     {
         sounds[(int)selected].source.Play();
     }
 
-    public void Volume(SoundLevel1 selected, float newVolume)
+    public void Stop(int selected)
+    {
+        sounds[(int)selected].source.Stop();
+    }
+
+    public void Volume(int selected, float newVolume)
     {
         sounds[(int)selected].volume = newVolume;
         sounds[(int)selected].source.volume = sounds[(int)selected].volume;
     }
 
-    public void Pitch(SoundLevel1 selected, float newPitch)
+    public void Pitch(int selected, float newPitch)
     {
         sounds[(int)selected].pitch = newPitch;
         sounds[(int)selected].source.pitch = sounds[(int)selected].pitch;
     }
 
-    public void Loop(SoundLevel1 selected, bool newLoop)
+    public void Loop(int selected, bool newLoop)
     {
         sounds[(int)selected].loop = newLoop;
         sounds[(int)selected].source.loop = sounds[(int)selected].loop;
     }
 
-    public bool IsPlaying(SoundLevel1 selected)
+    public bool IsPlaying(int selected)
     {
         return sounds[(int)selected].source.isPlaying;
     }
@@ -120,11 +134,6 @@ public class AudioManager : MonoBehaviour {
             s.volume = newVolume;
             s.source.volume = s.volume;
         }
-    }
-
-    public void Walk()
-    {
-
     }
 
     public static AudioManager GetInstance()

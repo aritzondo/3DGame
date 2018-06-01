@@ -16,6 +16,7 @@ public class DoorMovement : MonoBehaviour {
     private Vector3 initialPosition;
     private Vector3 desiredPosition;
     private State state = State.Close;
+    private AudioManager audioManager;
     
     private enum State
     {
@@ -30,6 +31,7 @@ public class DoorMovement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         initialPosition = transform.position;
+        audioManager = AudioManager.GetInstance();
     }
 	
 	// Update is called once per frame
@@ -51,6 +53,9 @@ public class DoorMovement : MonoBehaviour {
                 }
                 else
                 {
+                    audioManager.Stop((int)AudioManager.SoundGeneral.DOOR_HORIZONTAL);
+                    audioManager.Stop((int)AudioManager.SoundGeneral.DOOR_VERTICAL);
+                    audioManager.Play((int)AudioManager.SoundGeneral.DOOR_VERTICAL);
                     state = State.Up;
                     movingTime = 0;
                     desiredPosition = transform.position + Vector3.up * upMovement;
@@ -75,6 +80,9 @@ public class DoorMovement : MonoBehaviour {
                 }
                 else
                 {
+                    audioManager.Stop((int)AudioManager.SoundGeneral.DOOR_HORIZONTAL);
+                    audioManager.Stop((int)AudioManager.SoundGeneral.DOOR_VERTICAL);
+                    audioManager.Play((int)AudioManager.SoundGeneral.DOOR_HORIZONTAL);
                     state = State.In;
                     movingTime = 0;
                     desiredPosition = initialPosition;
@@ -96,18 +104,23 @@ public class DoorMovement : MonoBehaviour {
     }
 
     public void startMovement()
-    {        
+    {
+        audioManager.Stop((int)AudioManager.SoundGeneral.DOOR_HORIZONTAL);
+        audioManager.Stop((int)AudioManager.SoundGeneral.DOOR_VERTICAL);
+        audioManager.Play((int)AudioManager.SoundGeneral.DOOR_HORIZONTAL);
         state = State.Out;
         Vector3 centerAtDoorHeight =  center.transform.position - Vector3.up * (center.transform.position.y - initialPosition.y);
         Vector3 outVector = initialPosition - centerAtDoorHeight;
         outVector = outVector.normalized;
         desiredPosition = initialPosition + outVector * outMovement;
         movingTime = 0;
-        
     }
 
     public void startClosing()
     {
+        audioManager.Stop((int)AudioManager.SoundGeneral.DOOR_HORIZONTAL);
+        audioManager.Stop((int)AudioManager.SoundGeneral.DOOR_VERTICAL);
+        audioManager.Play((int)AudioManager.SoundGeneral.DOOR_VERTICAL);
         state = State.Down;
         desiredPosition = transform.position + Vector3.up * (initialPosition.y-transform.position.y);
         movingTime = 0;

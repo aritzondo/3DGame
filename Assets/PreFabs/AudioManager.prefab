@@ -172,3 +172,21 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: DOOR_VERTICAL
+    clip: {fileID: 8300000, guid: 863412bb2c172e94f8afbfe9c13e4f2f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DOOR_HORIZONTAL
+    clip: {fileID: 8300000, guid: 82a170d762303ca49b4a3a68a52230c6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LIGHT_CLICK
+    clip: {fileID: 8300000, guid: 6b183fe8b56e68e41a1846f9929e960c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

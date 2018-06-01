@@ -7,12 +7,13 @@ public class Movable : MonoBehaviour {
     public DropTrigger hook;
 
     private Light mLight;
-    
-	// Use this for initialization
-	void Start () {
+    private AudioManager audioManager;
+
+    // Use this for initialization
+    void Start () {
         mLight = gameObject.GetComponentInChildren<Light>();
-		
-	}
+        audioManager = AudioManager.GetInstance();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,6 +33,7 @@ public class Movable : MonoBehaviour {
             CheckLightActive checkScript = GetComponentInChildren<CheckLightActive>();
             if (checkScript != null)
             {
+                audioManager.Play((int)AudioManager.SoundGeneral.LIGHT_CLICK);
                 checkScript.Deactivate();
             }
             else
@@ -52,6 +54,7 @@ public class Movable : MonoBehaviour {
         CheckLightActive checkScript = GetComponentInChildren<CheckLightActive>();
         if (checkScript != null)
         {
+            audioManager.Play((int)AudioManager.SoundGeneral.LIGHT_CLICK);
             checkScript.Activate();
         }
         else
