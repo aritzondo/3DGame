@@ -6,6 +6,7 @@ public class PlayerClicker : MonoBehaviour {
 
     public Vector3 carryOffset = new Vector3(0,1,1);
     public Camera cam;
+    public float maxDistance = 3.0f;
 
     private CharacterMovement moveScript;
 
@@ -53,7 +54,7 @@ public class PlayerClicker : MonoBehaviour {
                     //Cast a ray from the camera to his forward
                     Ray ray = new Ray(cam.transform.position, cam.transform.forward);
                     RaycastHit hit;
-                    if (Physics.Raycast(ray, out hit, 1.5f))
+                    if (Physics.Raycast(ray, out hit, maxDistance))
                     {
                         Movable moveScript = hit.transform.gameObject.GetComponent<Movable>();
                         if (moveScript != null && moveScript.isActiveAndEnabled)
@@ -75,7 +76,7 @@ public class PlayerClicker : MonoBehaviour {
                     //Cast a ray from the camera to his forward
                     Ray ray = new Ray(cam.transform.position, cam.transform.forward);
                     RaycastHit hit;
-                    if (Physics.Raycast(ray, out hit, 1.5f))
+                    if (Physics.Raycast(ray, out hit, maxDistance))
                     {
                         Rotable rotateScript = hit.transform.gameObject.GetComponent<Rotable>();
                         if (rotateScript != null && rotateScript.isActiveAndEnabled)
