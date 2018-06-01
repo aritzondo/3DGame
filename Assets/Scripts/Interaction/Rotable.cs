@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rotable : MonoBehaviour {
 
 	//public attributes
-    public CharacterMovement player;
+
     public float sensitivity = 100.0f;   //sensitivity of the rotation with the mouse
     public bool only90degrees = false;
     //private attributes
@@ -26,10 +26,13 @@ public class Rotable : MonoBehaviour {
         Waiting,
         Rotating
     }
+    
+    private CharacterMovement player;
 
     void Start()
     {
         cubeIniRot = transform.rotation;
+        player = AudioManager.GetInstance().GetComponent<CharacterMovement>();
     }
 
     virtual protected void FixedUpdate()
