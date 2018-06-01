@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorFrameManager : MonoBehaviour {
     
     public List<GameObject> doorFrames;
+    public PauseMenu pMenu;
 
     private int levelsCompleted;
     private static DoorFrameManager instance;
@@ -35,6 +36,11 @@ public class DoorFrameManager : MonoBehaviour {
     {
         doorFrames[newLevelStarted].GetComponentInChildren<LevelCompletedCheck>().FinishedLevel();
         ++levelsCompleted;
+        if (levelsCompleted >= 8)
+        {
+            pMenu.GameOver = true;
+            gameObject.GetComponent<LevelsMusicManager>().levelFinished(9);
+        }
         return levelsCompleted;
     }
 
