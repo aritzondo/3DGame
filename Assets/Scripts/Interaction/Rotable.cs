@@ -17,6 +17,7 @@ public class Rotable : MonoBehaviour {
     protected float rotTime = 0.0f;   //time rotating
     protected float rotDuration = 0.0f;   //duration of the rotation
     protected State state = State.Idle;
+    protected CharacterMovement player;
 
     protected enum State
     {
@@ -27,8 +28,6 @@ public class Rotable : MonoBehaviour {
         Rotating
     }
     
-    protected CharacterMovement player;
-
     void Start()
     {
         cubeIniRot = transform.localRotation;
