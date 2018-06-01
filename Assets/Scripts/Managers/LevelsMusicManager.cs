@@ -7,7 +7,6 @@ public class LevelsMusicManager : MonoBehaviour
 {
     #region Public Attributes
 
-    public AudioManager manager;
 
     [HideInInspector]
     public bool level1Finished = false;
@@ -51,6 +50,7 @@ public class LevelsMusicManager : MonoBehaviour
     private bool playGeneral2 = false;
 
     private bool playEnding = false;
+    private AudioManager manager;
 
     #endregion
 
