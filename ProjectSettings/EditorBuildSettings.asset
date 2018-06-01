@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Level_Luis_3.unity
     guid: 2a61dd8a104efa041b550273eb63118e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level_Luis_5.unity
+    guid: 2d94e05aa7aff7740a7ccc6e755d45d7
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level_Luis_4.unity
+    guid: b0b1264cd9edafb4fa00b5159bd773a8
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelV.unity
+    guid: 22cb075697cc9ba4e8509ee618e8f9c8
   m_configObjects: {}
