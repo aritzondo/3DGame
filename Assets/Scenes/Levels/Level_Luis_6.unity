@@ -33673,7 +33673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tpPoint: {fileID: 106783192}
-  cameraB: {fileID: 0}
+  cameraB: {fileID: 1004171221}
 --- !u!23 &1617272766
 MeshRenderer:
   m_ObjectHideFlags: 0
