@@ -26,12 +26,14 @@ public class ActivatorGeneric : Activable
     public override void enterInLight()
     {
         anim.SetTrigger(ilumHash);
+        base.enterInLight();
         active = true;
     }
 
     public override void exitLight()
     {
         anim.SetTrigger(notIlumHash);
+        base.exitLight();
         active = false;
     }
 }
