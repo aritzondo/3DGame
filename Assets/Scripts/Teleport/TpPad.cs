@@ -39,8 +39,15 @@ public class TpPad : MonoBehaviour {
                 float myF = player.transform.eulerAngles.y + (tpPoint.transform.eulerAngles.y - transform.eulerAngles.y + 180.0f);
 
                 float cameraOffset = player.transform.position.y - mainCamera.transform.position.y;
-                
-               player.transform.position = new Vector3(cameraB.position.x, cameraB.position.y+cameraOffset, cameraB.position.z);
+
+                if (cameraB != null)
+                {
+                    player.transform.position = new Vector3(cameraB.position.x, cameraB.position.y + cameraOffset, cameraB.position.z);
+                }
+                else
+                {
+                    player.transform.position = tpPoint.transform.position + player.transform.position - transform.position;
+                }
 
                 mainCamera.GetComponent<CameraMovement>().SetMouseLookX(myF);
             }
