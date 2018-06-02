@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor;
-using UnityEditor.SceneManagement;
+//using UnityEditor;
+//using UnityEditor.SceneManagement;
 
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class LevelOrganizer : MonoBehaviour
 {
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR
 
     private Scene sceneOrganizer;
     private string[] scene_paths;
@@ -43,6 +43,6 @@ public class LevelOrganizer : MonoBehaviour
         Debug.Log("LOAD Scene: " + loaded.name);
     }
 
-#endif
+#endif*/
 }
 
