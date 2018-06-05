@@ -5,34 +5,46 @@ using UnityEngine;
 
 public class CameraMovementMobile : MonoBehaviour {
 
-    //Vector2 mouseLook;
-    float mouseLook;
-    float smoothV;
-	public float sensitivity = 5.0f;
-	public float smoothing   = 2.0f;
+    Vector2 mouseLook;
+    Vector2 smoothV;
+    public float sensitivity = 5.0f;
+    public float smoothing = 2.0f;
 
-	GameObject character;
+    GameObject character;
 
-	void Start () {
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         character = this.transform.parent.gameObject;
-	}
+    }
 
     void Update()
     {
         //mouse delta
         if (Cursor.lockState == CursorLockMode.Locked)
         {
-            float md = Input.acceleration.x * smoothing * sensitivity;
-            smoothV = Mathf.Lerp(smoothV, md, 1f / smoothing);
-            mouseLook += smoothV;
-            character.transform.localRotation = Quaternion.AngleAxis(mouseLook, character.transform.up);
+
+            if (mouseLook.y >= -90.0f && mouseLook.y <= 90.0f)
+            {
+                var md = new Vector2(Input.acceleration.x, 0);
+                md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
+                smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
+                smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
+                mouseLook += smoothV;
+                transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
+                character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
+
+            }
+            else
+            {
+                mouseLook.y = 90.0f * Mathf.Sign(mouseLook.y);
+            }
         }
-	}
+    }
     public void SetMouseLookX(float newLookX)
     {
-        mouseLook = newLookX;
+        mouseLook.x = newLookX;
     }
 }
 
