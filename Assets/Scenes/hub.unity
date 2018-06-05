@@ -2076,6 +2076,16 @@ Prefab:
       propertyPath: walkSoundTime
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 114294865123713826, guid: 9ab671b0124488446be97a8ea4c4cb67,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755820609435160, guid: 9ab671b0124488446be97a8ea4c4cb67,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ab671b0124488446be97a8ea4c4cb67, type: 2}
   m_IsPrefabParent: 0
@@ -17678,6 +17688,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityType: 0
+--- !u!1 &563044325 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1246030210163864, guid: 9ab671b0124488446be97a8ea4c4cb67,
+    type: 2}
+  m_PrefabInternal: {fileID: 38990767}
+--- !u!114 &563044327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 563044325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c96e7a5954720c45aa8f1dee8e4bb54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: 5
+  smoothing: 2
 --- !u!1 &568418057
 GameObject:
   m_ObjectHideFlags: 0
@@ -30322,17 +30350,9 @@ MonoBehaviour:
     angleError: 8
     areaError: 15
   dontDestroyMeshOnDelete: 0
-  m_selectedFaces: 07000000
-  m_SelectedEdges:
-  - x: 28
-    y: 29
-  - x: 30
-    y: 28
-  - x: 29
-    y: 31
-  - x: 31
-    y: 30
-  m_selectedTriangles: 1c0000001d0000001e0000001d0000001f0000001e000000
+  m_selectedFaces: 
+  m_SelectedEdges: []
+  m_selectedTriangles: 
 --- !u!33 &749717467
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -59360,6 +59380,22 @@ GameObject:
   m_PrefabParentObject: {fileID: 1366473080481646, guid: 9ab671b0124488446be97a8ea4c4cb67,
     type: 2}
   m_PrefabInternal: {fileID: 38990767}
+--- !u!114 &1314325147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1314325146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29ef627a685e594b868297816328101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  jumpSpeed: 5
+  gravity: 9.8
+  interacting: 0
+  walkSoundTime: 0.6
 --- !u!43 &1314707089
 Mesh:
   m_ObjectHideFlags: 0
@@ -66443,6 +66479,7 @@ MonoBehaviour:
   - {fileID: 2133167685}
   - {fileID: 2151977}
   - {fileID: 1835027476}
+  pMenu: {fileID: 0}
 --- !u!1 &1424740538
 GameObject:
   m_ObjectHideFlags: 0
@@ -101231,7 +101268,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-106942
+  m_Name: pb_Mesh15872
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2

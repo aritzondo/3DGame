@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CharacterMovementMobile : MonoBehaviour {
     //public variables
-	public float speed = 0.0f;
-	public float jumpSpeed = 8.0f;
+	public float speed = 5.0f;
+	public float jumpSpeed = 5.0f;
 	public float gravity = 9.8f;
     public bool interacting = false;
     public float walkSoundTime = 0.6f;
@@ -14,7 +14,7 @@ public class CharacterMovementMobile : MonoBehaviour {
 	private Vector3 moveDirection = Vector3.zero;
 	private CharacterController controller;
     private AudioManager audioManager;
-    private float countToWalkSound = 0;
+    private float countToWalkSound = 0.0f;
     private bool alternateWalkSound = true;
 
     void Start () {
@@ -34,11 +34,11 @@ public class CharacterMovementMobile : MonoBehaviour {
                  * use the horizontal and vertical axis to the movedirecton
                  * if press space -> jump
                  */
-                moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                moveDirection = new Vector3(0.0f, 0.0f, Input.acceleration.z);
                 moveDirection = transform.TransformDirection(moveDirection);
                 moveDirection *= speed;
 
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.touchCount == 2)
                 {
                     moveDirection.y = jumpSpeed;
                 }
@@ -47,7 +47,7 @@ public class CharacterMovementMobile : MonoBehaviour {
             //block movement when interacting
             else
             {
-                moveDirection = new Vector3(0, 0, 0);
+                moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
             }
 
             countToWalkSound += dt;
