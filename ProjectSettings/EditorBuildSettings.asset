@@ -5,31 +5,34 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/hub.unity
     guid: 5112a41a99bea044a8b4559e6ddaba40
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level1.unity
     guid: 4b82db88da6ed45479d769c24606b70c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level_Luis_2.unity
     guid: 4bd8bf6814f887b4fa2ca9fd399a1ded
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level_Luis_3.unity
     guid: 2a61dd8a104efa041b550273eb63118e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level_Luis_5.unity
     guid: 2d94e05aa7aff7740a7ccc6e755d45d7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level_Luis_4.unity
     guid: b0b1264cd9edafb4fa00b5159bd773a8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/LevelV.unity
     guid: 22cb075697cc9ba4e8509ee618e8f9c8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Level_Luis_6.unity
     guid: f13957a1cd162aa409fcd3e29cf9a87b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/LevelAlvaro_2.unity
     guid: 36d21db849db448498ced5583c1d19fc
+  - enabled: 1
+    path: Assets/Scenes/Garbage/Presentation.unity
+    guid: 6dd75ac959faf7841b6e8a8c0445a063
   m_configObjects: {}
