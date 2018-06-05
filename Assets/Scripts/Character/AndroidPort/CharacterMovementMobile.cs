@@ -55,7 +55,7 @@ public class CharacterMovementMobile : MonoBehaviour {
                 moveDirection = transform.TransformDirection(moveDirection);
                 moveDirection *= speed;
 
-                if (Input.touchCount == 2 || Input.GetKeyDown(KeyCode.Space))
+                if (Input.touchCount == 2 || Input.GetAxisRaw("Jump")!=0)
                 {
                     moveDirection.y = jumpSpeed;
                 }

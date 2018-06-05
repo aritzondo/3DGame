@@ -44,7 +44,7 @@ public class CameraMovementMobile : MonoBehaviour {
                             break;
                         }
                 }
-                var md = new Vector2(Input.acceleration.x, 0);
+                var md = new Vector2(inputX,inputY);
                 md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
                 smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
                 smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
