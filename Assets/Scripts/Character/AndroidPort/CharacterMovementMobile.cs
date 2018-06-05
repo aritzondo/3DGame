@@ -34,7 +34,7 @@ public class CharacterMovementMobile : MonoBehaviour {
                  * use the horizontal and vertical axis to the movedirecton
                  * if press space -> jump
                  */
-                moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                moveDirection = new Vector3(Input.acceleration.x, 0, Input.acceleration.z);
                 moveDirection = transform.TransformDirection(moveDirection);
                 moveDirection *= speed;
 
