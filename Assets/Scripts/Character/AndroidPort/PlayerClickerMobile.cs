@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerClicker : MonoBehaviour {
+public class PlayerClickerMobile : MonoBehaviour {
 
     public Vector3 carryOffset = new Vector3(0,1,1);
     public Camera cam;

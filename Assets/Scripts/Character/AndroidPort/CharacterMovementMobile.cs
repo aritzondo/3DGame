@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMovement : MonoBehaviour {
+public class CharacterMovementMobile : MonoBehaviour {
     //public variables
 	public float speed = 0.0f;
 	public float jumpSpeed = 8.0f;

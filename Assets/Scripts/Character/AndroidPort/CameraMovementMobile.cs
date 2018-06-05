@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMovement : MonoBehaviour {
+public class CameraMovementMobile : MonoBehaviour {
 
 	//@Incomplete - Recode everything when you learn to C# and Unity, 
 	//this needs to be changed. I don't understand half of the things 
