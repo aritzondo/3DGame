@@ -8,7 +8,7 @@ public class PlayerClickerMobile : MonoBehaviour {
     public Camera cam;
     public float maxDistance = 3.0f;
 
-    private CharacterMovement moveScript;
+    private CharacterMovementMobile moveScript;
 
     private bool carrying = false;
     private bool canDrop = false;
@@ -32,7 +32,7 @@ public class PlayerClickerMobile : MonoBehaviour {
 
     private void Start()
     {
-        moveScript = gameObject.GetComponent<CharacterMovement>();
+        moveScript = gameObject.GetComponent<CharacterMovementMobile>();
     }
 
     // When the mouse is pressed we throw a ray to the point were it has been clicked
@@ -40,7 +40,7 @@ public class PlayerClickerMobile : MonoBehaviour {
     void Update () {
         if (!moveScript.interacting)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.touches.Length == 1)
             {
                 if (carrying && canDrop)
                 {
@@ -73,7 +73,7 @@ public class PlayerClickerMobile : MonoBehaviour {
                     Debug.Log("Cant drop");
                 }
             }
-            else if (Input.GetMouseButtonDown(1))
+            else if (Input.touches.Length == 2)
             {
                 if (!carrying)
                 {
