@@ -31,16 +31,10 @@ public class CameraMovementMobile : MonoBehaviour {
             {
                 switch (SystemInfo.deviceType)
                 {
-                    case DeviceType.Desktop:
+                    case DeviceType.Desktop | DeviceType.Console:
                         {
                             inputX = Input.GetAxisRaw("Mouse X");
                             inputY = Input.GetAxisRaw("Mouse Y");
-                            break;
-                        }
-                    case DeviceType.Console:
-                        {
-                            inputX = Input.GetAxisRaw("Horizontal1");
-                            inputY = Input.GetAxisRaw("Vertical1");
                             break;
                         }
                     default:
