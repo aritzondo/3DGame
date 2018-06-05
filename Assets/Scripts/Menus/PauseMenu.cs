@@ -34,7 +34,7 @@ public class PauseMenu : MonoBehaviour
         {
             GetComponentInChildren<Animator>().SetTrigger("GameEnd");
             
-            if(Input.anyKey)
+            if(Input.anyKey || Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
             {
                 Application.Quit();
             }
@@ -56,7 +56,7 @@ public class PauseMenu : MonoBehaviour
     private void KeyboardTutorialControl()
     {
 
-        if (!Input.anyKeyDown && !Input.anyKey && !isPaused)
+        if (!Input.anyKeyDown && !Input.anyKey && !isPaused && Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
         {
             timeToChangeBg -= Time.deltaTime;
 
