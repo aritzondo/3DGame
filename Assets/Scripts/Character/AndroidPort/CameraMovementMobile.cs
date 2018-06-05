@@ -39,7 +39,7 @@ public class CameraMovementMobile : MonoBehaviour {
                         }
                     default:
                         {
-                            inputX = Input.acceleration.x;
+                            inputX = -Input.acceleration.x;
                             inputY = 0.0f;
                             break;
                         }
