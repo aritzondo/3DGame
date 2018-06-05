@@ -55,12 +55,7 @@ public class PauseMenu : MonoBehaviour
     
     private void KeyboardTutorialControl()
     {
-
-<<<<<<< HEAD
         if (!isPaused && Input.GetAxisRaw("Mouse X") == 0 && Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0 && Input.GetAxisRaw("Mouse Y") == 0 )
-=======
-        if (!Input.anyKeyDown && !Input.anyKey && !isPaused && Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
->>>>>>> origin/master
         {
             timeToChangeBg -= Time.deltaTime;
 
