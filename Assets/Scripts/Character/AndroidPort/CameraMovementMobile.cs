@@ -21,12 +21,35 @@ public class CameraMovementMobile : MonoBehaviour {
 
     void Update()
     {
+        float inputX;
+        float inputY;
         //mouse delta
         if (Cursor.lockState == CursorLockMode.Locked)
         {
 
             if (mouseLook.y >= -90.0f && mouseLook.y <= 90.0f)
             {
+                switch (SystemInfo.deviceType)
+                {
+                    case DeviceType.Desktop:
+                        {
+                            inputX = Input.GetAxisRaw("Mouse X");
+                            inputY = Input.GetAxisRaw("Mouse Y");
+                            break;
+                        }
+                    case DeviceType.Console:
+                        {
+                            inputX = Input.GetAxisRaw("Horizontal1");
+                            inputY = Input.GetAxisRaw("Vertical1");
+                            break;
+                        }
+                    default:
+                        {
+                            inputX = Input.acceleration.x;
+                            inputY = 0.0f;
+                            break;
+                        }
+                }
                 var md = new Vector2(Input.acceleration.x, 0);
                 md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
                 smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);

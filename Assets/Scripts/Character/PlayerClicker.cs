@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerClicker : MonoBehaviour
 {
-    /*
+    
     public Vector3 carryOffset = new Vector3(0,1,1);
     public Camera cam;
     public float maxDistance = 3.0f;
@@ -92,8 +92,8 @@ public class PlayerClicker : MonoBehaviour
                 }
             }
         }
-    }*/
-
+    }
+    /*
     public Vector3 carryOffset = new Vector3(0, 1, 1);
     public Camera cam;
     public float maxDistance = 3.0f;
@@ -181,7 +181,7 @@ public class PlayerClicker : MonoBehaviour
                     }
                 }
             }*/
-        }
-    }
+     //   }
+    //}
 }
    

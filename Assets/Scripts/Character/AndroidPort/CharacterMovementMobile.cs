@@ -25,6 +25,8 @@ public class CharacterMovementMobile : MonoBehaviour {
     void Update()
     {
         float dt = Time.deltaTime;
+        float inputX;
+        float inputZ;
         if (controller.isGrounded)
         {
             //if the controller is interacting with something it cannot move
@@ -34,11 +36,26 @@ public class CharacterMovementMobile : MonoBehaviour {
                  * use the horizontal and vertical axis to the movedirecton
                  * if press space -> jump
                  */
-                moveDirection = new Vector3(0.0f, 0.0f, -Input.acceleration.z);
+                switch(SystemInfo.deviceType)
+                {
+                    case DeviceType.Desktop | DeviceType.Console:
+                        {
+                            inputX = Input.GetAxisRaw("Horizontal");
+                            inputZ = Input.GetAxisRaw("Vertical");
+                            break;
+                        }
+                    default:
+                        {
+                            inputX = 0.0f;
+                            inputZ = -Input.acceleration.z;
+                            break;
+                        }
+                }
+                moveDirection = new Vector3(inputX, 0.0f, inputZ);
                 moveDirection = transform.TransformDirection(moveDirection);
                 moveDirection *= speed;
 
-                if (Input.touchCount == 2)
+                if (Input.touchCount == 2 || Input.GetKeyDown(KeyCode.Space))
                 {
                     moveDirection.y = jumpSpeed;
                 }
