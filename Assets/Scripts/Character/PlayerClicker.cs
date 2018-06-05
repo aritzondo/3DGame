@@ -48,14 +48,26 @@ public class PlayerClicker : MonoBehaviour
     // and if its a rotator we activate it
     void Update()
     {
-        Android();
+        switch (SystemInfo.deviceType)
+        {
+            case DeviceType.Desktop | DeviceType.Console:
+                {
+                    PC();
+                    break;
+                }
+            default:
+                {
+                    Android();
+                    break;
+                }
+        }
     }
 
     private void PC()
     {
         if (!moveScript.interacting)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Joystick1Button4))
             {
                 if (carrying && canDrop)
                 {
@@ -88,7 +100,7 @@ public class PlayerClicker : MonoBehaviour
                     Debug.Log("Cant drop");
                 }
             }
-            else if (Input.GetMouseButtonDown(1))
+            else if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Joystick1Button5))
             {
                 if (!carrying)
                 {

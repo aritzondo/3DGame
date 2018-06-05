@@ -18,6 +18,9 @@ public class CharacterMovementMobile : MonoBehaviour {
     private bool alternateWalkSound = true;
 
     void Start () {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         controller = GetComponent<CharacterController>();
         audioManager = AudioManager.GetInstance();
     }
