@@ -21286,6 +21286,11 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!1 &969057925 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1559465864060872, guid: 902b1fde819b4704994cf54c8ef120b7,
+    type: 2}
+  m_PrefabInternal: {fileID: 2035799580}
 --- !u!1 &969903359
 GameObject:
   m_ObjectHideFlags: 0
@@ -25873,7 +25878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2213f6e3ba4f1fc4f8a6c5986c50cc4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotatorCube: {fileID: 0}
+  rotatorCube: {fileID: 969057925}
 --- !u!54 &1160991601
 Rigidbody:
   m_ObjectHideFlags: 0
