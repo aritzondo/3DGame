@@ -19,13 +19,16 @@ public class Rotable : MonoBehaviour {
     protected State state = State.Idle;
     protected CharacterMovement player;
 
+    private Touch touch;
+
     protected enum State
     {
         Clicked,
         Idle,
         Adjusting,
         Waiting,
-        Rotating
+        Rotating,
+        ClickedAndroid
     }
     
     void Start()
@@ -72,6 +75,17 @@ public class Rotable : MonoBehaviour {
                 //apply the rotation of the mouse
                 transform.localRotation = Quaternion.Euler(rotX, rotY, 0) * cubeIniRot;
                 break;
+            case (State.ClickedAndroid):   //rotated by the player
+                if (touch.phase == TouchPhase.Ended)
+                {
+                    released();
+                    break;
+                }
+                rotX += touch.deltaPosition.y * sensitivity * dt;
+                rotY -= touch.deltaPosition.x * sensitivity * dt;
+                //apply the rotation of the mouse
+                transform.localRotation = Quaternion.Euler(rotX, rotY, 0) * cubeIniRot;
+                break;
         }
     }
 
@@ -83,6 +97,17 @@ public class Rotable : MonoBehaviour {
             Camera.main.GetComponent<CameraMovement>().enabled = false;
             player.GetComponent<CharacterMovement>().SetInteracting(true);
             state = State.Clicked;
+        }
+    }
+
+    public virtual void clickedAndroid(Touch touchEntered)
+    {
+        if (state == State.Idle || state == State.Adjusting)
+        {
+            touch = touchEntered;
+            Camera.main.GetComponent<CameraMovement>().enabled = false;
+            player.GetComponent<CharacterMovement>().SetInteracting(true);
+            state = State.ClickedAndroid;
         }
     }
 

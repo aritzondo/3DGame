@@ -34,13 +34,13 @@ public class PauseMenu : MonoBehaviour
         {
             GetComponentInChildren<Animator>().SetTrigger("GameEnd");
             
-            if(Input.anyKey)
+            if(Input.anyKey || Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
             {
                 Application.Quit();
             }
         }
 
-		if(Input.GetKeyDown(KeyCode.Escape))
+		if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button7))
         {
             if (isPaused)
             {
@@ -55,8 +55,7 @@ public class PauseMenu : MonoBehaviour
     
     private void KeyboardTutorialControl()
     {
-
-        if (!Input.anyKeyDown && !Input.anyKey && !isPaused)
+        if (!isPaused && Input.GetAxisRaw("Mouse X") == 0 && Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0 && Input.GetAxisRaw("Mouse Y") == 0 )
         {
             timeToChangeBg -= Time.deltaTime;
 
