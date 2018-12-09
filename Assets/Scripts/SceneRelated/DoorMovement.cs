@@ -31,7 +31,7 @@ public class DoorMovement : MonoBehaviour {
     // Use this for initialization
     private void Start () {
         initialPosition = transform.position;
-        audioManager = AudioManager.GetInstance();
+        audioManager = AudioManager.Instance;
     }
 	
 	// Update is called once per frame

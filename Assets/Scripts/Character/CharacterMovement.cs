@@ -19,7 +19,7 @@ public class CharacterMovement : MonoBehaviour {
 
     void Start () {
         controller = GetComponent<CharacterController>();
-        audioManager = AudioManager.GetInstance();
+        audioManager = AudioManager.Instance;
     }
 
     public void Update()

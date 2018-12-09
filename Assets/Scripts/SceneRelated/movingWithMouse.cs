@@ -15,7 +15,8 @@ public class MovingWithMouse : Rotable
     {
         cubeIniRot = transform.rotation;
         doors = new ArrayList(4);
-        player = AudioManager.GetInstance().player.GetComponent<CharacterMovement>();
+        //TODO
+        player = AudioManager.Instance.player.GetComponent<CharacterMovement>();
     }
 
     protected override void FixedUpdate()

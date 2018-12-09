@@ -8,7 +8,6 @@ public class TpPad : MonoBehaviour {
     public Transform cameraB;
 
     private GameObject player;
-    private float dotPortals;
     private Transform Tplayer;
     private LevelsMusicManager musicManager;
     private DoorFrameManager frameManager;
@@ -16,11 +15,10 @@ public class TpPad : MonoBehaviour {
     private void Start()
     {
         frameManager = DoorFrameManager.GetInstance();
-        musicManager = AudioManager.GetInstance().musicManager;
-        player = AudioManager.GetInstance().player;
-        Debug.Log(player);
+        musicManager = AudioManager.Instance.musicManager;
+        //TODO
+        player = AudioManager.Instance.player;
         Tplayer = player.transform;
-        dotPortals = Vector3.Dot(Tplayer.transform.forward, tpPoint.transform.forward);
     }
 
     private void OnTriggerEnter(Collider col)

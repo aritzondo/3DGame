@@ -3,12 +3,13 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
-public class AudioManager : MonoBehaviour {
-
+public class AudioManager : MonoBehaviour
+{
     #region Public Attributes
+
     public GameObject player;
     public LevelsMusicManager musicManager;
-    public Sound[] sounds = new Sound[(int)SoundLevel1.COUNT];
+    public Sound[] sounds = new Sound[(int) SoundLevel1.COUNT];
 
     public enum SoundLevel1
     {
@@ -47,36 +48,50 @@ public class AudioManager : MonoBehaviour {
 
     #endregion
 
-    private static AudioManager instance;
+    
 
     #region Private Attributes
-
+    private static AudioManager instance;
+    private GameObject soundList;
     #endregion
 
     #region Properties
+
+    public static AudioManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                GameObject obj = new GameObject();
+                instance = obj.AddComponent<AudioManager>();
+            }
+
+            return instance;
+        }
+    }
 
     #endregion
 
     #region Monobehaviour Methods
 
     // Use this for initialization
-    void Awake ()
+    void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+        if (instance != null)
         {
             Destroy(this);
-            Debug.Log("2 instances of ScoreManager detected. Destroying script at " + this.gameObject.name);
+            Debug.Log("2 instances of AudioManager detected. Destroying script at " + gameObject.name);
             return;
+            
         }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+        soundList = transform.GetChild(0).gameObject;
 
-		foreach (Sound s in sounds)
+        foreach (Sound s in sounds)
         {
-            s.source = gameObject.AddComponent<AudioSource>();
+            s.source = soundList.AddComponent<AudioSource>();
 
             s.source.clip = s.clip;
 
@@ -84,7 +99,7 @@ public class AudioManager : MonoBehaviour {
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
-	}
+    }
 
     #endregion
 
@@ -92,49 +107,45 @@ public class AudioManager : MonoBehaviour {
 
     public void Play(int selected)
     {
-        sounds[(int)selected].source.Play();
+        sounds[(int) selected].source.Play();
     }
 
     public void Stop(int selected)
     {
-        sounds[(int)selected].source.Stop();
+        sounds[(int) selected].source.Stop();
     }
 
     public void Volume(int selected, float newVolume)
     {
-        sounds[(int)selected].volume = newVolume;
-        sounds[(int)selected].source.volume = sounds[(int)selected].volume;
+        sounds[(int) selected].volume = newVolume;
+        sounds[(int) selected].source.volume = sounds[(int) selected].volume;
     }
 
     public void Pitch(int selected, float newPitch)
     {
-        sounds[(int)selected].pitch = newPitch;
-        sounds[(int)selected].source.pitch = sounds[(int)selected].pitch;
+        sounds[(int) selected].pitch = newPitch;
+        sounds[(int) selected].source.pitch = sounds[(int) selected].pitch;
     }
 
     public void Loop(int selected, bool newLoop)
     {
-        sounds[(int)selected].loop = newLoop;
-        sounds[(int)selected].source.loop = sounds[(int)selected].loop;
+        sounds[(int) selected].loop = newLoop;
+        sounds[(int) selected].source.loop = sounds[(int) selected].loop;
     }
 
     public bool IsPlaying(int selected)
     {
-        return sounds[(int)selected].source.isPlaying;
+        return sounds[(int) selected].source.isPlaying;
     }
 
     public void MasterVolume(float newVolume)
     {
-        foreach(Sound s in sounds)
+        foreach (Sound s in sounds)
         {
             s.volume = newVolume;
             s.source.volume = s.volume;
         }
     }
 
-    public static AudioManager GetInstance()
-    {
-        return instance;
-    }
     #endregion
 }

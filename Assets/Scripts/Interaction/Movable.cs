@@ -12,7 +12,7 @@ public class Movable : MonoBehaviour {
     // Use this for initialization
     void Start () {
         mLight = gameObject.GetComponentInChildren<Light>();
-        audioManager = AudioManager.GetInstance();
+        audioManager = AudioManager.Instance;
     }
 	
 	public void Carry(Transform parent, Vector3 offset)

@@ -59,7 +59,7 @@ public class AudioLevel01 : MonoBehaviour
     {
         if (manager == null)
         {
-            manager = AudioManager.GetInstance();
+            manager = AudioManager.Instance;
         }
     }
 

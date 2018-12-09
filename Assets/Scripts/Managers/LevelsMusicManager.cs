@@ -59,7 +59,7 @@ public class LevelsMusicManager : MonoBehaviour
     {
         if (manager == null)
         {
-            manager = AudioManager.GetInstance();
+            manager = AudioManager.Instance;
         }
         //manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, true);
         //manager.Play(AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE);
