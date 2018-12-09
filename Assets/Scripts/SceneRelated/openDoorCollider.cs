@@ -12,9 +12,8 @@ public class OpenDoorCollider : MonoBehaviour {
             DoorMovement dMove = door.GetComponent<DoorMovement>();
             dMove.resetIniPos();
             dMove.startMovement();
-
-            StartCoroutine(dMove.LoadAsyncScene());
             
+            StartCoroutine(dMove.LoadAsyncScene());
         }
     }
 }
