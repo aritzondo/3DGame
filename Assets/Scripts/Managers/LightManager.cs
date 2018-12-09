@@ -10,7 +10,7 @@ public class LightManager : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    private void Start () {
 		for(int i = 0; i < lights.Length; i++)
         {
             if (i != activeLight)
@@ -25,12 +25,7 @@ public class LightManager : MonoBehaviour {
         }
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void activateLight(Light newActive)
+	public void activateLight(Light newActive)
     {
         if(activeLight >= 0)
             lights[activeLight].enabled = false;

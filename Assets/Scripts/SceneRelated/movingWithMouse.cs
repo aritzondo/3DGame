@@ -11,14 +11,14 @@ public class MovingWithMouse : Rotable
     public GameObject closeTrigger;
     public ArrayList doors;
 
-   void Start()
+    private void Start()
     {
         cubeIniRot = transform.rotation;
         doors = new ArrayList(4);
         player = AudioManager.GetInstance().player.GetComponent<CharacterMovement>();
     }
 
-    override protected void FixedUpdate()
+    protected override void FixedUpdate()
     {
         float dt = Time.deltaTime;
         float t;

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CloseDoorCollider : MonoBehaviour {
 
-    public GameObject rotatorCube;
+    public MovingWithMouse rotatorCube;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "door")
+        if (other.gameObject.CompareTag("door"))
         {
             GameObject door = other.gameObject;
             DoorMovement dMove = door.GetComponent<DoorMovement>();
             dMove.startClosing();
-            rotatorCube.GetComponent<MovingWithMouse>().doors.Add(door);
+            rotatorCube.doors.Add(door);
 
             StartCoroutine(dMove.UnloadAsyncScene());
 

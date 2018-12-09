@@ -37,7 +37,7 @@ public class PlayerClicker : MonoBehaviour {
 
     // When the mouse is pressed we throw a ray to the point were it has been clicked
     // and if its a rotator we activate it
-    void Update () {
+    private void Update () {
         if (!moveScript.interacting)
         {
             if (Input.GetMouseButtonDown(0))
@@ -56,13 +56,13 @@ public class PlayerClicker : MonoBehaviour {
                     RaycastHit hit;
                     if (Physics.Raycast(ray, out hit, maxDistance))
                     {
-                        Movable moveScript = hit.transform.gameObject.GetComponent<Movable>();
-                        if (moveScript != null && moveScript.isActiveAndEnabled)
+                        Movable movable = hit.transform.gameObject.GetComponent<Movable>();
+                        if (movable != null && movable.isActiveAndEnabled)
                         {
                             Rotable rot = hit.transform.GetComponent<Rotable>();
                             if (rot != null && rot.isIdle())
                             {
-                                moveScript.Carry(cam.transform, carryOffset);
+                                movable.Carry(cam.transform, carryOffset);
                                 carrying = true;
                             }
                         }

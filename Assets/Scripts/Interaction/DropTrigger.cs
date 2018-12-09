@@ -24,14 +24,13 @@ public class DropTrigger : MonoBehaviour {
     private void OnTriggerStay(Collider other)
     {
         PlayerClicker clicker = other.gameObject.GetComponent<PlayerClicker>();
-        if (clicker != null && clicker.Carrying && empty)
-        {
-            //if the player is in the trigger it will only be able to drop the light if it's in sight
-            clicker.CanDrop = inSight;
-            clicker.DropSite = this;
-            if (!showing) showDropSite(inSight);
-            else if (!inSight && showing) showDropSite(inSight);
-        }
+        if (clicker == null || !clicker.Carrying || !empty) return;
+        
+        //if the player is in the trigger it will only be able to drop the light if it's in sight
+        clicker.CanDrop = inSight;
+        clicker.DropSite = this;
+        if (!showing) showDropSite(inSight);
+        else if (!inSight && showing) showDropSite(inSight);
     }
 
     private void OnTriggerExit(Collider other)

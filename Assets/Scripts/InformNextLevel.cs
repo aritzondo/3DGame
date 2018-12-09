@@ -15,7 +15,7 @@ public class InformNextLevel : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             DoorFrameManager.GetInstance().NewLevel(nextLevel);
             Debug.Log(nextLevel);

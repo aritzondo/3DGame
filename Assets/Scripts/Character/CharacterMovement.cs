@@ -22,7 +22,7 @@ public class CharacterMovement : MonoBehaviour {
         audioManager = AudioManager.GetInstance();
     }
 
-    void Update()
+    public void Update()
     {
         float dt = Time.deltaTime;
         if (controller.isGrounded)
@@ -53,7 +53,7 @@ public class CharacterMovement : MonoBehaviour {
             countToWalkSound += dt;
             if (countToWalkSound > walkSoundTime)
             {
-                if (moveDirection.x != 0 || moveDirection.z != 0)
+                if (moveDirection.x != 0f || moveDirection.z != 0f)
                 {
                     countToWalkSound = 0.0f;
                     alternateWalkSound = !alternateWalkSound;

@@ -44,7 +44,6 @@ public class CameraDetection : MonoBehaviour {
             {
                 return true;
             }
-            else return false;
         }
 
         return false;

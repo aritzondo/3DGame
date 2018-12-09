@@ -15,12 +15,7 @@ public class Movable : MonoBehaviour {
         audioManager = AudioManager.GetInstance();
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void Carry(Transform parent, Vector3 offset)
+	public void Carry(Transform parent, Vector3 offset)
     {
 
         hook.empty = true;
@@ -28,18 +23,17 @@ public class Movable : MonoBehaviour {
         transform.SetParent(parent);
         transform.localPosition = offset;
         transform.rotation = parent.transform.rotation;
-        if(mLight != null)
+        if (mLight == null) return;
+        
+        CheckLightActive checkScript = GetComponentInChildren<CheckLightActive>();
+        if (checkScript != null)
         {
-            CheckLightActive checkScript = GetComponentInChildren<CheckLightActive>();
-            if (checkScript != null)
-            {
-                audioManager.Play((int)AudioManager.SoundGeneral.LIGHT_CLICK);
-                checkScript.Deactivate();
-            }
-            else
-            {
-                mLight.enabled = false;
-            }
+            audioManager.Play((int)AudioManager.SoundGeneral.LIGHT_CLICK);
+            checkScript.Deactivate();
+        }
+        else
+        {
+            mLight.enabled = false;
         }
     }
 

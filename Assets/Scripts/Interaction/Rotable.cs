@@ -34,7 +34,7 @@ public class Rotable : MonoBehaviour {
         player = AudioManager.GetInstance().player.GetComponent<CharacterMovement>();
     }
 
-    virtual protected void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         float dt = Time.deltaTime;
         float t;
@@ -109,7 +109,7 @@ public class Rotable : MonoBehaviour {
     }
 
     //calculate the closest angle of rotation (right angles)
-    protected void adjustAngle()
+    private void adjustAngle()
     {
         float eulerX = transform.rotation.eulerAngles.x;
         float eulerY = transform.rotation.eulerAngles.y;

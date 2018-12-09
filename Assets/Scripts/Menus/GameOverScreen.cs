@@ -9,7 +9,7 @@ public class GameOverScreen : MonoBehaviour
     private RawImage image;
     private float targetAlpha;
     // Use this for initialization
-    void Start()
+    private void Start()
     {
         this.image = this.GetComponent<RawImage>();
         if (this.image == null)
@@ -20,7 +20,7 @@ public class GameOverScreen : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if(Input.GetKeyDown(KeyCode.I))
         {
@@ -28,11 +28,10 @@ public class GameOverScreen : MonoBehaviour
         }
         Color curColor = this.image.color;
         float alphaDiff = Mathf.Abs(curColor.a - this.targetAlpha);
-        if (alphaDiff > 0.0001f)
-        {
-            curColor.a = Mathf.Lerp(curColor.a, targetAlpha, this.FadeRate * Time.deltaTime);
-            this.image.color = curColor;
-        }
+        if (!(alphaDiff > 0.0001f)) return;
+        
+        curColor.a = Mathf.Lerp(curColor.a, targetAlpha, this.FadeRate * Time.deltaTime);
+        this.image.color = curColor;
     }
 
     public void FadeOut()

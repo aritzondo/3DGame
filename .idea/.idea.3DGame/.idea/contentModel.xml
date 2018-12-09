@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\aritz\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\aritz\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_3DGame.853797112.00" t="ExcludeRecursive" />
+    <e p="D:\Proyectos_Unity\3DGame" t="IncludeRecursive">
+      <e p="3DGame.sln" t="IncludeFlat" />
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="ProCore" t="Include">
+          <e p="ProGrids" t="Include">
+            <e p="About" t="Include">
+              <e p="changelog.txt" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="pg_AboutWindow.cs" t="Include" />
+              </e>
+              <e p="pc_AboutEntry_ProGrids.txt" t="Include" />
+            </e>
+            <e p="Classes" t="Include">
+              <e p="pg_Constant.cs" t="Include" />
+              <e p="pg_Enum.cs" t="Include" />
+              <e p="pg_IconUtility.cs" t="Include" />
+              <e p="pg_IgnoreSnapAttribute.cs" t="Include" />
+              <e p="pg_SceneMeshRender.cs" t="Include" />
+              <e p="pg_Util.cs" t="Include" />
+            </e>
+            <e p="Editor" t="Include">
+              <e p="pg_Editor.cs" t="Include" />
+              <e p="pg_GridRenderer.cs" t="Include" />
+              <e p="pg_ParameterWindow.cs" t="Include" />
+              <e p="pg_Preferences.cs" t="Include" />
+              <e p="pg_ToggleContent.cs" t="Include" />
+            </e>
+            <e p="MonoBehaviour" t="Include">
+              <e p="pg_IgnoreSnap.cs" t="Include" />
+            </e>
+            <e p="Shader" t="Include">
+              <e p="pg_GridShader.shader" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Character" t="Include">
+            <e p="CameraMovement.cs" t="Include" />
+            <e p="CharacterMovement.cs" t="Include" />
+            <e p="PlayerClicker.cs" t="Include" />
+            <e p="SmoothMouseLook.cs" t="Include" />
+          </e>
+          <e p="InformNextLevel.cs" t="Include" />
+          <e p="Interaction" t="Include">
+            <e p="Activable.cs" t="Include" />
+            <e p="Activator.cs" t="Include" />
+            <e p="ActivatorGeneric.cs" t="Include" />
+            <e p="ActivatorTest.cs" t="Include" />
+            <e p="CameraDetection.cs" t="Include" />
+            <e p="DropTrigger.cs" t="Include" />
+            <e p="Movable.cs" t="Include" />
+            <e p="Rotable.cs" t="Include" />
+            <e p="TripodDetection.cs" t="Include" />
+          </e>
+          <e p="LightsControl" t="Include">
+            <e p="CheckLightActive.cs" t="Include" />
+            <e p="lightTrigger.cs" t="Include" />
+          </e>
+          <e p="Managers" t="Include">
+            <e p="AudioManager.cs" t="Include" />
+            <e p="DoorFrameManager.cs" t="Include" />
+            <e p="LevelManager.cs" t="Include" />
+            <e p="LevelsMusicManager.cs" t="Include" />
+            <e p="LightManager.cs" t="Include" />
+            <e p="Sound.cs" t="Include" />
+          </e>
+          <e p="Menus" t="Include">
+            <e p="GameOverScreen.cs" t="Include" />
+            <e p="MainMenu.cs" t="Include" />
+            <e p="PauseMenu.cs" t="Include" />
+            <e p="SettingsMenu.cs" t="Include" />
+          </e>
+          <e p="SceneRelated" t="Include">
+            <e p="AudioTesting" t="Include">
+              <e p="AudioLevel01.cs" t="Include" />
+            </e>
+            <e p="closeDoorCollider.cs" t="Include" />
+            <e p="DoorMovement.cs" t="Include" />
+            <e p="HubPlatform.cs" t="Include" />
+            <e p="LevelCompletedCheck.cs" t="Include" />
+            <e p="movingWithMouse.cs" t="Include" />
+            <e p="openDoorCollider.cs" t="Include" />
+            <e p="OpenDoorWithPlayer.cs" t="Include" />
+            <e p="OrangeBlueBridgeController.cs" t="Include" />
+            <e p="OrangeBlueRoomController.cs" t="Include" />
+            <e p="PlatformMovement.cs" t="Include" />
+            <e p="RotateBridge.cs" t="Include" />
+          </e>
+          <e p="Teleport" t="Include">
+            <e p="PortalCamera.cs" t="Include" />
+            <e p="PortalTexture.cs" t="Include" />
+            <e p="TpPad.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Shaders" t="Include">
+          <e p="CellShading_Shd_VF.shader" t="Include" />
+          <e p="CelShadingForward.shader" t="Include" />
+          <e p="ColorSiluette.shader" t="Include" />
+          <e p="Materials" t="Include">
+            <e p="TESTS" t="Include">
+              <e p="1Normals_Shd.shader" t="Include" />
+              <e p="2Lambert_Shd.shader" t="Include" />
+              <e p="3aSpecularVert_Shd.shader" t="Include" />
+              <e p="3bSpecularFrag_Shd.shader" t="Include" />
+              <e p="4Rim_Shd.shader" t="Include" />
+              <e p="5Multi_Lights.shader" t="Include" />
+            </e>
+          </e>
+          <e p="NewSurfaceShader.shader" t="Include" />
+          <e p="ScreenCutoutShader.shader" t="Include" />
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

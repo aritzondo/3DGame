@@ -16,7 +16,7 @@ public class ActivatorGeneric : Activable
         set { active = value; }
     }
 
-    void Start()
+    private void Start()
     {
         anim = GetComponent<Animator>();
         ilumHash = Animator.StringToHash("Iluminated");

@@ -30,7 +30,6 @@ public class Activable : MonoBehaviour {
     //this function should be override in each class
     public virtual void Activate()
     {
-
     }
 
     public virtual void enterInLight()

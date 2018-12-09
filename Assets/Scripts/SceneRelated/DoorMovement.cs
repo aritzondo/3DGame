@@ -29,13 +29,13 @@ public class DoorMovement : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    private void Start () {
         initialPosition = transform.position;
         audioManager = AudioManager.GetInstance();
     }
 	
 	// Update is called once per frame
-	void Update () {
+    private void Update () {
 
         float dt = Time.deltaTime;
         movingTime += dt;
@@ -139,10 +139,6 @@ public class DoorMovement : MonoBehaviour {
 
     public IEnumerator LoadAsyncScene()
     {
-        int number_scenes = UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;
-        /*Debug.Assert(sceneIndex < 0 || number_scenes>=number_scenes-1, 
-                    "ERROR LOADING SCENE: choose a valid index (0-"+number_scenes+")");*/
-
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneIndex, LoadSceneMode.Additive);
 
         // Wait until the asynchronous scene fully loads
@@ -155,10 +151,6 @@ public class DoorMovement : MonoBehaviour {
 
     public IEnumerator UnloadAsyncScene()
     {
-        int number_scenes = UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;
-        /*Debug.Assert(sceneIndex < 0 || number_scenes >= number_scenes - 1,
-                    "ERROR UNLOADING SCENE: choose a valid index (0-" + number_scenes + ")");*/
-
         AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync(sceneIndex);
 
         // Wait until the asynchronous scene fully loads

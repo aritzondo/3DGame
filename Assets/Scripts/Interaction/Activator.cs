@@ -11,7 +11,7 @@ public class Activator : Activable
     private int ilumHash;
     private int notIlumHash;
 
-    void Start()
+    private void Start()
     {
         thisDoor = door.GetComponent<DoorMovement>();
         anim = GetComponent<Animator>();

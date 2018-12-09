@@ -6,11 +6,10 @@ public class HubPlatform : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
-        {
-            GetComponent<PlatformMovement>().ChangeCurrWaypoint = 1;
-            GetComponent<PlatformMovement>().CanMove = true;
-        }
+        if (!other.CompareTag("Player")) return;
+        
+        GetComponent<PlatformMovement>().ChangeCurrWaypoint = 1;
+        GetComponent<PlatformMovement>().CanMove = true;
     }
 
     private void OnTriggerStay(Collider other)

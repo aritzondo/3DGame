@@ -23,7 +23,7 @@ public class CameraMovement : MonoBehaviour {
         character = this.transform.parent.gameObject;
 	}
 
-	void Update () {
+	private void Update () {
 		//mouse delta
 		if(Cursor.lockState == CursorLockMode.Locked){
 			

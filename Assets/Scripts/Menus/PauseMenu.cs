@@ -26,7 +26,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
     }
 
-    void Update ()
+    private void Update ()
     {
         KeyboardTutorialControl();
 
@@ -85,7 +85,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
     }
 
-    void GPause()
+    private void GPause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0.0f;

@@ -61,8 +61,6 @@ public class AudioLevel01 : MonoBehaviour
         {
             manager = AudioManager.GetInstance();
         }
-        //manager.Loop(AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE, true);
-        //manager.Play(AudioManager.SoundLevel1.SOUND_LEVEL1_REFERENCE);
     }
 
     // Update is called once per frame
@@ -160,8 +158,6 @@ public class AudioLevel01 : MonoBehaviour
 
         if (!manager.IsPlaying((int)reference) && boolean)
         {
-            //manager.Loop(reference, true);
-            //manager.Play(reference);
             manager.Play((int)newSound);
             boolean = false;
         }

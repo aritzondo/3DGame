@@ -5,14 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-    private Scene activeScene;
-
-	// Use this for initialization
-	void Start () {
-        activeScene = SceneManager.GetSceneByName("Test_LevelLoad");
-    }
-	
-	// Update is called once per frame
+    // Update is called once per frame
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {

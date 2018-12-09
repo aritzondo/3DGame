@@ -9,11 +9,6 @@ public class TripodDetection : CameraDetection {
 
     public DropTrigger trigger;
 
-    protected override void Start()
-    {
-        base.Start();
-    }
-
     protected override void inSight()
     {
         base.inSight();

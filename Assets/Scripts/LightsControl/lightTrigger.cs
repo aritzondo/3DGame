@@ -9,7 +9,7 @@ public class lightTrigger : MonoBehaviour {
 
     public Light mLigth;
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         //change the color of an illuminabel object to black
         RaycastHit hit;
@@ -19,7 +19,7 @@ public class lightTrigger : MonoBehaviour {
         if (Physics.Raycast(lightRay, out hit, mLigth.range) && mLigth.isActiveAndEnabled)
         {
             //if the ray hits the same object the have enter in the trigger and it's illuminable, we change it's color
-            if (hit.transform.gameObject.tag == "illuminable" && other.gameObject.GetInstanceID() == hit.transform.gameObject.GetInstanceID())
+            if (hit.transform.gameObject.CompareTag("illuminable") && other.gameObject.GetInstanceID() == hit.transform.gameObject.GetInstanceID())
             {
                 Activable activator = other.gameObject.GetComponent<Activable>();
                 if(activator != null)
@@ -29,7 +29,8 @@ public class lightTrigger : MonoBehaviour {
             }
         }
     }
-    void OnTriggerStay(Collider other)
+
+    private void OnTriggerStay(Collider other)
     {
         Activable activator = other.gameObject.GetComponent<Activable>();
         if (activator != null && !activator.InLight)
@@ -53,7 +54,7 @@ public class lightTrigger : MonoBehaviour {
     private void OnTriggerExit(Collider other)
     {
         //change the color of an illuminable object to the default(red in this case)
-        if (other.transform.gameObject.tag == "illuminable" && mLigth.isActiveAndEnabled)
+        if (other.transform.gameObject.CompareTag("illuminable") && mLigth.isActiveAndEnabled)
         {
             Activable activator = other.gameObject.GetComponent<Activable>();
             if (activator != null)

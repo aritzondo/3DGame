@@ -10,15 +10,15 @@ public class OrangeBlueBridgeController : MonoBehaviour
     private bool blueUp = true;
     private RotateBridge bridgeRot;
 
-    void Start()
+    private void Start()
     {
         bridgeRot = GetComponent<RotateBridge>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        bridgeRot.Trigger = activator.Active; //Input.GetButtonDown("Fire1");
+        bridgeRot.Trigger = activator.Active;
 
         blueFloor.SetActive(bridgeRot.CurrentRot > 1);
         activator.Active = false;

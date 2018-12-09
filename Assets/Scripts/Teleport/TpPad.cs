@@ -25,7 +25,7 @@ public class TpPad : MonoBehaviour {
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.tag=="Player")
+        if (col.CompareTag("Player"))
         {
             musicManager.levelFinished(frameManager.AddCompleteLevel());
 

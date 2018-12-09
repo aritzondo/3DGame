@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,25 +15,21 @@ public class RotateBridge : MonoBehaviour {
 
     private State state = State.Idle;
 
-    enum State
+    public enum State
     {
         Idle,
         Rotating
     }
 
-    private int currentRot = 0;
-    private bool trigger = false;
+    public RotateBridge()
+    {
+        CurrentRot = 0;
+        Trigger = false;
+    }
 
-    public int CurrentRot
-    {
-        get { return currentRot; }
-        set { currentRot = value; }
-    }
-    public bool Trigger
-    {
-        get { return trigger; }
-        set { trigger = value; }
-    }
+    public int CurrentRot { get; set; }
+
+    public bool Trigger { get; set; }
 
 
     // Use this for initialization
@@ -65,21 +62,18 @@ public class RotateBridge : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-        if (trigger) //Trigger
-        {
-            rotTime = 0.0f;
-            currentRot = (currentRot + 1) % bridgeNumberOfFaces;
-            state = State.Rotating;
-            trigger = false;
-        }
-	}
+    private void Update () {
+        if (!Trigger) return;
+        
+        rotTime = 0.0f;
+        CurrentRot = (CurrentRot + 1) % bridgeNumberOfFaces;
+        state = State.Rotating;
+        Trigger = false;
+    }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         float dt = Time.fixedDeltaTime;
-        float t;
-        Quaternion newRot;
         //if the mouse has been released
         switch (state)
         {
@@ -89,18 +83,16 @@ public class RotateBridge : MonoBehaviour {
             case (State.Rotating):  //returning to base rotation dragin the hub
                 //calculate the next rotation with an interpolation
                 rotTime += dt;
-                t = rotTime / rotDuration;
-                newRot = Quaternion.Slerp(transform.localRotation, rotations[currentRot], t);
+                float t = rotTime / rotDuration;
+                Quaternion newRot = Quaternion.Slerp(transform.localRotation, rotations[CurrentRot], t);
                 if (Quaternion.Angle(transform.localRotation, newRot) <= Mathf.Epsilon)
                 {
-                    transform.localRotation = rotations[currentRot];
+                    transform.localRotation = rotations[CurrentRot];
                     //if it was returning we end the rotation and set the time of the next rotation to the adjust time
                     state = State.Idle;
                 }
                 else
                 {
-                    /*Quaternion offset = newRot * Quaternion.Inverse(transform.rotation);
-                    this.transform.Rotate(offset.eulerAngles, Space.World);*/
                     transform.localRotation = newRot;
                 }
                 break;

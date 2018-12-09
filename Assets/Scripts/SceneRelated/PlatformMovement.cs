@@ -20,35 +20,18 @@ public class PlatformMovement : MonoBehaviour {
     private float orientation;
     private bool timeRun;
     private float targetTime;
-    private bool ableToChangeWp;
-    private bool returningToOrigin;
 
     #endregion
 
     #region PROPERTIES
-    public int ChangeCurrWaypoint
-    {
-        get { return currentWaypoint; }
-        set { currentWaypoint = value; }
-    }
+    public int ChangeCurrWaypoint{ get; set; }
 
-    public bool CanMove
-    {
-        get { return canMove; }
-        set { canMove = value; }
-    }
+    public bool CanMove{ get; set; }
 
-    public bool ChangeWp
-    {
-        get { return ableToChangeWp; }
-        set { ableToChangeWp = value; }
-    }
+    public bool ChangeWp { get; set; }
 
-    public bool Return
-    {
-        get { return returningToOrigin; }
-        set { returningToOrigin = value; }
-    }
+    public bool Return { get; set; }
+
     #endregion
 
     // Use this for initialization
@@ -57,8 +40,8 @@ public class PlatformMovement : MonoBehaviour {
         transform.position = waypoints[0].position;
         
         currentWaypoint = 1;
-        ableToChangeWp = true;
-        returningToOrigin = false;
+        ChangeWp = true;
+        Return = false;
 
         if (canMove)
         {
@@ -79,7 +62,7 @@ public class PlatformMovement : MonoBehaviour {
             MovePlatform();
         }
 
-        if(returningToOrigin)
+        if(Return)
         {
             ReturnToOrigin();
         }
@@ -105,7 +88,7 @@ public class PlatformMovement : MonoBehaviour {
             {
                 timeRun = false;
 
-                if(Time.time >= targetTime && ableToChangeWp)
+                if(Time.time >= targetTime && ChangeWp)
                 {
                     timeRun = true;
                     currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
@@ -120,8 +103,8 @@ public class PlatformMovement : MonoBehaviour {
     {
         if (transform.position == waypoints[0].position)
         {
-            ableToChangeWp = true;
-            returningToOrigin = false;
+            ChangeWp = true;
+            Return = false;
             canMove = false;
         }
     }
@@ -131,7 +114,7 @@ public class PlatformMovement : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             other.transform.parent = transform;
         }
@@ -139,15 +122,12 @@ public class PlatformMovement : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             other.transform.parent = null;
 
         }
     }
-
-   
-
     #endregion
 
 }
