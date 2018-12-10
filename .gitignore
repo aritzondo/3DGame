@@ -5,6 +5,8 @@ UnityPackageManager/
 [Bb]uilds/
 Packages/
 Assets/AssetStoreTools*
+Mono/
+Logs/
 
 # Visual Studio 2015 cache directory
 /.vs/
